@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function Nivelar() {
   const whatsapp =
@@ -14,137 +14,98 @@ export default function Nivelar() {
   ];
 
   const [current, setCurrent] = useState(0);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStart(e.touches[0].clientX);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.touches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 50) {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }
-    if (touchStart - touchEnd < -50) {
-      setCurrent((prev) =>
-        prev === 0 ? images.length - 1 : prev - 1
-      );
-    }
-  };
 
   return (
     <div className="bg-[#0b0b0b] text-white font-sans">
 
       {/* HEADER */}
-      <header className="flex items-center justify-between px-6 md:px-16 py-5 bg-black/80 backdrop-blur-xl border-b border-gray-800 fixed w-full z-50 shadow-lg">
+      <header className="flex items-center justify-between px-6 md:px-10 py-4 bg-black/70 backdrop-blur-md border-b border-gray-800 fixed w-full z-50">
 
+        {/* LOGO */}
         <img
-          src="/logo.svg"
+          src="/images/logo.png"
+          className="h-12 md:h-16 object-contain"
           alt="Nivelar Terraplanagem"
-          className="h-14 md:h-20 object-contain"
         />
 
-        {/* MENU AJUSTADO */}
-        <nav className="hidden md:flex gap-12 text-sm font-medium tracking-wide">
-          <a href="#home" className="hover:text-yellow-400 transition">Início</a>
-          <a href="#servicos" className="hover:text-yellow-400 transition">Serviços</a>
-          <a href="#galeria" className="hover:text-yellow-400 transition">Ver Projetos</a>
-          <a href="#contato" className="hover:text-yellow-400 transition">Contato</a>
+        {/* MENU */}
+        <nav className="hidden md:flex gap-8 text-sm mx-auto">
+          <a href="#home" className="hover:text-yellow-400">Início</a>
+          <a href="#galeria" className="hover:text-yellow-400">Galeria</a>
+          <a href="#servicos" className="hover:text-yellow-400">Serviços</a>
+          <a href="#projetos" className="hover:text-yellow-400">Ver Projetos</a>
+          <a href="#contato" className="hover:text-yellow-400">Contato</a>
         </nav>
 
-        <div className="w-[120px]"></div>
+        <div className="w-[100px]" />
       </header>
 
-      {/* HERO */}
-      <section
-        id="home"
-        className="h-screen flex items-center px-6 md:px-16 relative"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        <div
-          className="absolute inset-0 transition-all duration-700"
-          style={{
-            backgroundImage: `url(${images[current]})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
+      {/* HERO CARROSSEL */}
+      <section id="home" className="h-screen relative flex items-center px-10 overflow-hidden">
 
-        <div className="absolute inset-0 bg-black/75" />
+        {images.map((img, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === current ? "opacity-100" : "opacity-0"
+            }`}
+            style={{
+              backgroundImage: `url(${img})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+        ))}
 
-        <div className="relative max-w-2xl z-10">
-          <h1 className="text-4xl md:text-7xl font-extrabold leading-tight">
-            Terraplanagem de
-            <span className="text-yellow-400"> Alto Padrão</span>
-          </h1>
+        <div className="absolute inset-0 bg-black/70" />
 
-          <p className="mt-6 text-gray-300 text-lg md:text-xl">
-            Equipamentos modernos, equipe especializada e entrega rápida.
+        <div className="relative max-w-xl z-10">
+          <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
+            ESPECIALISTAS EM <br />
+            <span className="text-yellow-400">TERRAPLANAGEM</span>
+          </h2>
+
+          <p className="mt-4 text-gray-300 text-lg">
+            Mais de 10 anos de experiência, máquinas modernas e execução rápida.
           </p>
 
-          <div className="mt-8">
+          <div className="mt-6">
             <a
               href={whatsapp}
               target="_blank"
-              className="bg-green-600 px-8 py-4 rounded-lg font-bold shadow-lg hover:scale-105 transition"
+              className="bg-green-600 px-6 py-3 rounded-lg font-bold shadow-lg hover:scale-105 transition"
             >
               Solicitar Orçamento
             </a>
           </div>
 
-          <p className="mt-6 text-yellow-400 font-medium">
+          <p className="mt-4 text-yellow-400">
             Atendimento em Cambé e região
           </p>
         </div>
       </section>
 
-      {/* SERVIÇOS */}
-      <motion.section
-        id="servicos"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="p-16 bg-[#111] text-center"
-      >
-        <h2 className="text-4xl font-bold mb-10">
-          NOSSOS <span className="text-yellow-400">DIFERENCIAIS</span>
+      {/* AUTORIDADE */}
+      <section className="p-10 text-center bg-black">
+        <h2 className="text-2xl text-yellow-400 mb-4">
+          Referência em Terraplanagem em Cambé
         </h2>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-black p-8 rounded-xl shadow-lg">
-            <h3 className="text-yellow-400 text-xl mb-2">✔ Experiência</h3>
-            <p>Mais de 10 anos de mercado</p>
-          </div>
-
-          <div className="bg-black p-8 rounded-xl shadow-lg">
-            <h3 className="text-yellow-400 text-xl mb-2">✔ Equipamentos</h3>
-            <p>Máquinas modernas e revisadas</p>
-          </div>
-
-          <div className="bg-black p-8 rounded-xl shadow-lg">
-            <h3 className="text-yellow-400 text-xl mb-2">✔ Agilidade</h3>
-            <p>Execução rápida e eficiente</p>
-          </div>
-        </div>
-      </motion.section>
+        <p className="max-w-2xl mx-auto text-gray-300">
+          Mais de 10 anos de experiência, equipamentos modernos e excelência em cada obra.
+        </p>
+      </section>
 
       {/* GALERIA */}
       <section id="galeria" className="p-16 text-center">
         <h2 className="text-4xl font-bold mb-10">
-          ÚLTIMOS <span className="text-yellow-400">PROJETOS</span>
+          PROJETOS <span className="text-yellow-400">REALIZADOS</span>
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -158,24 +119,35 @@ export default function Nivelar() {
         </div>
       </section>
 
-      {/* DEPOIMENTOS */}
-      <section className="p-16 bg-[#111] text-center">
+      {/* DIFERENCIAIS */}
+      <motion.section
+        id="servicos"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="p-16 bg-[#111] text-center"
+      >
         <h2 className="text-4xl font-bold mb-10">
-          O QUE NOSSOS CLIENTES DIZEM
+          NOSSOS <span className="text-yellow-400">DIFERENCIAIS</span>
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {[
-            "Serviço rápido e de alta qualidade.",
-            "Equipe profissional e pontual.",
-            "Resultado impecável, recomendo."
-          ].map((texto, i) => (
-            <div key={i} className="bg-black p-6 rounded-xl shadow-lg">
-              <p className="text-gray-300">{texto}</p>
-            </div>
-          ))}
+          <div className="bg-black p-8 rounded-xl">
+            <h3 className="text-yellow-400 text-xl mb-2">✔ Experiência</h3>
+            <p>Mais de 10 anos de atuação</p>
+          </div>
+
+          <div className="bg-black p-8 rounded-xl">
+            <h3 className="text-yellow-400 text-xl mb-2">✔ Equipamentos</h3>
+            <p>Máquinas modernas</p>
+          </div>
+
+          <div className="bg-black p-8 rounded-xl">
+            <h3 className="text-yellow-400 text-xl mb-2">✔ Rapidez</h3>
+            <p>Atendimento ágil via WhatsApp</p>
+          </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* CONTATO */}
       <section id="contato" className="p-16 bg-black text-center">
@@ -189,12 +161,22 @@ export default function Nivelar() {
             src="https://www.google.com/maps?q=Cambé+PR&output=embed"
             className="w-full h-[350px] rounded-xl"
             loading="lazy"
-          ></iframe>
+          />
 
           <div className="text-left space-y-4">
             <p><strong>📍 Localização:</strong> Cambé - PR</p>
             <p><strong>📞 Telefone:</strong> (43) 99999-9999</p>
             <p><strong>📧 Email:</strong> contato@nivelar.com</p>
+
+            {/* INSTAGRAM */}
+            <a
+              href="https://www.instagram.com/terraplanagem.nivelar/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-pink-400 hover:text-pink-500 transition"
+            >
+              📸 Instagram: @terraplanagem.nivelar
+            </a>
 
             <a
               href={whatsapp}
@@ -213,11 +195,11 @@ export default function Nivelar() {
         © 2026 Nivelar Terraplanagem
       </footer>
 
-      {/* WHATS FLOAT */}
+      {/* WHATSAPP FIXO */}
       <a
         href={whatsapp}
         target="_blank"
-        className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition z-50"
+        className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition"
       >
         💬
       </a>
