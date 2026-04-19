@@ -1,272 +1,227 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
-const whatsapp =
-  "https://wa.me/5543999999999?text=Olá, quero orçamento de terraplanagem";
+export default function Nivelar() {
+  const whatsapp =
+    "https://wa.me/5543999999999?text=Olá, quero orçamento de terraplanagem";
 
-function Header() {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <header className="flex items-center justify-between px-6 py-4 bg-black/80 backdrop-blur-md border-b border-gray-800 fixed w-full z-50">
-      <Image
-        src="/logo.svg"
-        alt="Nivelar Terraplanagem"
-        width={200}
-        height={80}
-        className="h-12 w-auto md:h-16"
-      />
-
-      <nav className="hidden md:flex gap-8 text-sm">
-        <a href="#home" className="hover:text-yellow-400">Início</a>
-        <a href="#galeria" className="hover:text-yellow-400">Galeria</a>
-        <a href="#servicos" className="hover:text-yellow-400">Serviços</a>
-        <a href="#depoimentos" className="hover:text-yellow-400">Depoimentos</a>
-        <a href="#contato" className="hover:text-yellow-400">Contato</a>
-      </nav>
-
-      <button className="md:hidden text-2xl" onClick={() => setOpen(!open)}>
-        ☰
-      </button>
-
-      {open && (
-        <div className="absolute top-16 left-0 w-full bg-black flex flex-col items-center gap-4 py-6 md:hidden">
-          <a href="#home">Início</a>
-          <a href="#galeria">Galeria</a>
-          <a href="#servicos">Serviços</a>
-          <a href="#depoimentos">Depoimentos</a>
-          <a href="#contato">Contato</a>
-        </div>
-      )}
-    </header>
-  );
-}
-
-function Hero() {
   const images = [
     "/images/maquina1.jpg",
     "/images/maquina2.jpg",
     "/images/maquina3.jpg",
   ];
 
-  const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const [touchStart, setTouchStart] = useState(null);
+  const [current, setCurrent] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   useEffect(() => {
-    if (paused) return;
-
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 4000);
-
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 5000);
     return () => clearInterval(interval);
-  }, [paused]);
+  }, []);
 
-  const handleTouchStart = (e) => {
+  const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.touches[0].clientX);
   };
 
-  const handleTouchEnd = (e) => {
-    if (!touchStart) return;
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.touches[0].clientX);
+  };
 
-    const diff = touchStart - e.changedTouches[0].clientX;
-
-    if (diff > 50) {
-      setIndex((prev) => (prev + 1) % images.length);
-    } else if (diff < -50) {
-      setIndex((prev) => (prev - 1 + images.length) % images.length);
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 50) {
+      setCurrent((prev) => (prev + 1) % images.length);
     }
-
-    setTouchStart(null);
+    if (touchStart - touchEnd < -50) {
+      setCurrent((prev) =>
+        prev === 0 ? images.length - 1 : prev - 1
+      );
+    }
   };
 
   return (
-    <section
-      id="home"
-      className="h-screen relative overflow-hidden flex items-center px-6"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-    >
-      <div
-        key={index}
-        className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
-        style={{ backgroundImage: `url(${images[index]})` }}
-      />
-
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/30"></div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative max-w-xl z-10"
-      >
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
-          Terraplanagem em Cambé e Região
-        </h1>
-
-        <p className="mt-4 text-gray-300 text-lg">
-          Mais de 10 anos de experiência com máquinas modernas.
-        </p>
-
-        <a
-          href={whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block mt-6 bg-green-600 px-6 py-3 rounded-lg font-bold shadow-lg hover:bg-green-500 transition"
-        >
-          Solicitar Orçamento
-        </a>
-      </motion.div>
-
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-        {images.map((_, i) => (
-          <div
-            key={i}
-            onClick={() => setIndex(i)}
-            className={`w-3 h-3 rounded-full cursor-pointer ${
-              i === index ? "bg-yellow-400" : "bg-gray-500"
-            }`}
-          />
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Galeria() {
-  return (
-    <section id="galeria" className="p-16 text-center">
-      <h2 className="text-4xl font-bold mb-10">Projetos Recentes</h2>
-
-      <div className="grid md:grid-cols-3 gap-6">
-        {[1, 2, 3, 4, 5, 6].map((i) => (
-          <Image
-            key={i}
-            src={`/images/maquina${i}.jpg`}
-            alt={`Serviço de terraplanagem ${i}`}
-            width={500}
-            height={300}
-            className="rounded-xl shadow-xl hover:scale-105 transition"
-          />
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Servicos() {
-  return (
-    <motion.section
-      id="servicos"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="p-16 bg-[#111] text-center"
-    >
-      <h2 className="text-4xl font-bold mb-10">Diferenciais</h2>
-
-      <div className="grid md:grid-cols-3 gap-8">
-        {["Experiência", "Máquinas modernas", "Atendimento rápido"].map(
-          (item, i) => (
-            <div
-              key={i}
-              className="bg-black p-8 rounded-xl shadow-lg hover:-translate-y-2 transition"
-            >
-              <h3 className="text-yellow-400 text-xl mb-2">✔ {item}</h3>
-              <p>Alta qualidade garantida</p>
-            </div>
-          )
-        )}
-      </div>
-    </motion.section>
-  );
-}
-
-function Depoimentos() {
-  return (
-    <section id="depoimentos" className="p-16 text-center">
-      <h2 className="text-4xl font-bold mb-10">Depoimentos</h2>
-
-      <div className="grid md:grid-cols-3 gap-6">
-        {[
-          "Serviço excelente!",
-          "Muito rápido e profissional!",
-          "Recomendo demais!",
-        ].map((text, i) => (
-          <div key={i} className="bg-[#111] p-6 rounded-xl shadow">
-            <p className="text-gray-300">{text}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Contato() {
-  return (
-    <section id="contato" className="p-16 bg-black text-center">
-      <h2 className="text-4xl font-bold mb-8 text-yellow-400">Contato</h2>
-
-      <div className="grid md:grid-cols-2 gap-10 items-center">
-        <iframe
-          src="https://www.google.com/maps?q=Cambé+PR&output=embed"
-          className="w-full h-[350px] rounded-xl"
-          loading="lazy"
-        ></iframe>
-
-        <div className="text-left space-y-4">
-          <p>📍 Cambé - PR</p>
-          <p>📞 (43) 99999-9999</p>
-          <p>📧 contato@nivelar.com</p>
-
-          <a
-            href={whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-4 bg-green-600 px-6 py-3 rounded-lg font-bold hover:bg-green-500 transition"
-          >
-            Falar no WhatsApp
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="text-center p-6 bg-black text-gray-400">
-      © 2026 Nivelar Terraplanagem
-    </footer>
-  );
-}
-
-export default function Page() {
-  return (
     <div className="bg-[#0b0b0b] text-white font-sans">
-      <Header />
-      <Hero />
-      <Galeria />
-      <Servicos />
-      <Depoimentos />
-      <Contato />
-      <Footer />
 
+      {/* HEADER */}
+      <header className="flex items-center justify-between px-6 md:px-16 py-5 bg-black/80 backdrop-blur-xl border-b border-gray-800 fixed w-full z-50 shadow-lg">
+
+        <img
+          src="/logo.svg"
+          alt="Nivelar Terraplanagem"
+          className="h-14 md:h-20 object-contain"
+        />
+
+        {/* MENU AJUSTADO */}
+        <nav className="hidden md:flex gap-12 text-sm font-medium tracking-wide">
+          <a href="#home" className="hover:text-yellow-400 transition">Início</a>
+          <a href="#servicos" className="hover:text-yellow-400 transition">Serviços</a>
+          <a href="#galeria" className="hover:text-yellow-400 transition">Ver Projetos</a>
+          <a href="#contato" className="hover:text-yellow-400 transition">Contato</a>
+        </nav>
+
+        <div className="w-[120px]"></div>
+      </header>
+
+      {/* HERO */}
+      <section
+        id="home"
+        className="h-screen flex items-center px-6 md:px-16 relative"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        <div
+          className="absolute inset-0 transition-all duration-700"
+          style={{
+            backgroundImage: `url(${images[current]})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+
+        <div className="absolute inset-0 bg-black/75" />
+
+        <div className="relative max-w-2xl z-10">
+          <h1 className="text-4xl md:text-7xl font-extrabold leading-tight">
+            Terraplanagem de
+            <span className="text-yellow-400"> Alto Padrão</span>
+          </h1>
+
+          <p className="mt-6 text-gray-300 text-lg md:text-xl">
+            Equipamentos modernos, equipe especializada e entrega rápida.
+          </p>
+
+          <div className="mt-8">
+            <a
+              href={whatsapp}
+              target="_blank"
+              className="bg-green-600 px-8 py-4 rounded-lg font-bold shadow-lg hover:scale-105 transition"
+            >
+              Solicitar Orçamento
+            </a>
+          </div>
+
+          <p className="mt-6 text-yellow-400 font-medium">
+            Atendimento em Cambé e região
+          </p>
+        </div>
+      </section>
+
+      {/* SERVIÇOS */}
+      <motion.section
+        id="servicos"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="p-16 bg-[#111] text-center"
+      >
+        <h2 className="text-4xl font-bold mb-10">
+          NOSSOS <span className="text-yellow-400">DIFERENCIAIS</span>
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-black p-8 rounded-xl shadow-lg">
+            <h3 className="text-yellow-400 text-xl mb-2">✔ Experiência</h3>
+            <p>Mais de 10 anos de mercado</p>
+          </div>
+
+          <div className="bg-black p-8 rounded-xl shadow-lg">
+            <h3 className="text-yellow-400 text-xl mb-2">✔ Equipamentos</h3>
+            <p>Máquinas modernas e revisadas</p>
+          </div>
+
+          <div className="bg-black p-8 rounded-xl shadow-lg">
+            <h3 className="text-yellow-400 text-xl mb-2">✔ Agilidade</h3>
+            <p>Execução rápida e eficiente</p>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* GALERIA */}
+      <section id="galeria" className="p-16 text-center">
+        <h2 className="text-4xl font-bold mb-10">
+          ÚLTIMOS <span className="text-yellow-400">PROJETOS</span>
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {[1,2,3,4,5,6].map((i) => (
+            <img
+              key={i}
+              src={`/images/maquina${i}.jpg`}
+              className="rounded-xl hover:scale-110 transition duration-500 shadow-xl"
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* DEPOIMENTOS */}
+      <section className="p-16 bg-[#111] text-center">
+        <h2 className="text-4xl font-bold mb-10">
+          O QUE NOSSOS CLIENTES DIZEM
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            "Serviço rápido e de alta qualidade.",
+            "Equipe profissional e pontual.",
+            "Resultado impecável, recomendo."
+          ].map((texto, i) => (
+            <div key={i} className="bg-black p-6 rounded-xl shadow-lg">
+              <p className="text-gray-300">{texto}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CONTATO */}
+      <section id="contato" className="p-16 bg-black text-center">
+        <h2 className="text-4xl font-bold mb-8 text-yellow-400">
+          CONTATO
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+
+          <iframe
+            src="https://www.google.com/maps?q=Cambé+PR&output=embed"
+            className="w-full h-[350px] rounded-xl"
+            loading="lazy"
+          ></iframe>
+
+          <div className="text-left space-y-4">
+            <p><strong>📍 Localização:</strong> Cambé - PR</p>
+            <p><strong>📞 Telefone:</strong> (43) 99999-9999</p>
+            <p><strong>📧 Email:</strong> contato@nivelar.com</p>
+
+            <a
+              href={whatsapp}
+              target="_blank"
+              className="inline-block mt-4 bg-green-600 px-6 py-3 rounded-lg font-bold"
+            >
+              Falar no WhatsApp
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="text-center p-6 bg-black text-gray-400">
+        © 2026 Nivelar Terraplanagem
+      </footer>
+
+      {/* WHATS FLOAT */}
       <a
         href={whatsapp}
         target="_blank"
-        rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition z-50"
       >
         💬
       </a>
+
     </div>
   );
 }
