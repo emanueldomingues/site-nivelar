@@ -1,0 +1,27 @@
+<svg width="520" height="130" viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Fundo escuro -->
+  <rect width="520" height="130" fill="#0b0b0b"/>
+
+  <!-- Faixa amarela pesada -->
+  <rect x="0" y="95" width="520" height="35" fill="#facc15"/>
+
+  <!-- Nome principal -->
+  <text x="20" y="70"
+        font-family="Impact, Arial Black, sans-serif"
+        font-size="60"
+        fill="#ffffff"
+        letter-spacing="1">
+    NIVELAR
+  </text>
+
+  <!-- Subtexto dentro da faixa -->
+  <text x="20" y="120"
+        font-family="Arial Black, sans-serif"
+        font-size="18"
+        fill="#000000"
+        letter-spacing="2">
+    TERRAPLANAGEM
+  </text>
+
+</svg>
