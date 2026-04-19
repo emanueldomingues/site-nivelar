@@ -145,19 +145,16 @@ export default function Nivelar() {
 
             <p><strong>📍 Localização:</strong> Cambé - PR</p>
 
-            {/* WHATSAPP 1 */}
             <a href="https://wa.me/5543998061421" target="_blank" className="flex items-center gap-2 hover:text-yellow-400 transition">
               <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-5 h-5" />
               Fernando — (43) 99806-1421
             </a>
 
-            {/* WHATSAPP 2 */}
             <a href="https://wa.me/5543999520213" target="_blank" className="flex items-center gap-2 hover:text-yellow-400 transition">
               <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-5 h-5" />
               Anderson — (43) 99952-0213
             </a>
 
-            {/* WHATSAPP 3 */}
             <a href="https://wa.me/5543996281826" target="_blank" className="flex items-center gap-2 hover:text-yellow-400 transition">
               <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-5 h-5" />
               Valéria — (43) 99628-1826
@@ -182,6 +179,18 @@ export default function Nivelar() {
       <footer className="text-center p-6 bg-black text-gray-400 text-sm">
         © 2026 Nivelar Terraplanagem
       </footer>
+
+      {/* BOTÃO FLUTUANTE WHATSAPP (VALÉRIA) */}
+      <a
+        href="https://wa.me/5543996281826"
+        target="_blank"
+        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition"
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+          className="w-6 h-6"
+        />
+      </a>
 
     </div>
   );
