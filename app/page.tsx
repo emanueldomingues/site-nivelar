@@ -157,7 +157,6 @@ export default function Nivelar() {
 
             <p><strong>📍 Localização:</strong> Cambé - PR</p>
 
-            {/* WHATSAPP */}
             <a href={whatsapp} target="_blank" className="flex items-center gap-2 hover:text-yellow-400 transition">
               <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-5 h-5" />
               (43) 99999-9999
@@ -165,7 +164,6 @@ export default function Nivelar() {
 
             <p><strong>📧 Email:</strong> contato@nivelar.com</p>
 
-            {/* INSTAGRAM */}
             <a
               href="https://www.instagram.com/terraplanagem.nivelar/"
               target="_blank"
@@ -173,14 +171,6 @@ export default function Nivelar() {
             >
               <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" className="w-5 h-5" />
               @terraplanagem.nivelar
-            </a>
-
-            <a
-              href={whatsapp}
-              target="_blank"
-              className="inline-block mt-4 bg-green-600 px-5 py-3 rounded-lg font-bold"
-            >
-              Falar no WhatsApp
             </a>
 
           </div>
@@ -192,7 +182,6 @@ export default function Nivelar() {
         © 2026 Nivelar Terraplanagem
       </footer>
 
-      {/* BOTÃO FLUTUANTE */}
       <a
         href={whatsapp}
         target="_blank"
