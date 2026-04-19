@@ -30,7 +30,7 @@ export default function Nivelar() {
           <img
             src="/logo.svg"
             alt="Nivelar Terraplanagem"
-            className="h-10 md:h-16 object-contain"
+            className="h-12 md:h-20 object-contain"
           />
           <span className="text-[10px] md:text-xs text-gray-400 mt-1 leading-tight">
             Onde começa cada grande obra
