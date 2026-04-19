@@ -110,8 +110,8 @@ export default function Nivelar() {
           PROJETOS <span className="text-yellow-400">REALIZADOS</span>
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-          {[1,2,3,4,5,6].map((i) => (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          {[1,2,3,4,5,6,7,8].map((i) => (
             <img
               key={i}
               src={`/images/maquina${i}.jpg`}
