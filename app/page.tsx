@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function Nivelar() {
-  const whatsapp =
-    "https://wa.me/5543999999999?text=Olá, quero orçamento de terraplanagem";
 
   const images = [
     "/images/maquina1.jpg",
@@ -75,16 +73,6 @@ export default function Nivelar() {
             Terraplanagem de
             <span className="text-yellow-400"> Alto Padrão</span>
           </h1>
-
-          <div className="mt-8">
-            <a
-              href={whatsapp}
-              target="_blank"
-              className="bg-green-600 px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold shadow-lg hover:scale-105 transition"
-            >
-              Solicitar Orçamento
-            </a>
-          </div>
 
           <p className="mt-6 text-yellow-400 font-medium text-sm md:text-base">
             Atendimento em Cambé e região
@@ -157,9 +145,22 @@ export default function Nivelar() {
 
             <p><strong>📍 Localização:</strong> Cambé - PR</p>
 
-            <a href={whatsapp} target="_blank" className="flex items-center gap-2 hover:text-yellow-400 transition">
+            {/* WHATSAPP 1 */}
+            <a href="https://wa.me/5543998061421" target="_blank" className="flex items-center gap-2 hover:text-yellow-400 transition">
               <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-5 h-5" />
-              (43) 99999-9999
+              Fernando — (43) 99806-1421
+            </a>
+
+            {/* WHATSAPP 2 */}
+            <a href="https://wa.me/5543999520213" target="_blank" className="flex items-center gap-2 hover:text-yellow-400 transition">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-5 h-5" />
+              Anderson — (43) 99952-0213
+            </a>
+
+            {/* WHATSAPP 3 */}
+            <a href="https://wa.me/5543996281826" target="_blank" className="flex items-center gap-2 hover:text-yellow-400 transition">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-5 h-5" />
+              Valéria — (43) 99628-1826
             </a>
 
             <p><strong>📧 Email:</strong> contato@nivelar.com</p>
@@ -181,14 +182,6 @@ export default function Nivelar() {
       <footer className="text-center p-6 bg-black text-gray-400 text-sm">
         © 2026 Nivelar Terraplanagem
       </footer>
-
-      <a
-        href={whatsapp}
-        target="_blank"
-        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition"
-      >
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-6 h-6" />
-      </a>
 
     </div>
   );
