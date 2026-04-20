@@ -117,29 +117,31 @@ export default function Nivelar() {
           {/* INFO */}
           <div className="space-y-4 text-sm md:text-base">
 
-            <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
+            <p>📍 Endereço:<br />Av. Antônio Raminelli, 857<br />Parque Res. Ana Rosa</p>
 
-            {/* WHATS CORRIGIDO */}
+            {/* WHATS CORRETO */}
             <a href={whatsappFernando} target="_blank" className="flex items-center gap-2 hover:text-yellow-400">
-              <svg viewBox="0 0 32 32" className="w-5 h-5">
-                <path fill="#25D366" d="M16.04 2.002c-7.732 0-14 6.268-14 14 0 2.47.646 4.884 1.874 7.02L2 30l7.178-1.88a13.94 13.94 0 006.862 1.756h.006c7.732 0 14-6.268 14-14s-6.268-13.874-14-13.874zm0 25.463a11.43 11.43 0 01-5.836-1.61l-.418-.248-4.257 1.115 1.138-4.146-.27-.427a11.41 11.41 0 01-1.75-6.046c0-6.31 5.135-11.445 11.45-11.445 3.06 0 5.94 1.19 8.105 3.35a11.39 11.39 0 013.345 8.096c-.004 6.31-5.14 11.445-11.45 11.445z"/>
+              <svg viewBox="0 0 24 24" className="w-5 h-5">
+                <path fill="#25D366" d="M12 2C6.48 2 2 6.48 2 12c0 1.76.46 3.41 1.26 4.85L2 22l5.27-1.23A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
               </svg>
-              Fernando - (43) 99806-1421
+              Fernando — (43) 99806-1421
             </a>
 
             <a href={whatsappAnderson} target="_blank" className="flex items-center gap-2 hover:text-yellow-400">
-              <svg viewBox="0 0 32 32" className="w-5 h-5">
-                <path fill="#25D366" d="M16.04 2.002c-7.732 0-14 6.268-14 14 0 2.47.646 4.884 1.874 7.02L2 30l7.178-1.88a13.94 13.94 0 006.862 1.756h.006c7.732 0 14-6.268 14-14s-6.268-13.874-14-13.874zm0 25.463a11.43 11.43 0 01-5.836-1.61z"/>
+              <svg viewBox="0 0 24 24" className="w-5 h-5">
+                <path fill="#25D366" d="M12 2C6.48 2 2 6.48 2 12z"/>
               </svg>
-              Anderson - (43) 99952-0213
+              Anderson — (43) 99952-0213
             </a>
 
             <a href={whatsappValeria} target="_blank" className="flex items-center gap-2 hover:text-yellow-400">
-              <svg viewBox="0 0 32 32" className="w-5 h-5">
-                <path fill="#25D366" d="M16.04 2.002c-7.732 0-14 6.268-14 14z"/>
+              <svg viewBox="0 0 24 24" className="w-5 h-5">
+                <path fill="#25D366" d="M12 2C6.48 2 2 6.48 2 12z"/>
               </svg>
-              Valéria - (43) 99628-1826
+              Valéria — (43) 99628-1826
             </a>
+
+            <p>📧 Email: contato@nivelar.com</p>
 
             {/* INSTAGRAM */}
             <a
@@ -163,10 +165,14 @@ export default function Nivelar() {
         target="_blank"
         className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition"
       >
-        <svg viewBox="0 0 32 32" className="w-6 h-6">
-          <path fill="white" d="M16 2C8 2 2 8 2 16c0 2.5.7 5 2 7l-1.5 5L7 26c2 .8 4 1.2 6 1.2 8 0 14-6 14-14S24 2 16 2z"/>
+        <svg viewBox="0 0 24 24" className="w-6 h-6">
+          <path fill="white" d="M12 2C6.48 2 2 6.48 2 12z"/>
         </svg>
       </a>
+
+      <footer className="text-center p-6 text-gray-400">
+        © 2026 Nivelar Terraplanagem
+      </footer>
 
     </div>
   );
