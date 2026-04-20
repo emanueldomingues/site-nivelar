@@ -1,141 +1,18 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-
-export default function Nivelar() {
-
-  const images = [
-    "/images/maquina1.jpg",
-    "/images/maquina2.jpg",
-    "/images/maquina3.jpg",
-  ];
-
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 4500);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="bg-[#0b0b0b] text-white font-sans">
-
-      {/* HEADER */}
-      <header className="flex items-center justify-between px-4 md:px-16 py-3 md:py-4 bg-black/80 backdrop-blur-xl border-b border-gray-800 fixed w-full z-50">
-
-        <div className="flex flex-col">
-          <img
-            src="/logo.svg"
-            className="h-12 md:h-20 object-contain"
-          />
-          <span className="text-[10px] md:text-xs text-gray-400 mt-1">
-            Onde começa cada grande obra
-          </span>
-        </div>
-
-        <nav className="hidden md:flex gap-10 text-sm font-medium">
-          <a href="#home">Início</a>
-          <a href="#sobre">Sobre Nós</a>
-          <a href="#servicos">Serviços</a>
-          <a href="#galeria">Projetos</a>
-          <a href="#contato">Contato</a>
-        </nav>
-
-        <div className="w-[60px] md:w-[100px]" />
-      </header>
-
-      {/* HERO */}
-      <section id="home" className="h-[90vh] md:h-screen flex items-center px-4 md:px-16 relative">
-
-        {images.map((img, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === current ? "opacity-100" : "opacity-0"
-            }`}
-            style={{
-              backgroundImage: `url(${img})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
-        ))}
-
-        <div className="absolute inset-0 bg-black/75" />
-
-        <div className="relative max-w-xl md:max-w-3xl z-10">
-          <h1 className="text-2xl md:text-6xl font-extrabold">
-            Terraplanagem de <span className="text-yellow-400">Alto Padrão</span>
-          </h1>
-        </div>
-      </section>
-
-      {/* SOBRE NÓS */}
-      <section id="sobre" className="px-4 md:px-16 py-12 md:py-20 bg-[#111] text-center">
-
-        <h2 className="text-2xl md:text-4xl font-bold mb-8">
-          SOBRE <span className="text-yellow-400">NÓS</span>
-        </h2>
-
-        <p className="max-w-3xl mx-auto text-sm md:text-lg text-gray-300 leading-relaxed">
-          Na Nivelar Terraplanagem, acreditamos que toda grande obra começa com uma base bem feita.<br /><br />
-
-          Nosso compromisso vai além da execução: entregamos qualidade, precisão e confiança em cada projeto. Trabalhamos com equipamentos modernos, equipe qualificada e foco total na satisfação do cliente.<br /><br />
-
-          Valorizamos a transparência, o respeito e a responsabilidade em cada etapa do serviço, garantindo que cada terreno preparado seja o início de algo sólido e duradouro.<br /><br />
-
-          <span className="text-yellow-400 font-semibold">
-            Porque sabemos que é aqui que tudo começa.
-          </span><br /><br />
-
-          <strong className="text-white">
-            Nivelar Terraplanagem — Onde começa cada grande obra.
-          </strong>
-        </p>
-
-      </section>
-
-      {/* SERVIÇOS */}
-      <motion.section
-        id="servicos"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        className="px-4 md:px-16 py-12 md:py-20 text-center"
-      >
-        <h2 className="text-2xl md:text-4xl font-bold mb-8">
-          NOSSOS <span className="text-yellow-400">DIFERENCIAIS</span>
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-black p-6 rounded-xl">Experiência</div>
-          <div className="bg-black p-6 rounded-xl">Equipamentos</div>
-          <div className="bg-black p-6 rounded-xl">Rapidez</div>
-        </div>
-      </motion.section>
-
-      {/* GALERIA */}
-      <section id="galeria" className="px-4 md:px-16 py-12 text-center">
-        <h2 className="text-2xl md:text-4xl font-bold mb-8">
-          PROJETOS <span className="text-yellow-400">REALIZADOS</span>
-        </h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[1,2,3,4,5,6,7,8].map((i) => (
-            <img key={i} src={`/images/maquina${i}.jpg`} className="rounded-xl" />
-          ))}
-        </div>
-      </section>
-
-      {/* CONTATO */}
-      <section id="contato" className="px-4 md:px-16 py-12 bg-black text-center">
-        <h2 className="text-2xl md:text-4xl font-bold text-yellow-400">
-          CONTATO
-        </h2>
-      </section>
-
-    </div>
-  );
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
