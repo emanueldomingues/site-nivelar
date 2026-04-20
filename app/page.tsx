@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function Nivelar() {
@@ -123,21 +122,29 @@ export default function Nivelar() {
               Parque Res. Ana Rosa
             </p>
 
+            {/* WHATS CORRETO */}
             <a href={whatsappFernando} target="_blank" className="flex items-center gap-2 hover:text-yellow-400">
-              <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" className="w-5 h-5" />
+              <svg viewBox="0 0 32 32" className="w-5 h-5">
+                <path fill="#25D366" d="M16 .396C7.163.396 0 7.559 0 16.396c0 2.886.754 5.706 2.185 8.191L0 32l7.625-2.152a15.89 15.89 0 008.375 2.404c8.837 0 16-7.163 16-16S24.837.396 16 .396z"/>
+              </svg>
               Fernando — (43) 99806-1421
             </a>
 
             <a href={whatsappAnderson} target="_blank" className="flex items-center gap-2 hover:text-yellow-400">
-              <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" className="w-5 h-5" />
+              <svg viewBox="0 0 32 32" className="w-5 h-5">
+                <path fill="#25D366" d="M16 .396C7.163.396 0 7.559 0 16.396z"/>
+              </svg>
               Anderson — (43) 99952-0213
             </a>
 
             <a href={whatsappValeria} target="_blank" className="flex items-center gap-2 hover:text-yellow-400">
-              <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" className="w-5 h-5" />
+              <svg viewBox="0 0 32 32" className="w-5 h-5">
+                <path fill="#25D366" d="M16 .396C7.163.396 0 7.559 0 16.396z"/>
+              </svg>
               Valéria — (43) 99628-1826
             </a>
 
+            {/* INSTAGRAM */}
             <a
               href="https://www.instagram.com/terraplanagem.nivelar/"
               target="_blank"
@@ -157,10 +164,9 @@ export default function Nivelar() {
         target="_blank"
         className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition"
       >
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
-          className="w-6 h-6"
-        />
+        <svg viewBox="0 0 32 32" className="w-6 h-6">
+          <path fill="white" d="M16 .396C7.163.396 0 7.559 0 16.396z"/>
+        </svg>
       </a>
 
       <footer className="text-center p-6 text-gray-400">
