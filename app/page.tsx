@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 
 export default function Nivelar() {
-
   const contatos = [
     { nome: "Fernando", numero: "5543998061421" },
     { nome: "Anderson", numero: "5543999520213" },
@@ -16,8 +15,15 @@ export default function Nivelar() {
     "/images/maquina3.jpg",
   ];
 
-  const equipamentos = Array.from({ length: 10 }, (_, i) => `/images/equipamentos/maquina${i+1}.jpg`);
-  const projetos = Array.from({ length: 9 }, (_, i) => `/images/projetos/projeto${i+1}.jpg`);
+  const equipamentos = Array.from(
+    { length: 10 },
+    (_, i) => `/images/equipamentos/maquina${i + 1}.jpg`
+  );
+
+  const projetos = Array.from(
+    { length: 9 },
+    (_, i) => `/images/projetos/projeto${i + 1}.jpg`
+  );
 
   const [current, setCurrent] = useState(0);
   const [lightbox, setLightbox] = useState<string | null>(null);
@@ -47,9 +53,9 @@ export default function Nivelar() {
 
           {/* LOGO DIREITA */}
           <div className="ml-auto text-right">
-            <img src="/logo.svg" className="h-24 md:h-32 ml-auto" />
+            <img src="/logo.svg" className="h-28 md:h-32 ml-auto" />
             <p className="text-yellow-400 text-sm mt-1">
-              Terraplanagem de Alto Padrão
+              Onde começa cada grande obra
             </p>
           </div>
 
@@ -57,13 +63,13 @@ export default function Nivelar() {
       </header>
 
       {/* HERO CARROSSEL */}
-      <section id="home" className="h-screen relative pt-32">
+      <section id="home" className="h-screen relative pt-32 overflow-hidden">
 
         {heroImages.map((img, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-700 ${
-              index === current ? "opacity-100" : "opacity-0"
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === current ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
             style={{
               backgroundImage: `url(${img})`,
@@ -73,14 +79,15 @@ export default function Nivelar() {
           />
         ))}
 
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/50 z-20" />
 
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
+        <div className="relative z-30 flex flex-col items-center justify-center h-full text-center">
           <h1 className="text-4xl md:text-6xl font-bold">
             Nivelar Terraplanagem
           </h1>
-          <p className="text-yellow-400 mt-4">
-            Atendimento em Cambé e região
+
+          <p className="text-yellow-400 mt-4 text-lg">
+            Onde começa cada grande obra
           </p>
         </div>
 
@@ -130,14 +137,14 @@ export default function Nivelar() {
 
         <p className="max-w-2xl mx-auto text-gray-300">
           A Nivelar Terraplanagem atua com excelência no setor, entregando serviços com precisão,
-          segurança e compromisso. Nosso objetivo é transformar terrenos em bases sólidas.
+          segurança e compromisso. Nosso objetivo é transformar terrenos em bases sólidas para grandes obras.
         </p>
       </section>
 
       {/* CONTATO */}
       <section id="contato" className="p-10 bg-black">
-        <h2 className="text-3xl text-yellow-400 text-center mb-10">
-          CONTATO
+        <h2 className="text-3xl font-bold text-center mb-10">
+          CONTATO <span className="text-yellow-400">NIVELAR</span>
         </h2>
 
         <div className="grid md:grid-cols-2 gap-10">
@@ -187,7 +194,7 @@ export default function Nivelar() {
         </div>
       )}
 
-      {/* WHATS */}
+      {/* WHATS FLOAT */}
       <a
         href="https://wa.me/5543996281826"
         target="_blank"
