@@ -1,44 +1,46 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function Nivelar() {
-  const whatsapp =
-    "https://wa.me/5543996281826?text=Olá, quero orçamento de terraplanagem";
-
-  const heroImages = [
-    "/images/maquina1.jpg",
-    "/images/maquina2.jpg",
-    "/images/maquina3.jpg",
+export default function Home() {
+  const images = [
+    "/images/equipamentos/maquina1.jpg",
+    "/images/equipamentos/maquina2.jpg",
+    "/images/equipamentos/maquina3.jpg",
   ];
 
   const equipamentos = [
-    "/images/maquina1.jpg",
-    "/images/maquina2.jpg",
-    "/images/maquina3.jpg",
-    "/images/maquina4.jpg",
-    "/images/maquina5.jpg",
-    "/images/maquina6.jpg",
+    "/images/equipamentos/maquina1.jpg",
+    "/images/equipamentos/maquina2.jpg",
+    "/images/equipamentos/maquina3.jpg",
+    "/images/equipamentos/maquina4.jpg",
+  ];
+
+  const projetos = [
+    "/images/projetos/projeto1.jpg",
+    "/images/projetos/projeto2.jpg",
+    "/images/projetos/projeto3.jpg",
   ];
 
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % heroImages.length);
+    const i = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
     }, 4000);
-    return () => clearInterval(interval);
+    return () => clearInterval(i);
   }, []);
 
   return (
-    <div className="bg-[#0b0b0b] text-white">
+    <div>
 
       {/* HEADER */}
-      <header className="sticky top-0 z-50 bg-black/80 backdrop-blur border-b border-gray-800 flex justify-between items-center px-6 md:px-16 py-4">
-        <img src="/logo.svg" className="h-16 md:h-20" />
+      <header className="flex justify-between items-center px-6 md:px-16 py-4 bg-black fixed w-full z-50 border-b border-gray-800">
+        <img src="/logo.svg" className="h-14" />
 
         <nav className="hidden md:flex gap-8 text-sm">
           <a href="#home" className="hover:text-yellow-400">Início</a>
+          <a href="#projetos" className="hover:text-yellow-400">Projetos</a>
           <a href="#equipamentos" className="hover:text-yellow-400">Equipamentos</a>
           <a href="#sobre" className="hover:text-yellow-400">Sobre</a>
           <a href="#contato" className="hover:text-yellow-400">Contato</a>
@@ -47,17 +49,13 @@ export default function Nivelar() {
 
       {/* HERO */}
       <section id="home" className="h-screen flex items-center px-6 md:px-16 relative">
-        {heroImages.map((img, i) => (
-          <div
+        {images.map((img, i) => (
+          <img
             key={i}
-            className={`absolute inset-0 transition-opacity duration-700 ${
-              i === current ? "opacity-100" : "opacity-0"
+            src={img}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+              current === i ? "opacity-100" : "opacity-0"
             }`}
-            style={{
-              backgroundImage: `url(${img})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
           />
         ))}
 
@@ -74,19 +72,28 @@ export default function Nivelar() {
         </div>
       </section>
 
+      {/* PROJETOS */}
+      <section id="projetos" className="p-10 md:p-16 text-center">
+        <h2 className="text-3xl font-bold mb-10">
+          PROJETOS <span className="text-yellow-400">REALIZADOS</span>
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {projetos.map((img, i) => (
+            <img key={i} src={img} className="rounded-xl h-52 w-full object-cover" />
+          ))}
+        </div>
+      </section>
+
       {/* EQUIPAMENTOS */}
-      <section id="equipamentos" className="p-10 md:p-16 text-center bg-[#111]">
+      <section id="equipamentos" className="p-10 md:p-16 bg-[#111] text-center">
         <h2 className="text-3xl font-bold mb-10">
           NOSSOS <span className="text-yellow-400">EQUIPAMENTOS</span>
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-4 gap-6">
           {equipamentos.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              className="rounded-xl w-full h-[200px] object-cover"
-            />
+            <img key={i} src={img} className="rounded-xl h-40 object-cover" />
           ))}
         </div>
       </section>
@@ -99,45 +106,53 @@ export default function Nivelar() {
 
         <p className="max-w-2xl mx-auto text-gray-300">
           A Nivelar Terraplanagem atua com excelência, entregando precisão,
-          segurança e qualidade em cada projeto.
+          qualidade e confiança em cada projeto.
         </p>
       </section>
 
       {/* CONTATO */}
       <section id="contato" className="p-10 md:p-16 bg-black">
-        <h2 className="text-3xl text-center mb-10 text-yellow-400">CONTATO</h2>
+        <h2 className="text-3xl text-yellow-400 text-center mb-10">
+          CONTATO
+        </h2>
 
-        <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
 
           <iframe
-            src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857&output=embed"
+            src="https://www.google.com/maps?q=Cambé&output=embed"
             className="w-full h-[250px] rounded-xl"
           />
 
-          <div className="space-y-4">
-            <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
+          <div className="space-y-4 text-sm">
+            <p>📍 Cambé - PR</p>
 
-            <a href={whatsapp} target="_blank" className="flex items-center gap-2 hover:text-yellow-400">
+            <a href="https://wa.me/5543998061421" className="flex gap-2 items-center">
               <img src="/icons/whatsapp.svg" className="w-5" />
-              WhatsApp
+              Fernando
             </a>
 
-            <a href="https://instagram.com/terraplanagem.nivelar" target="_blank" className="flex items-center gap-2 text-yellow-400">
+            <a href="https://instagram.com" className="flex gap-2 items-center text-yellow-400">
               <img src="/icons/instagram.svg" className="w-5" />
               Instagram
             </a>
           </div>
+
         </div>
       </section>
 
-      {/* BOTÃO */}
+      {/* WHATSAPP FLOAT */}
       <a
-        href={whatsapp}
+        href="https://wa.me/5543996281826"
         target="_blank"
-        className="fixed bottom-5 right-5 bg-green-500 p-3 rounded-full shadow-lg"
+        className="fixed bottom-5 right-5 bg-green-500 p-3 rounded-full"
       >
-        <img src="/icons/whatsapp.svg" className="w-6" />
+        <img src="/icons/whatsapp.svg" className="w-5" />
       </a>
+
+      {/* FOOTER */}
+      <footer className="text-center p-6 text-gray-400">
+        © 2026 Nivelar Terraplanagem
+      </footer>
 
     </div>
   );
