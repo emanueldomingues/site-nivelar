@@ -35,7 +35,7 @@ export default function Nivelar() {
             className="h-16 md:h-24 object-contain"
           />
 
-          <span className="text-[11px] md:text-sm text-gray-400 mt-1 tracking-wide leading-tight">
+          <span className="text-[11px] md:text-sm text-gray-400 mt-1 leading-tight">
             Onde começa cada <br className="md:hidden" />
             grande obra
           </span>
@@ -72,7 +72,7 @@ export default function Nivelar() {
         <div className="absolute inset-0 bg-black/75" />
 
         <div className="relative max-w-2xl z-10">
-          <h1 className="text-3xl md:text-7xl font-extrabold">
+          <h1 className="text-3xl md:text-7xl font-extrabold leading-tight">
             Terraplanagem de <span className="text-yellow-400">Alto Padrão</span>
           </h1>
 
@@ -99,25 +99,25 @@ export default function Nivelar() {
         </h2>
 
         <p className="max-w-3xl mx-auto text-gray-300 leading-relaxed">
-          A Nivelar Terraplanagem atua com excelência na preparação de terrenos,
-          oferecendo soluções completas para obras residenciais, comerciais e industriais.
-          Nosso compromisso é entregar qualidade, precisão e segurança em cada projeto.
+          Na Nivelar Terraplanagem, acreditamos que toda grande obra começa com uma base sólida.
+          Trabalhamos com dedicação, precisão e responsabilidade para entregar resultados de alto padrão,
+          garantindo segurança e qualidade em cada etapa do serviço.
         </p>
 
         <div className="mt-10 grid md:grid-cols-3 gap-6">
           <div className="bg-black p-6 rounded-xl">
             <h3 className="text-yellow-400 font-bold">Compromisso</h3>
-            <p className="text-gray-400 mt-2">Cumprimos prazos com seriedade</p>
+            <p className="text-gray-400 mt-2">Cumprimento de prazos com responsabilidade</p>
           </div>
 
           <div className="bg-black p-6 rounded-xl">
             <h3 className="text-yellow-400 font-bold">Qualidade</h3>
-            <p className="text-gray-400 mt-2">Serviço bem feito do início ao fim</p>
+            <p className="text-gray-400 mt-2">Excelência em cada detalhe do serviço</p>
           </div>
 
           <div className="bg-black p-6 rounded-xl">
             <h3 className="text-yellow-400 font-bold">Confiança</h3>
-            <p className="text-gray-400 mt-2">Relacionamento transparente</p>
+            <p className="text-gray-400 mt-2">Transparência e respeito com cada cliente</p>
           </div>
         </div>
       </section>
@@ -130,8 +130,8 @@ export default function Nivelar() {
 
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-black p-6 rounded-xl">✔ Experiência</div>
-          <div className="bg-black p-6 rounded-xl">✔ Equipamentos</div>
-          <div className="bg-black p-6 rounded-xl">✔ Rapidez</div>
+          <div className="bg-black p-6 rounded-xl">✔ Equipamentos modernos</div>
+          <div className="bg-black p-6 rounded-xl">✔ Atendimento rápido</div>
         </div>
       </section>
 
@@ -143,7 +143,11 @@ export default function Nivelar() {
 
         <div className="grid md:grid-cols-4 gap-4">
           {[1,2,3,4,5,6,7,8].map((i) => (
-            <img key={i} src={`/images/maquina${i}.jpg`} className="rounded-xl"/>
+            <img
+              key={i}
+              src={`/images/maquina${i}.jpg`}
+              className="rounded-xl hover:scale-105 transition duration-300"
+            />
           ))}
         </div>
       </section>
@@ -154,24 +158,39 @@ export default function Nivelar() {
           CONTATO
         </h2>
 
-        <iframe
-          src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-          className="w-full h-[300px] rounded-xl mb-8"
-        />
+        {/* MAPA CENTRALIZADO */}
+        <div className="max-w-5xl mx-auto mb-8">
+          <iframe
+            src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
+            className="w-full h-[300px] md:h-[350px] rounded-xl"
+            loading="lazy"
+          />
+        </div>
 
-        <div className="space-y-4">
+        <div className="max-w-xl mx-auto text-left space-y-4">
 
-          <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
+          <p className="text-center">
+            📍 Av. Antônio Raminelli, 857 - Cambé
+          </p>
 
-          <a href="https://wa.me/5543998061421" target="_blank">Fernando</a>
-          <a href="https://wa.me/5543999520213" target="_blank">Anderson</a>
-          <a href="https://wa.me/5543996281826" target="_blank">Valéria</a>
+          <a href="https://wa.me/5543998061421" target="_blank" className="block hover:text-yellow-400">
+            🟢 Fernando - (43) 99806-1421
+          </a>
+
+          <a href="https://wa.me/5543999520213" target="_blank" className="block hover:text-yellow-400">
+            🟢 Anderson - (43) 99952-0213
+          </a>
+
+          <a href="https://wa.me/5543996281826" target="_blank" className="block hover:text-yellow-400">
+            🟢 Valéria - (43) 99628-1826
+          </a>
 
           <a
             href="https://www.instagram.com/terraplanagem.nivelar/"
             target="_blank"
+            className="block hover:text-yellow-400 mt-4"
           >
-            Instagram
+            📸 @terraplanagem.nivelar
           </a>
 
         </div>
@@ -181,10 +200,14 @@ export default function Nivelar() {
       <a
         href={whatsapp}
         target="_blank"
-        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full"
+        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition"
       >
         💬
       </a>
+
+      <footer className="text-center p-6 bg-black text-gray-400 text-sm">
+        © 2026 Nivelar Terraplanagem
+      </footer>
 
     </div>
   );
