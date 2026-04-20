@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Reset básico */
-html, body {
-  padding: 0;
+/* opcional: estilo base */
+body {
   margin: 0;
+  padding: 0;
 }

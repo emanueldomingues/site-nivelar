@@ -1,18 +1,14 @@
 import "./globals.css";
-
-export const metadata = {
-  title: "Nivelar Terraplanagem",
-  description: "Terraplanagem de alto padrão em Cambé e região",
-};
+import type { ReactNode } from "react";
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <html lang="pt-BR">
-      <body className="bg-black text-white">
+      <body className="bg-[#0b0b0b] text-white">
         {children}
       </body>
     </html>
