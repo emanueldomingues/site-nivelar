@@ -34,12 +34,12 @@ export default function Home() {
       {/* HEADER */}
       <header className="fixed top-0 left-0 w-full bg-black z-50 border-b border-gray-800">
 
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-2 md:px-6 py-4">
+        <div className="relative w-full flex items-center py-4">
 
-          {/* LOGO PERFEITAMENTE ALINHADA */}
-          <div className="flex flex-col items-start leading-none">
+          {/* LOGO EXTREMA ESQUERDA */}
+          <div className="flex flex-col items-start leading-none pl-4">
 
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-wide">
+            <h1 className="text-4xl md:text-5xl font-extrabold">
               NIVELAR
             </h1>
 
@@ -53,8 +53,8 @@ export default function Home() {
 
           </div>
 
-          {/* MENU */}
-          <nav className="flex gap-6 md:gap-8 text-sm md:text-base">
+          {/* MENU CENTRALIZADO ABSOLUTO */}
+          <nav className="absolute left-1/2 transform -translate-x-1/2 flex gap-8 text-sm md:text-base">
             <a href="#home" className="hover:text-yellow-400">Início</a>
             <a href="#projetos" className="hover:text-yellow-400">Projetos</a>
             <a href="#equipamentos" className="hover:text-yellow-400">Equipamentos</a>
@@ -141,16 +141,17 @@ export default function Home() {
           CONTATO
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
 
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-full h-[300px] rounded-xl"
+            className="w-full h-[320px] rounded-xl"
           />
 
-          <div className="space-y-6 text-base">
+          {/* CONTATOS DESCIDOS */}
+          <div className="space-y-6 text-base mt-6 md:mt-10">
 
-            <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
+            <p className="mb-4">📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
             <a href="https://wa.me/5543998061421" target="_blank" className="flex items-center gap-3 hover:text-yellow-400">
               <img src="/icons/whatsapp.svg" className="w-6" />
@@ -177,7 +178,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BOTÃO WHATS FLUTUANTE */}
+      {/* WHATS FLUTUANTE */}
       <a
         href="https://wa.me/5543996281826"
         target="_blank"
