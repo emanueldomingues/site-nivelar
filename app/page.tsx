@@ -57,12 +57,10 @@ export default function Nivelar() {
 
       {/* HEADER */}
       <header className="flex items-center justify-between px-4 md:px-16 py-4 bg-black/80 backdrop-blur-xl border-b border-gray-800 fixed w-full z-50">
-
         <img src="/logo.svg" className="h-16 md:h-24 object-contain" />
 
         <nav className="hidden md:flex gap-10 text-sm font-medium">
           <a href="#home" className="hover:text-yellow-400">Início</a>
-          <a href="#servicos" className="hover:text-yellow-400">Serviços</a>
           <a href="#projetos" className="hover:text-yellow-400">Projetos</a>
           <a href="#equipamentos" className="hover:text-yellow-400">Equipamentos</a>
           <a href="#sobre" className="hover:text-yellow-400">Sobre Nós</a>
@@ -74,7 +72,6 @@ export default function Nivelar() {
 
       {/* HERO */}
       <section id="home" className="scroll-mt-24 h-screen flex items-center px-6 md:px-16 relative">
-
         {heroImages.map((img, index) => (
           <div
             key={index}
@@ -99,19 +96,6 @@ export default function Nivelar() {
           <p className="mt-6 text-yellow-400">
             Atendimento em Cambé e região
           </p>
-        </div>
-      </section>
-
-      {/* SERVIÇOS */}
-      <section id="servicos" className="scroll-mt-24 p-10 md:p-16 bg-[#111] text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-10">
-          NOSSOS <span className="text-yellow-400">DIFERENCIAIS</span>
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-black p-8 rounded-xl">✔ Experiência</div>
-          <div className="bg-black p-8 rounded-xl">✔ Equipamentos modernos</div>
-          <div className="bg-black p-8 rounded-xl">✔ Atendimento rápido</div>
         </div>
       </section>
 
@@ -165,6 +149,13 @@ export default function Nivelar() {
           <p className="mt-4 text-yellow-400 font-semibold">
             Onde começa cada grande obra.
           </p>
+        </div>
+
+        {/* DIFERENCIAIS AGORA AQUI */}
+        <div className="grid md:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto">
+          <div className="bg-black p-6 rounded-xl">✔ Mais de 10 anos de experiência</div>
+          <div className="bg-black p-6 rounded-xl">✔ Equipamentos modernos</div>
+          <div className="bg-black p-6 rounded-xl">✔ Atendimento rápido via WhatsApp</div>
         </div>
 
       </section>
@@ -223,7 +214,7 @@ export default function Nivelar() {
         © 2026 Nivelar Terraplanagem
       </footer>
 
-      {/* BOTÃO WHATS FLUTUANTE */}
+      {/* BOTÃO WHATS */}
       <a
         href={whatsappPrincipal}
         target="_blank"
