@@ -16,32 +16,11 @@ export default function Nivelar() {
     "/images/maquina3.jpg",
   ];
 
-  const equipamentos = [
-    "/images/equipamentos/maquina1.jpg",
-    "/images/equipamentos/maquina2.jpg",
-    "/images/equipamentos/maquina3.jpg",
-    "/images/equipamentos/maquina4.jpg",
-    "/images/equipamentos/maquina5.jpg",
-    "/images/equipamentos/maquina6.jpg",
-    "/images/equipamentos/maquina7.jpg",
-    "/images/equipamentos/maquina8.jpg",
-    "/images/equipamentos/maquina9.jpg",
-    "/images/equipamentos/maquina10.jpg",
-  ];
-
-  const projetos = [
-    "/images/projetos/projeto1.jpg",
-    "/images/projetos/projeto2.jpg",
-    "/images/projetos/projeto3.jpg",
-    "/images/projetos/projeto4.jpg",
-    "/images/projetos/projeto5.jpg",
-    "/images/projetos/projeto6.jpg",
-    "/images/projetos/projeto7.jpg",
-    "/images/projetos/projeto8.jpg",
-    "/images/projetos/projeto9.jpg",
-  ];
+  const equipamentos = Array.from({ length: 10 }, (_, i) => `/images/equipamentos/maquina${i+1}.jpg`);
+  const projetos = Array.from({ length: 9 }, (_, i) => `/images/projetos/projeto${i+1}.jpg`);
 
   const [current, setCurrent] = useState(0);
+  const [lightbox, setLightbox] = useState<string | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -57,8 +36,8 @@ export default function Nivelar() {
       <header className="fixed top-0 w-full bg-black/90 z-50 border-b border-gray-800">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
-          {/* MENU */}
-          <nav className="hidden md:flex gap-8 text-sm">
+          {/* MENU CENTRAL */}
+          <nav className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex gap-8 text-sm">
             <a href="#home" className="hover:text-yellow-400">Início</a>
             <a href="#projetos" className="hover:text-yellow-400">Projetos</a>
             <a href="#equipamentos" className="hover:text-yellow-400">Equipamentos</a>
@@ -66,19 +45,19 @@ export default function Nivelar() {
             <a href="#contato" className="hover:text-yellow-400">Contato</a>
           </nav>
 
-          {/* LOGO + SLOGAN */}
-          <div className="flex flex-col items-end">
-            <img src="/logo.svg" className="h-20 md:h-28" />
-            <span className="text-xs text-yellow-400 mt-1">
+          {/* LOGO DIREITA */}
+          <div className="ml-auto text-right">
+            <img src="/logo.svg" className="h-24 md:h-32 ml-auto" />
+            <p className="text-yellow-400 text-sm mt-1">
               Terraplanagem de Alto Padrão
-            </span>
+            </p>
           </div>
 
         </div>
       </header>
 
-      {/* HERO */}
-      <section id="home" className="h-screen flex items-center justify-center relative pt-32">
+      {/* HERO CARROSSEL */}
+      <section id="home" className="h-screen relative pt-32">
 
         {heroImages.map((img, index) => (
           <div
@@ -96,7 +75,7 @@ export default function Nivelar() {
 
         <div className="absolute inset-0 bg-black/70" />
 
-        <div className="relative z-10 text-center">
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
           <h1 className="text-4xl md:text-6xl font-bold">
             Nivelar Terraplanagem
           </h1>
@@ -115,7 +94,12 @@ export default function Nivelar() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {projetos.map((img, i) => (
-            <img key={i} src={img} className="w-full h-[250px] object-cover rounded-xl hover:scale-105 transition" />
+            <img
+              key={i}
+              src={img}
+              onClick={() => setLightbox(img)}
+              className="w-full aspect-video object-cover rounded-xl cursor-pointer hover:scale-105 transition"
+            />
           ))}
         </div>
       </section>
@@ -128,7 +112,12 @@ export default function Nivelar() {
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
           {equipamentos.map((img, i) => (
-            <img key={i} src={img} className="rounded-xl hover:scale-105 transition" />
+            <img
+              key={i}
+              src={img}
+              onClick={() => setLightbox(img)}
+              className="aspect-square object-cover rounded-xl cursor-pointer hover:scale-105 transition"
+            />
           ))}
         </div>
       </section>
@@ -143,12 +132,6 @@ export default function Nivelar() {
           A Nivelar Terraplanagem atua com excelência no setor, entregando serviços com precisão,
           segurança e compromisso. Nosso objetivo é transformar terrenos em bases sólidas.
         </p>
-
-        <div className="grid md:grid-cols-3 gap-6 mt-10">
-          <div className="bg-black p-6 rounded-xl">✔ Mais de 10 anos de experiência</div>
-          <div className="bg-black p-6 rounded-xl">✔ Equipamentos modernos</div>
-          <div className="bg-black p-6 rounded-xl">✔ Atendimento rápido</div>
-        </div>
       </section>
 
       {/* CONTATO */}
@@ -161,7 +144,7 @@ export default function Nivelar() {
 
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-full h-[300px] rounded-xl"
+            className="w-full h-[250px] rounded-xl"
           />
 
           <div className="space-y-4">
@@ -194,7 +177,17 @@ export default function Nivelar() {
         </div>
       </section>
 
-      {/* WHATS FLUTUANTE */}
+      {/* LIGHTBOX */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
+          onClick={() => setLightbox(null)}
+        >
+          <img src={lightbox} className="max-h-[90%] max-w-[90%] rounded-xl" />
+        </div>
+      )}
+
+      {/* WHATS */}
       <a
         href="https://wa.me/5543996281826"
         target="_blank"
