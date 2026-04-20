@@ -34,18 +34,16 @@ export default function Home() {
       {/* HEADER */}
       <header className="fixed top-0 left-0 w-full bg-black z-50 border-b border-gray-800">
 
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-2 md:px-6 py-4">
 
-          {/* LOGO GRANDE E ALINHADA */}
-          <div className="flex flex-col">
+          {/* LOGO PERFEITAMENTE ALINHADA */}
+          <div className="flex flex-col items-start leading-none">
 
-            <div className="bg-black px-2 py-1">
-              <h1 className="text-4xl md:text-5xl font-extrabold tracking-wide">
-                NIVELAR
-              </h1>
-            </div>
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-wide">
+              NIVELAR
+            </h1>
 
-            <div className="bg-yellow-400 text-black text-xs md:text-sm px-4 py-1 w-fit font-semibold">
+            <div className="bg-yellow-400 text-black text-xs md:text-sm px-3 py-[2px] mt-1">
               TERRAPLANAGEM
             </div>
 
@@ -150,7 +148,6 @@ export default function Home() {
             className="w-full h-[300px] rounded-xl"
           />
 
-          {/* CONTATOS MELHORADOS */}
           <div className="space-y-6 text-base">
 
             <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
@@ -170,8 +167,7 @@ export default function Home() {
               Valéria
             </a>
 
-            {/* INSTAGRAM */}
-            <a href="https://instagram.com/terraplanagem.nivelar" target="_blank" className="flex items-center gap-3 text-yellow-400 hover:opacity-80">
+            <a href="https://instagram.com/terraplanagem.nivelar" target="_blank" className="flex items-center gap-3 text-yellow-400">
               <img src="/icons/instagram.svg" className="w-6" />
               @terraplanagem.nivelar
             </a>
@@ -180,6 +176,15 @@ export default function Home() {
 
         </div>
       </section>
+
+      {/* BOTÃO WHATS FLUTUANTE */}
+      <a
+        href="https://wa.me/5543996281826"
+        target="_blank"
+        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition"
+      >
+        <img src="/icons/whatsapp.svg" className="w-6" />
+      </a>
 
     </main>
   );
