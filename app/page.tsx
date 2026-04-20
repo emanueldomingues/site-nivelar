@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function Nivelar() {
-
-  const whatsappPrincipal = "https://wa.me/5543996281826";
+  const whatsappPrincipal =
+    "https://wa.me/5543996281826?text=Olá, quero orçamento de terraplanagem";
 
   const contatos = [
     {
@@ -44,26 +44,24 @@ export default function Nivelar() {
     <div className="bg-[#0b0b0b] text-white font-sans">
 
       {/* HEADER */}
-      <header className="flex items-center justify-between px-4 md:px-16 py-4 bg-black/80 backdrop-blur-xl border-b border-gray-800 fixed w-full z-50">
-
-        <div>
-          <img src="/logo.svg" className="h-16 md:h-24" />
+      <header className="flex items-center justify-between px-4 md:px-16 py-4 bg-black/80 backdrop-blur-xl border-b border-gray-800 fixed w-full z-50 shadow-lg">
+        <div className="flex flex-col">
+          <img src="/logo.svg" className="h-16 md:h-24 object-contain" />
         </div>
 
-        <nav className="hidden md:flex gap-10">
-          <a href="#home">Início</a>
-          <a href="#servicos">Serviços</a>
-          <a href="#galeria">Projetos</a>
-          <a href="#sobre">Sobre Nós</a>
-          <a href="#contato">Contato</a>
+        <nav className="hidden md:flex gap-12 text-sm font-medium">
+          <a href="#home" className="hover:text-yellow-400">Início</a>
+          <a href="#servicos" className="hover:text-yellow-400">Serviços</a>
+          <a href="#galeria" className="hover:text-yellow-400">Projetos</a>
+          <a href="#sobre" className="hover:text-yellow-400">Sobre Nós</a>
+          <a href="#contato" className="hover:text-yellow-400">Contato</a>
         </nav>
 
-        <div className="w-[80px]" />
+        <div className="w-[100px]" />
       </header>
 
       {/* HERO */}
-      <section id="home" className="h-screen flex items-center px-6 md:px-16 relative">
-
+      <section id="home" className="scroll-mt-24 h-screen flex items-center px-6 md:px-16 relative">
         {images.map((img, index) => (
           <div
             key={index}
@@ -73,14 +71,15 @@ export default function Nivelar() {
             style={{
               backgroundImage: `url(${img})`,
               backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
           />
         ))}
 
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/75" />
 
-        <div className="relative z-10">
-          <h1 className="text-4xl md:text-7xl font-bold">
+        <div className="relative z-10 max-w-2xl">
+          <h1 className="text-4xl md:text-7xl font-extrabold">
             Terraplanagem de
             <span className="text-yellow-400"> Alto Padrão</span>
           </h1>
@@ -88,46 +87,85 @@ export default function Nivelar() {
           <a
             href={whatsappPrincipal}
             target="_blank"
-            className="mt-6 inline-block bg-green-600 px-6 py-3 rounded-lg"
+            className="mt-6 inline-block bg-green-600 px-6 py-4 rounded-lg font-bold hover:scale-105"
           >
             Solicitar Orçamento
           </a>
         </div>
       </section>
 
+      {/* SERVIÇOS */}
+      <section id="servicos" className="scroll-mt-24 p-16 bg-[#111] text-center">
+        <h2 className="text-4xl font-bold mb-10">
+          NOSSOS <span className="text-yellow-400">DIFERENCIAIS</span>
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-black p-8 rounded-xl">
+            <h3 className="text-yellow-400">✔ Experiência</h3>
+            <p>Mais de 10 anos de atuação</p>
+          </div>
+
+          <div className="bg-black p-8 rounded-xl">
+            <h3 className="text-yellow-400">✔ Equipamentos</h3>
+            <p>Máquinas modernas</p>
+          </div>
+
+          <div className="bg-black p-8 rounded-xl">
+            <h3 className="text-yellow-400">✔ Rapidez</h3>
+            <p>Atendimento ágil</p>
+          </div>
+        </div>
+      </section>
+
+      {/* GALERIA */}
+      <section id="galeria" className="scroll-mt-24 p-16 text-center">
+        <h2 className="text-4xl font-bold mb-10">
+          PROJETOS <span className="text-yellow-400">REALIZADOS</span>
+        </h2>
+
+        <div className="grid md:grid-cols-4 gap-6">
+          {[1,2,3,4,5,6,7,8].map((i) => (
+            <img
+              key={i}
+              src={`/images/maquina${i}.jpg`}
+              className="rounded-xl hover:scale-110 transition"
+            />
+          ))}
+        </div>
+      </section>
+
       {/* SOBRE */}
-      <section id="sobre" className="p-10 md:p-16 bg-[#111] text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+      <section id="sobre" className="scroll-mt-24 p-16 bg-[#111]">
+        <h2 className="text-4xl font-bold mb-6">
           SOBRE <span className="text-yellow-400">NÓS</span>
         </h2>
 
-        <p className="max-w-3xl mx-auto text-gray-300">
+        <p className="text-gray-300 max-w-3xl">
           A Nivelar Terraplanagem atua com excelência no setor, entregando
-          serviços com precisão, segurança e compromisso. Nosso propósito é
-          transformar terrenos em bases sólidas para grandes obras.
+          serviços com precisão, segurança e compromisso. Nosso objetivo é
+          transformar terrenos em bases sólidas para grandes obras,
+          sempre com qualidade e responsabilidade.
         </p>
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="p-10 md:p-16 bg-black">
-        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-yellow-400 text-center">
+      <section id="contato" className="scroll-mt-24 p-16 bg-black">
+        <h2 className="text-4xl font-bold text-yellow-400 mb-10 text-center">
           CONTATO
         </h2>
 
         <div className="grid md:grid-cols-2 gap-10 items-center">
 
-          {/* MAPA */}
           <iframe
-            src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857+Cambé&output=embed"
-            className="w-full h-[300px] md:h-[350px] rounded-xl"
+            src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857&output=embed"
+            className="w-full h-[350px] rounded-xl"
           />
 
-          {/* INFO */}
-          <div className="space-y-4">
+          <div className="space-y-4 text-sm md:text-base">
 
-            <p>📍 Av. Antônio Raminelli, 857<br/>Parque Res. Ana Rosa</p>
+            <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
-            {/* WHATS CONTATOS */}
             {contatos.map((c, i) => (
               <a
                 key={i}
@@ -135,20 +173,18 @@ export default function Nivelar() {
                 target="_blank"
                 className="flex items-center gap-3 hover:text-yellow-400"
               >
-                {/* WHATSAPP OFICIAL */}
-                <svg width="22" height="22" viewBox="0 0 32 32" fill="#25D366">
-                  <path d="M19.11 17.66c-.27-.14-1.57-.77-1.81-.86-.24-.09-.42-.14-.6.14-.18.27-.69.86-.85 1.03-.16.18-.31.2-.58.07-.27-.14-1.15-.42-2.2-1.33-.82-.73-1.38-1.62-1.54-1.9-.16-.27-.02-.42.12-.56.13-.13.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.44-.82-1.97-.22-.52-.44-.45-.6-.46-.16-.01-.34-.01-.52-.01s-.47.07-.71.34c-.24.27-.93.91-.93 2.22 0 1.31.95 2.57 1.08 2.75.13.18 1.86 2.84 4.51 3.98.63.27 1.12.43 1.5.55.63.2 1.2.17 1.65.1.5-.07 1.57-.64 1.79-1.25.22-.61.22-1.13.15-1.25-.07-.11-.25-.18-.52-.32z"/>
-                </svg>
-
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                  className="w-5 h-5"
+                />
                 {c.nome} — {c.label}
               </a>
             ))}
 
-            {/* INSTAGRAM */}
             <a
               href="https://www.instagram.com/terraplanagem.nivelar/"
               target="_blank"
-              className="flex items-center gap-2 text-yellow-400"
+              className="flex items-center gap-3 text-yellow-400"
             >
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
@@ -161,11 +197,16 @@ export default function Nivelar() {
         </div>
       </section>
 
+      {/* FOOTER */}
+      <footer className="text-center p-6 text-gray-400 text-sm">
+        © 2026 Nivelar Terraplanagem
+      </footer>
+
       {/* BOTÃO FLUTUANTE */}
       <a
         href={whatsappPrincipal}
         target="_blank"
-        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full shadow-lg"
+        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110"
       >
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
@@ -173,9 +214,6 @@ export default function Nivelar() {
         />
       </a>
 
-      <footer className="text-center p-6 text-gray-400">
-        © 2026 Nivelar Terraplanagem
-      </footer>
     </div>
   );
 }
