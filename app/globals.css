@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-margin: 0;
+/* Reset básico */
+html, body {
+  padding: 0;
+  margin: 0;
 }
