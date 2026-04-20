@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Nivelar() {
   const whatsapp =
@@ -34,8 +34,8 @@ export default function Nivelar() {
     <div className="bg-[#0b0b0b] text-white">
 
       {/* HEADER */}
-      <header className="fixed w-full z-50 bg-black/80 backdrop-blur border-b border-gray-800 flex justify-between items-center px-6 md:px-16 py-4">
-        <img src="/logo.svg" className="h-14 md:h-20" />
+      <header className="sticky top-0 z-50 bg-black/80 backdrop-blur border-b border-gray-800 flex justify-between items-center px-6 md:px-16 py-4">
+        <img src="/logo.svg" className="h-16 md:h-20" />
 
         <nav className="hidden md:flex gap-8 text-sm">
           <a href="#home" className="hover:text-yellow-400">Início</a>
@@ -85,7 +85,7 @@ export default function Nivelar() {
             <img
               key={i}
               src={img}
-              className="rounded-xl h-40 w-full object-cover hover:scale-105 transition"
+              className="rounded-xl w-full h-[200px] object-cover"
             />
           ))}
         </div>
@@ -130,7 +130,7 @@ export default function Nivelar() {
         </div>
       </section>
 
-      {/* BOTÃO WHATS */}
+      {/* BOTÃO */}
       <a
         href={whatsapp}
         target="_blank"
