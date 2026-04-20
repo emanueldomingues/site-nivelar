@@ -23,33 +23,27 @@ export default function Nivelar() {
   }, []);
 
   return (
-    <div className="bg-[#0b0b0b] text-white font-sans">
+    <div className="bg-[#0b0b0b] text-white">
 
       {/* HEADER */}
-      <header className="flex items-center justify-between px-4 md:px-16 py-4 bg-black/80 backdrop-blur-xl border-b border-gray-800 fixed w-full z-50 shadow-lg">
+      <header className="flex items-center justify-between px-4 md:px-16 py-4 bg-black/80 backdrop-blur-xl border-b border-gray-800 fixed w-full z-50">
 
         <div className="flex flex-col">
-          <img
-            src="/logo.svg"
-            alt="Nivelar Terraplanagem"
-            className="h-16 md:h-24 object-contain"
-          />
-
-          <span className="text-[11px] md:text-sm text-gray-400 mt-1 leading-tight">
-            Onde começa cada <br className="md:hidden" />
-            grande obra
+          <img src="/logo.svg" className="h-16 md:h-24" />
+          <span className="text-xs text-gray-400">
+            Onde começa cada grande obra
           </span>
         </div>
 
-        <nav className="hidden md:flex gap-10 text-sm font-medium">
-          <a href="#home" className="hover:text-yellow-400">Início</a>
-          <a href="#sobre" className="hover:text-yellow-400">Sobre Nós</a>
-          <a href="#servicos" className="hover:text-yellow-400">Serviços</a>
-          <a href="#galeria" className="hover:text-yellow-400">Ver Projetos</a>
-          <a href="#contato" className="hover:text-yellow-400">Contato</a>
+        <nav className="hidden md:flex gap-10 text-sm">
+          <a href="#home">Início</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#galeria">Ver Projetos</a>
+          <a href="#sobre">Sobre Nós</a>
+          <a href="#contato">Contato</a>
         </nav>
 
-        <div className="w-[80px] md:w-[120px]" />
+        <div className="w-[80px]" />
       </header>
 
       {/* HERO */}
@@ -69,130 +63,103 @@ export default function Nivelar() {
           />
         ))}
 
-        <div className="absolute inset-0 bg-black/75" />
+        <div className="absolute inset-0 bg-black/70" />
 
-        <div className="relative max-w-2xl z-10">
-          <h1 className="text-3xl md:text-7xl font-extrabold leading-tight">
+        <div className="relative z-10 max-w-2xl">
+          <h1 className="text-3xl md:text-6xl font-bold">
             Terraplanagem de <span className="text-yellow-400">Alto Padrão</span>
           </h1>
 
-          <div className="mt-8">
-            <a
-              href={whatsapp}
-              target="_blank"
-              className="bg-green-600 px-6 py-3 rounded-lg font-bold hover:scale-105 transition"
-            >
-              Solicitar Orçamento
-            </a>
-          </div>
-
-          <p className="mt-6 text-yellow-400">
-            Atendimento em Cambé e região
-          </p>
+          <a
+            href={whatsapp}
+            target="_blank"
+            className="inline-block mt-6 bg-green-600 px-6 py-3 rounded-lg font-bold"
+          >
+            Solicitar Orçamento
+          </a>
         </div>
       </section>
 
-      {/* SOBRE NÓS */}
+      {/* SOBRE */}
       <section id="sobre" className="p-10 md:p-16 bg-[#111] text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        <h2 className="text-3xl font-bold mb-6">
           SOBRE <span className="text-yellow-400">NÓS</span>
         </h2>
 
-        <p className="max-w-3xl mx-auto text-gray-300 leading-relaxed">
+        <p className="max-w-3xl mx-auto text-gray-300">
           Na Nivelar Terraplanagem, acreditamos que toda grande obra começa com uma base sólida.
-          Trabalhamos com dedicação, precisão e responsabilidade para entregar resultados de alto padrão,
-          garantindo segurança e qualidade em cada etapa do serviço.
+          Trabalhamos com precisão, responsabilidade e compromisso para entregar serviços de alto padrão.
         </p>
-
-        <div className="mt-10 grid md:grid-cols-3 gap-6">
-          <div className="bg-black p-6 rounded-xl">
-            <h3 className="text-yellow-400 font-bold">Compromisso</h3>
-            <p className="text-gray-400 mt-2">Cumprimento de prazos com responsabilidade</p>
-          </div>
-
-          <div className="bg-black p-6 rounded-xl">
-            <h3 className="text-yellow-400 font-bold">Qualidade</h3>
-            <p className="text-gray-400 mt-2">Excelência em cada detalhe do serviço</p>
-          </div>
-
-          <div className="bg-black p-6 rounded-xl">
-            <h3 className="text-yellow-400 font-bold">Confiança</h3>
-            <p className="text-gray-400 mt-2">Transparência e respeito com cada cliente</p>
-          </div>
-        </div>
       </section>
 
       {/* SERVIÇOS */}
       <section id="servicos" className="p-10 md:p-16 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-10">
+        <h2 className="text-3xl font-bold mb-10">
           NOSSOS <span className="text-yellow-400">DIFERENCIAIS</span>
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-black p-6 rounded-xl">✔ Experiência</div>
-          <div className="bg-black p-6 rounded-xl">✔ Equipamentos modernos</div>
-          <div className="bg-black p-6 rounded-xl">✔ Atendimento rápido</div>
+          <div className="bg-black p-6 rounded-xl">✔ Equipamentos</div>
+          <div className="bg-black p-6 rounded-xl">✔ Rapidez</div>
         </div>
       </section>
 
       {/* GALERIA */}
       <section id="galeria" className="p-10 md:p-16 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-10">
+        <h2 className="text-3xl font-bold mb-10">
           PROJETOS <span className="text-yellow-400">REALIZADOS</span>
         </h2>
 
         <div className="grid md:grid-cols-4 gap-4">
           {[1,2,3,4,5,6,7,8].map((i) => (
-            <img
-              key={i}
-              src={`/images/maquina${i}.jpg`}
-              className="rounded-xl hover:scale-105 transition duration-300"
-            />
+            <img key={i} src={`/images/maquina${i}.jpg`} className="rounded-xl"/>
           ))}
         </div>
       </section>
 
-      {/* CONTATO */}
-      <section id="contato" className="p-10 md:p-16 bg-black text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-yellow-400">
+      {/* CONTATO LADO A LADO */}
+      <section id="contato" className="p-10 md:p-16 bg-black">
+        <h2 className="text-3xl text-center font-bold mb-10 text-yellow-400">
           CONTATO
         </h2>
 
-        {/* MAPA CENTRALIZADO */}
-        <div className="max-w-5xl mx-auto mb-8">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+
+          {/* MAPA */}
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
             className="w-full h-[300px] md:h-[350px] rounded-xl"
-            loading="lazy"
           />
-        </div>
 
-        <div className="max-w-xl mx-auto text-left space-y-4">
+          {/* CONTATOS */}
+          <div className="space-y-5">
 
-          <p className="text-center">
-            📍 Av. Antônio Raminelli, 857 - Cambé
-          </p>
+            <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
-          <a href="https://wa.me/5543998061421" target="_blank" className="block hover:text-yellow-400">
-            🟢 Fernando - (43) 99806-1421
-          </a>
+            {/* WHATS REAL */}
+            <a href="https://wa.me/5543998061421" target="_blank" className="flex items-center gap-3 hover:text-yellow-400">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" className="w-5 h-5"/>
+              Fernando - (43) 99806-1421
+            </a>
 
-          <a href="https://wa.me/5543999520213" target="_blank" className="block hover:text-yellow-400">
-            🟢 Anderson - (43) 99952-0213
-          </a>
+            <a href="https://wa.me/5543999520213" target="_blank" className="flex items-center gap-3 hover:text-yellow-400">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" className="w-5 h-5"/>
+              Anderson - (43) 99952-0213
+            </a>
 
-          <a href="https://wa.me/5543996281826" target="_blank" className="block hover:text-yellow-400">
-            🟢 Valéria - (43) 99628-1826
-          </a>
+            <a href="https://wa.me/5543996281826" target="_blank" className="flex items-center gap-3 hover:text-yellow-400">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" className="w-5 h-5"/>
+              Valéria - (43) 99628-1826
+            </a>
 
-          <a
-            href="https://www.instagram.com/terraplanagem.nivelar/"
-            target="_blank"
-            className="block hover:text-yellow-400 mt-4"
-          >
-            📸 @terraplanagem.nivelar
-          </a>
+            {/* INSTAGRAM REAL */}
+            <a href="https://www.instagram.com/terraplanagem.nivelar/" target="_blank" className="flex items-center gap-3 hover:text-yellow-400 mt-4">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" className="w-5 h-5"/>
+              @terraplanagem.nivelar
+            </a>
 
+          </div>
         </div>
       </section>
 
@@ -200,14 +167,10 @@ export default function Nivelar() {
       <a
         href={whatsapp}
         target="_blank"
-        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition"
+        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full shadow-lg"
       >
         💬
       </a>
-
-      <footer className="text-center p-6 bg-black text-gray-400 text-sm">
-        © 2026 Nivelar Terraplanagem
-      </footer>
 
     </div>
   );
