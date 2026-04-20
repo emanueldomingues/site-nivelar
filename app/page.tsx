@@ -117,41 +117,33 @@ export default function Nivelar() {
           {/* INFO */}
           <div className="space-y-4 text-sm md:text-base">
 
-            <p>📍 Endereço:<br />Av. Antônio Raminelli, 857<br />Parque Res. Ana Rosa</p>
+            <p>
+              📍 <strong>Endereço:</strong><br />
+              Av. Antônio Raminelli, 857<br />
+              Parque Res. Ana Rosa
+            </p>
 
-            {/* WHATS CORRETO */}
             <a href={whatsappFernando} target="_blank" className="flex items-center gap-2 hover:text-yellow-400">
-              <svg viewBox="0 0 24 24" className="w-5 h-5">
-                <path fill="#25D366" d="M12 2C6.48 2 2 6.48 2 12c0 1.76.46 3.41 1.26 4.85L2 22l5.27-1.23A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
-              </svg>
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" className="w-5 h-5" />
               Fernando — (43) 99806-1421
             </a>
 
             <a href={whatsappAnderson} target="_blank" className="flex items-center gap-2 hover:text-yellow-400">
-              <svg viewBox="0 0 24 24" className="w-5 h-5">
-                <path fill="#25D366" d="M12 2C6.48 2 2 6.48 2 12z"/>
-              </svg>
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" className="w-5 h-5" />
               Anderson — (43) 99952-0213
             </a>
 
             <a href={whatsappValeria} target="_blank" className="flex items-center gap-2 hover:text-yellow-400">
-              <svg viewBox="0 0 24 24" className="w-5 h-5">
-                <path fill="#25D366" d="M12 2C6.48 2 2 6.48 2 12z"/>
-              </svg>
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" className="w-5 h-5" />
               Valéria — (43) 99628-1826
             </a>
 
-            <p>📧 Email: contato@nivelar.com</p>
-
-            {/* INSTAGRAM */}
             <a
               href="https://www.instagram.com/terraplanagem.nivelar/"
               target="_blank"
               className="flex items-center gap-2 text-yellow-400"
             >
-              <svg viewBox="0 0 24 24" className="w-5 h-5">
-                <path fill="currentColor" d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7z"/>
-              </svg>
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" className="w-5 h-5" />
               @terraplanagem.nivelar
             </a>
 
@@ -165,9 +157,10 @@ export default function Nivelar() {
         target="_blank"
         className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition"
       >
-        <svg viewBox="0 0 24 24" className="w-6 h-6">
-          <path fill="white" d="M12 2C6.48 2 2 6.48 2 12z"/>
-        </svg>
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+          className="w-6 h-6"
+        />
       </a>
 
       <footer className="text-center p-6 text-gray-400">
