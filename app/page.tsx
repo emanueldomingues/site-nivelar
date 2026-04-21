@@ -1,136 +1,156 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nivelar Engenharia</title>
+export default function Home() {
+  return (
+    <main>
+      {/* HEADER */}
+      <header className="header">
+        <h1>NIVELAR</h1>
+        <p>Onde começa cada grande obra</p>
+        <nav>
+          <a href="#inicio">Início</a>
+          <a href="#projetos">Projetos</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </header>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#000;color:#fff}
+      {/* HERO */}
+      <section className="hero" id="inicio">
+        <h1>Construindo com excelência</h1>
+        <p>Projetos modernos, eficientes e confiáveis.</p>
+      </section>
 
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 40px;
-border-bottom:1px solid #222;
+      {/* DIFERENCIAIS */}
+      <section>
+        <h2>Diferenciais</h2>
+        <div className="features">
+          <div className="feature">
+            <h3>Ética</h3>
+            <p>Transparência em todos os processos.</p>
+          </div>
+          <div className="feature">
+            <h3>Compromisso</h3>
+            <p>Foco total na entrega e prazo.</p>
+          </div>
+          <div className="feature">
+            <h3>Qualidade</h3>
+            <p>Execução com alto padrão técnico.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* AVALIAÇÕES */}
+      <section>
+        <h2>Avaliações</h2>
+        <div className="cards">
+          <div className="card">
+            <h3>Cliente 1</h3>
+            <p>Excelente trabalho e atendimento.</p>
+          </div>
+          <div className="card">
+            <h3>Cliente 2</h3>
+            <p>Entrega rápida e com qualidade.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTATO */}
+      <section id="contato">
+        <h2>Contato</h2>
+        <p>Entre em contato para solicitar um orçamento.</p>
+      </section>
+
+      {/* CSS */}
+      <style jsx global>{`
+        body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+          background: #000;
+          color: #fff;
+        }
+
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+          border-bottom: 1px solid #222;
+        }
+
+        .header h1 {
+          color: #facc15;
+          margin: 0;
+        }
+
+        .header p {
+          margin: 0;
+          font-size: 12px;
+          color: #aaa;
+        }
+
+        nav a {
+          margin-left: 20px;
+          text-decoration: none;
+          color: #fff;
+        }
+
+        .hero {
+          text-align: center;
+          padding: 80px 20px;
+        }
+
+        .hero h1 {
+          font-size: 48px;
+          margin-bottom: 10px;
+        }
+
+        .hero p {
+          color: #aaa;
+        }
+
+        section {
+          padding: 60px 40px;
+        }
+
+        h2 {
+          font-family: Arial, sans-serif;
+          margin-bottom: 20px;
+        }
+
+        /* DIFERENCIAIS */
+        .features {
+          display: flex;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+
+        .feature {
+          flex: 1;
+          min-width: 250px;
+          padding: 10px;
+        }
+
+        .feature h3 {
+          color: #facc15;
+        }
+
+        /* AVALIAÇÕES */
+        .cards {
+          display: flex;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+
+        .card {
+          background: #111;
+          padding: 20px;
+          flex: 1;
+          min-width: 250px;
+          border: 1px solid #222;
+        }
+
+        .card h3 {
+          color: #facc15;
+        }
+      `}</style>
+    </main>
+  );
 }
-
-.logo{
-font-size:24px;
-font-weight:bold;
-color:#fff;
-}
-
-.logo span{color:#facc15}
-
-nav a{
-margin-left:20px;
-color:#fff;
-text-decoration:none;
-}
-
-.hero{
-height:80vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-}
-
-.hero h1{
-font-size:48px;
-margin-bottom:10px;
-}
-
-.hero p{
-color:#aaa;
-}
-
-section{
-padding:60px 40px;
-}
-
-.cards{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.card{
-background:#111;
-padding:20px;
-flex:1;
-min-width:250px;
-border:1px solid #222;
-}
-
-.card h3{
-margin-bottom:10px;
-color:#facc15;
-}
-
-footer{
-text-align:center;
-padding:20px;
-border-top:1px solid #222;
-color:#888;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<div class="logo">NIVELAR <span>.</span></div>
-<nav>
-<a href="#">Início</a>
-<a href="#">Projetos</a>
-<a href="#">Contato</a>
-</nav>
-</header>
-
-<div class="hero">
-<h1>Onde começa cada grande obra</h1>
-<p>Precisão, ética e qualidade em cada detalhe</p>
-</div>
-
-<section>
-<h2>Sobre nós</h2>
-<p>Somos especialistas em nivelamento e soluções de engenharia com foco em qualidade e precisão.</p>
-</section>
-
-<section>
-<h2>Projetos</h2>
-<div class="cards">
-<div class="card">
-<h3>Projeto 1</h3>
-<p>Execução profissional com alto padrão.</p>
-</div>
-
-<div class="card">
-<h3>Projeto 2</h3>
-<p>Resultados consistentes e confiáveis.</p>
-</div>
-
-<div class="card">
-<h3>Projeto 3</h3>
-<p>Excelência em cada etapa.</p>
-</div>
-</div>
-</section>
-
-<section>
-<h2>Contato</h2>
-<p>Email: contato@nivelar.com</p>
-<p>Telefone: (11) 99999-9999</p>
-</section>
-
-<footer>
-© 2026 Nivelar Engenharia
-</footer>
-
-</body>
-</html>
