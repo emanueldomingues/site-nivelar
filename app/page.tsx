@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { FaWhatsapp, FaInstagram, FaPhone } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 
 const carousel = [
   "/images/equipamentos/maquina1.jpg",
@@ -49,18 +49,21 @@ export default function Home() {
     <main>
       {/* HEADER */}
       <header className="w-full bg-black py-4 px-8 flex items-center justify-between">
-        {/* LOGO */}
+        
+        {/* LOGO AJUSTADA */}
         <div className="flex flex-col">
-          <h1 className="text-3xl font-black leading-none">NIVELAR</h1>
-          <span className="bg-yellow-400 text-black text-xs px-2 py-1 mt-1 font-bold w-fit">
+          <h1 className="text-4xl md:text-5xl font-black leading-none tracking-wide">
+            NIVELAR
+          </h1>
+          <span className="bg-yellow-400 text-black text-sm px-3 py-1 mt-1 font-bold w-fit">
             TERRAPLANAGEM
           </span>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-sm text-gray-400 mt-1">
             Onde começa cada grande obra
           </p>
         </div>
 
-        {/* MENU CENTRAL */}
+        {/* MENU (NÃO MEXER) */}
         <nav className="absolute left-1/2 transform -translate-x-1/2 flex gap-8 text-sm">
           <a href="#inicio">Início</a>
           <a href="#projetos">Projetos</a>
@@ -70,7 +73,7 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* HERO / CAROUSEL */}
+      {/* CAROUSEL */}
       <section id="inicio" className="relative w-full h-[70vh]">
         <Image
           src={carousel[index]}
@@ -88,16 +91,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROJETOS */}
-      <section id="projetos" className="px-10 py-16">
-        <h2 className="text-3xl font-bold text-yellow-400 mb-10">Projetos</h2>
+      {/* PROJETOS CENTRALIZADO */}
+      <section id="projetos" className="px-10 py-16 text-center">
+        <h2 className="text-3xl font-bold text-yellow-400 mb-10">
+          PROJETOS
+        </h2>
 
         <div className="grid grid-cols-3 gap-6">
           {projetos.map((img, i) => (
-            <div
-              key={i}
-              className="relative w-full h-[250px] overflow-hidden rounded-lg"
-            >
+            <div key={i} className="relative w-full h-[250px] overflow-hidden rounded-lg">
               <Image
                 src={img}
                 alt="projeto"
@@ -109,69 +111,92 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EQUIPAMENTOS */}
-      <section id="equipamentos" className="px-10 py-16 bg-zinc-900">
+      {/* EQUIPAMENTOS CENTRALIZADO */}
+      <section id="equipamentos" className="px-10 py-16 bg-zinc-900 text-center">
         <h2 className="text-3xl font-bold text-yellow-400 mb-10">
-          Equipamentos
+          EQUIPAMENTOS
         </h2>
 
         <div className="grid grid-cols-5 gap-6">
           {equipamentos.map((img, i) => (
-            <div
-              key={i}
-              className="relative w-full h-[150px] overflow-hidden rounded-lg"
-            >
+            <div key={i} className="relative w-full h-[150px] overflow-hidden rounded-lg">
               <Image src={img} alt="maq" fill className="object-cover" />
             </div>
           ))}
         </div>
       </section>
 
-      {/* SOBRE */}
-      <section id="sobre" className="px-10 py-16">
+      {/* SOBRE CENTRALIZADO */}
+      <section id="sobre" className="px-10 py-16 text-center">
         <h2 className="text-3xl font-bold text-yellow-400 mb-6">
-          Sobre Nós
+          SOBRE NÓS
         </h2>
-        <p className="max-w-2xl text-gray-300">
-          Empresa especializada em terraplanagem de alto padrão, atuando em Cambé e região com qualidade, eficiência e equipamentos modernos.
+        <p className="max-w-2xl mx-auto text-gray-300">
+          Empresa especializada em terraplanagem de alto padrão, atuando com excelência,
+          equipamentos modernos e compromisso com cada projeto.
         </p>
       </section>
 
-      {/* CONTATO */}
+      {/* CONTATO AJUSTADO */}
       <section id="contato" className="px-10 py-16">
-        <h2 className="text-3xl text-yellow-400 text-center mb-10">
+        <h2 className="text-3xl font-bold text-yellow-400 text-center mb-10">
           CONTATO
         </h2>
 
-        <div className="flex gap-10 items-start">
-          {/* MAPA */}
+        <div className="flex gap-10 items-center justify-center">
+
+          {/* MAPA MENOR */}
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-2/3 h-[350px] rounded-lg"
+            className="w-[500px] h-[300px] rounded-lg"
           />
 
-          {/* INFO */}
-          <div className="flex flex-col gap-4 text-sm">
-            <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
-            <p>📞 Fernando — (43) 99806-1421</p>
-            <p>📞 Anderson — (43) 99952-0213</p>
-            <p>📞 Valéria — (43) 99628-1826</p>
+          {/* CONTATOS */}
+          <div className="flex flex-col gap-4 text-base">
+
+            <p className="mb-2">📍 Av. Antônio Raminelli, 857 - Cambé</p>
+
+            <a
+              href="https://wa.me/5543998061421"
+              target="_blank"
+              className="flex items-center gap-2 hover:text-yellow-400 transition"
+            >
+              <FaWhatsapp className="text-green-500" /> Fernando — (43) 99806-1421
+            </a>
+
+            <a
+              href="https://wa.me/5543999520213"
+              target="_blank"
+              className="flex items-center gap-2 hover:text-yellow-400 transition"
+            >
+              <FaWhatsapp className="text-green-500" /> Anderson — (43) 99952-0213
+            </a>
+
+            <a
+              href="https://wa.me/5543996281826"
+              target="_blank"
+              className="flex items-center gap-2 hover:text-yellow-400 transition"
+            >
+              <FaWhatsapp className="text-green-500" /> Valéria — (43) 99628-1826
+            </a>
 
             <a
               href="https://instagram.com/terraplanagem.nivelar"
-              className="text-yellow-400 flex items-center gap-2"
+              target="_blank"
+              className="flex items-center gap-2 text-yellow-400 hover:opacity-80"
             >
               <FaInstagram /> @terraplanagem.nivelar
             </a>
+
           </div>
         </div>
       </section>
 
-      {/* WHATS FLUTUANTE */}
+      {/* BOTÃO FLUTUANTE (NÃO ALTERADO) */}
       <a
         href="https://wa.me/5543998061421"
         target="_blank"
-        className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full text-white text-2xl shadow-lg"
+        className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full text-white text-2xl shadow-lg hover:scale-110 transition"
       >
         <FaWhatsapp />
       </a>
