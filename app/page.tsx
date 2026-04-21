@@ -52,6 +52,7 @@ export default function Home() {
       <header className="fixed top-0 w-full bg-black/95 backdrop-blur z-50 border-b border-gray-800">
         <div className="w-full flex items-center justify-between px-10 py-3 relative">
 
+          {/* LOGO */}
           <div className="flex flex-col leading-tight mt-1">
             <h1 className="text-4xl font-black tracking-wide">NIVELAR</h1>
             <span className="bg-yellow-400 text-black text-xs px-2 py-0.5 mt-1 font-bold w-fit">
@@ -62,7 +63,8 @@ export default function Home() {
             </span>
           </div>
 
-          <nav className="absolute left-1/2 -translate-x-1/2 flex gap-10 text-sm font-semibold">
+          {/* MENU MAIOR (CORRIGIDO) */}
+          <nav className="absolute left-1/2 -translate-x-1/2 flex gap-12 text-base font-semibold">
             <a href="#home" className="hover:text-yellow-400">Início</a>
             <a href="#projetos" className="hover:text-yellow-400">Projetos</a>
             <a href="#equipamentos" className="hover:text-yellow-400">Equipamentos</a>
@@ -112,7 +114,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EQUIPAMENTOS (AGORA IGUAL PROJETOS) */}
+      {/* EQUIPAMENTOS */}
       <section id="equipamentos" className="py-20 px-6 text-center bg-[#111]">
         <h2 className="text-3xl font-bold mb-12">
           NOSSOS <span className="text-yellow-400">EQUIPAMENTOS</span>
@@ -130,17 +132,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOBRE */}
+      {/* SOBRE (RESTAURADO COMPLETO) */}
       <section id="sobre" className="py-20 px-6 text-center bg-[#0d0d0d]">
         <h2 className="text-3xl font-bold mb-6">
           SOBRE <span className="text-yellow-400">NÓS</span>
         </h2>
 
-        <p className="max-w-3xl mx-auto text-gray-300">
-          A Nivelar Terraplanagem nasce com o propósito de entregar excelência desde o início.
-          Nosso compromisso é preparar cada terreno com precisão, garantindo a base perfeita
-          para qualquer obra. Porque acreditamos que é exatamente aqui que começa cada grande obra.
-        </p>
+        <div className="max-w-3xl mx-auto text-gray-300 leading-relaxed text-base md:text-lg">
+          <p className="mb-4">
+            A <span className="text-white font-semibold">Nivelar Terraplanagem</span> nasceu com um propósito claro: dar início a grandes projetos com qualidade, precisão e responsabilidade.
+          </p>
+
+          <p className="mb-4">
+            Nosso trabalho vai muito além de movimentar terra — nós preparamos o terreno para que sonhos se tornem realidade.
+            É por isso que nosso slogan, <span className="text-yellow-400 font-semibold">“Onde começa cada grande obra”</span>, representa exatamente o que fazemos todos os dias.
+          </p>
+
+          <p>
+            Acreditamos que um bom começo define todo o resultado final — e é nesse início que fazemos a diferença.
+          </p>
+        </div>
       </section>
 
       {/* CONTATO */}
