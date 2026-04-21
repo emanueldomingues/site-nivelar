@@ -158,7 +158,7 @@ export default function Home() {
           />
 
           <div className="flex flex-col gap-4 text-gray-300">
-            <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
+            <p>📍 Av. Antônio Raminelli, 857 TESTE - Cambé</p>
           </div>
         </div>
       </section>
