@@ -1,156 +1,84 @@
 export default function Home() {
   return (
-    <main>
+    <main style={{
+      background: "#000",
+      color: "#fff",
+      minHeight: "100vh",
+      fontFamily: "Arial, sans-serif"
+    }}>
+
       {/* HEADER */}
-      <header className="header">
-        <h1>NIVELAR</h1>
-        <p>Onde começa cada grande obra</p>
+      <header style={{
+        display: "flex",
+        justifyContent: "space-between",
+        padding: "20px",
+        borderBottom: "1px solid #222"
+      }}>
+        <div>
+          <h1 style={{ color: "#facc15", margin: 0 }}>NIVELAR</h1>
+          <p style={{ fontSize: "12px", color: "#aaa", margin: 0 }}>
+            Onde começa cada grande obra
+          </p>
+        </div>
+
         <nav>
-          <a href="#inicio">Início</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#contato">Contato</a>
+          <a href="#" style={{ marginLeft: 20, color: "#fff" }}>Início</a>
+          <a href="#" style={{ marginLeft: 20, color: "#fff" }}>Projetos</a>
+          <a href="#" style={{ marginLeft: 20, color: "#fff" }}>Contato</a>
         </nav>
       </header>
 
       {/* HERO */}
-      <section className="hero" id="inicio">
-        <h1>Construindo com excelência</h1>
-        <p>Projetos modernos, eficientes e confiáveis.</p>
+      <section style={{ textAlign: "center", padding: "80px 20px" }}>
+        <h1 style={{ fontSize: "40px" }}>Construindo com excelência</h1>
+        <p style={{ color: "#aaa" }}>Projetos modernos e confiáveis</p>
       </section>
 
       {/* DIFERENCIAIS */}
-      <section>
+      <section style={{ padding: "40px" }}>
         <h2>Diferenciais</h2>
-        <div className="features">
-          <div className="feature">
-            <h3>Ética</h3>
-            <p>Transparência em todos os processos.</p>
+
+        <div style={{ display: "flex", gap: 20 }}>
+          <div>
+            <h3 style={{ color: "#facc15" }}>Ética</h3>
+            <p>Transparência total.</p>
           </div>
-          <div className="feature">
-            <h3>Compromisso</h3>
-            <p>Foco total na entrega e prazo.</p>
+
+          <div>
+            <h3 style={{ color: "#facc15" }}>Compromisso</h3>
+            <p>Entrega no prazo.</p>
           </div>
-          <div className="feature">
-            <h3>Qualidade</h3>
-            <p>Execução com alto padrão técnico.</p>
+
+          <div>
+            <h3 style={{ color: "#facc15" }}>Qualidade</h3>
+            <p>Execução profissional.</p>
           </div>
         </div>
       </section>
 
       {/* AVALIAÇÕES */}
-      <section>
+      <section style={{ padding: "40px" }}>
         <h2>Avaliações</h2>
-        <div className="cards">
-          <div className="card">
+
+        <div style={{ display: "flex", gap: 20 }}>
+          <div style={{ background: "#111", padding: 20 }}>
             <h3>Cliente 1</h3>
-            <p>Excelente trabalho e atendimento.</p>
+            <p>Ótimo serviço.</p>
           </div>
-          <div className="card">
+
+          <div style={{ background: "#111", padding: 20 }}>
             <h3>Cliente 2</h3>
-            <p>Entrega rápida e com qualidade.</p>
+            <p>Recomendo muito.</p>
           </div>
         </div>
       </section>
 
       {/* CONTATO */}
-      <section id="contato">
+      <section style={{ padding: "40px" }}>
         <h2>Contato</h2>
-        <p>Entre em contato para solicitar um orçamento.</p>
+        <p>Fale conosco para orçamento.</p>
       </section>
 
-      {/* CSS */}
-      <style jsx global>{`
-        body {
-          margin: 0;
-          font-family: Arial, sans-serif;
-          background: #000;
-          color: #fff;
-        }
-
-        .header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 20px;
-          border-bottom: 1px solid #222;
-        }
-
-        .header h1 {
-          color: #facc15;
-          margin: 0;
-        }
-
-        .header p {
-          margin: 0;
-          font-size: 12px;
-          color: #aaa;
-        }
-
-        nav a {
-          margin-left: 20px;
-          text-decoration: none;
-          color: #fff;
-        }
-
-        .hero {
-          text-align: center;
-          padding: 80px 20px;
-        }
-
-        .hero h1 {
-          font-size: 48px;
-          margin-bottom: 10px;
-        }
-
-        .hero p {
-          color: #aaa;
-        }
-
-        section {
-          padding: 60px 40px;
-        }
-
-        h2 {
-          font-family: Arial, sans-serif;
-          margin-bottom: 20px;
-        }
-
-        /* DIFERENCIAIS */
-        .features {
-          display: flex;
-          gap: 20px;
-          flex-wrap: wrap;
-        }
-
-        .feature {
-          flex: 1;
-          min-width: 250px;
-          padding: 10px;
-        }
-
-        .feature h3 {
-          color: #facc15;
-        }
-
-        /* AVALIAÇÕES */
-        .cards {
-          display: flex;
-          gap: 20px;
-          flex-wrap: wrap;
-        }
-
-        .card {
-          background: #111;
-          padding: 20px;
-          flex: 1;
-          min-width: 250px;
-          border: 1px solid #222;
-        }
-
-        .card h3 {
-          color: #facc15;
-        }
-      `}</style>
     </main>
   );
 }
