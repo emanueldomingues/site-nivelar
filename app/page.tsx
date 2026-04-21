@@ -6,6 +6,7 @@ import { FaWhatsapp } from "react-icons/fa";
 export default function Home() {
   const [current, setCurrent] = useState(0);
   const [zoomImg, setZoomImg] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const heroImages = [
     "/images/equipamentos/maquina1.jpg",
@@ -46,23 +47,25 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white overflow-x-hidden">
 
       {/* HEADER */}
       <header className="fixed top-0 w-full bg-black/95 backdrop-blur z-50 border-b border-gray-800">
-        <div className="w-full flex items-center justify-between px-10 py-3 relative">
+        <div className="flex items-center justify-between px-4 md:px-10 py-3 relative">
 
-          <div className="flex flex-col leading-tight mt-1">
-            <h1 className="text-4xl font-black tracking-wide">NIVELAR</h1>
-            <span className="bg-yellow-400 text-black text-xs px-2 py-0.5 mt-1 font-bold w-fit">
+          {/* LOGO */}
+          <div className="flex flex-col leading-tight">
+            <h1 className="text-2xl md:text-4xl font-black">NIVELAR</h1>
+            <span className="bg-yellow-400 text-black text-[10px] md:text-xs px-2 py-0.5 mt-1 font-bold w-fit">
               TERRAPLANAGEM
             </span>
-            <span className="text-xs text-white mt-1">
+            <span className="text-[10px] md:text-xs mt-1">
               Onde começa cada grande obra
             </span>
           </div>
 
-          <nav className="absolute left-1/2 -translate-x-1/2 flex gap-12 text-base font-semibold">
+          {/* MENU DESKTOP */}
+          <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-12 text-base font-semibold">
             <a href="#home" className="hover:text-yellow-400">Início</a>
             <a href="#projetos" className="hover:text-yellow-400">Projetos</a>
             <a href="#equipamentos" className="hover:text-yellow-400">Equipamentos</a>
@@ -70,12 +73,29 @@ export default function Home() {
             <a href="#contato" className="hover:text-yellow-400">Contato</a>
           </nav>
 
-          <div className="w-[120px]" />
+          {/* BOTÃO MOBILE */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden text-xl"
+          >
+            ☰
+          </button>
         </div>
+
+        {/* MENU MOBILE */}
+        {menuOpen && (
+          <div className="md:hidden bg-black border-t border-gray-800 flex flex-col items-center py-6 gap-6 text-lg">
+            <a href="#home" onClick={() => setMenuOpen(false)}>Início</a>
+            <a href="#projetos" onClick={() => setMenuOpen(false)}>Projetos</a>
+            <a href="#equipamentos" onClick={() => setMenuOpen(false)}>Equipamentos</a>
+            <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre Nós</a>
+            <a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a>
+          </div>
+        )}
       </header>
 
-      {/* HERO (DIMINUÍDO) */}
-      <section id="home" className="h-[65vh] pt-28 relative flex items-center justify-center">
+      {/* HERO */}
+      <section id="home" className="h-[60vh] md:h-[65vh] pt-28 relative flex items-center justify-center">
         {heroImages.map((img, i) => (
           <div
             key={i}
@@ -88,55 +108,55 @@ export default function Home() {
 
         <div className="absolute inset-0 bg-black/70" />
 
-        <h2 className="relative text-4xl md:text-5xl font-bold text-center">
+        <h2 className="relative text-2xl md:text-5xl font-bold text-center px-4">
           Terraplanagem de <br />
           <span className="text-yellow-400">Alto Padrão</span>
         </h2>
       </section>
 
       {/* PROJETOS */}
-      <section id="projetos" className="py-20 px-6 text-center">
-        <h2 className="text-3xl font-bold mb-12">
+      <section id="projetos" className="py-16 px-4 md:px-6 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold mb-10">
           PROJETOS <span className="text-yellow-400">REALIZADOS</span>
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {projetos.map((img, i) => (
             <img
               key={i}
               src={img}
               onClick={() => setZoomImg(img)}
-              className="rounded-xl object-cover h-[260px] w-full cursor-pointer hover:scale-105 transition"
+              className="rounded-xl object-cover h-[220px] md:h-[260px] w-full cursor-pointer hover:scale-105 transition"
             />
           ))}
         </div>
       </section>
 
       {/* EQUIPAMENTOS */}
-      <section id="equipamentos" className="py-20 px-6 text-center bg-[#111]">
-        <h2 className="text-3xl font-bold mb-12">
+      <section id="equipamentos" className="py-16 px-4 md:px-6 text-center bg-[#111]">
+        <h2 className="text-2xl md:text-3xl font-bold mb-10">
           NOSSOS <span className="text-yellow-400">EQUIPAMENTOS</span>
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {equipamentos.map((img, i) => (
             <img
               key={i}
               src={img}
               onClick={() => setZoomImg(img)}
-              className="rounded-xl object-cover h-[260px] w-full cursor-pointer hover:scale-105 transition"
+              className="rounded-xl object-cover h-[220px] md:h-[260px] w-full cursor-pointer hover:scale-105 transition"
             />
           ))}
         </div>
       </section>
 
       {/* SOBRE */}
-      <section id="sobre" className="py-20 px-6 text-center bg-[#0d0d0d]">
-        <h2 className="text-3xl font-bold mb-6">
+      <section id="sobre" className="py-16 px-4 md:px-6 text-center bg-[#0d0d0d]">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6">
           SOBRE <span className="text-yellow-400">NÓS</span>
         </h2>
 
-        <div className="max-w-3xl mx-auto text-gray-300 leading-relaxed text-base md:text-lg">
+        <div className="max-w-3xl mx-auto text-gray-300 text-sm md:text-lg leading-relaxed">
           <p className="mb-4">
             A <span className="text-white font-semibold">Nivelar Terraplanagem</span> nasceu com um propósito claro: dar início a grandes projetos com qualidade, precisão e responsabilidade.
           </p>
@@ -153,19 +173,19 @@ export default function Home() {
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="py-20 px-6 bg-black">
-        <h2 className="text-3xl font-bold text-center mb-10 text-yellow-400">
+      <section id="contato" className="py-16 px-4 md:px-6 bg-black">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 text-yellow-400">
           CONTATO
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
 
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-full h-[520px] rounded-xl"
+            className="w-full h-[350px] md:h-[520px] rounded-xl"
           />
 
-          <div className="space-y-5 text-base">
+          <div className="space-y-5 text-sm md:text-base">
 
             <p className="text-gray-300">📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
@@ -200,6 +220,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ZOOM */}
       {zoomImg && (
         <div
           onClick={() => setZoomImg(null)}
@@ -209,10 +230,11 @@ export default function Home() {
         </div>
       )}
 
+      {/* WHATS FIXO */}
       <a
         href="https://wa.me/5543998061421"
         target="_blank"
-        className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full text-white text-2xl shadow-lg hover:scale-110 transition"
+        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl shadow-lg hover:scale-110 transition"
       >
         <FaWhatsapp />
       </a>
