@@ -93,10 +93,6 @@ export default function Home() {
 
       {/* PROJETOS */}
       <section id="projetos" className="py-16 px-4 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-10">
-          PROJETOS <span className="text-yellow-400">REALIZADOS</span>
-        </h2>
-
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {projetos.map((img, i) => (
             <img key={i}
@@ -110,10 +106,6 @@ export default function Home() {
 
       {/* EQUIPAMENTOS */}
       <section id="equipamentos" className="py-16 px-4 text-center bg-[#111]">
-        <h2 className="text-2xl md:text-3xl font-bold mb-10">
-          NOSSOS <span className="text-yellow-400">EQUIPAMENTOS</span>
-        </h2>
-
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {equipamentos.map((img, i) => (
             <img key={i}
@@ -125,16 +117,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOBRE + VALORES */}
+      {/* SOBRE */}
       <section id="sobre" className="py-16 px-4 text-center bg-[#0d0d0d]">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6">
-          SOBRE <span className="text-yellow-400">NÓS</span>
-        </h2>
 
         <p className="max-w-2xl mx-auto text-gray-300 mb-10 leading-relaxed">
-          Na Nivelar Terraplanagem, acreditamos que toda grande obra começa com uma base sólida e bem executada...
+          Na Nivelar Terraplanagem, acreditamos que toda grande obra começa com uma base sólida e bem executada.
+          Nosso trabalho vai muito além da movimentação de terra — nós preparamos o terreno para que sonhos,
+          projetos e construções se tornem realidade com segurança e precisão.
+
+          <br /><br />
+
+          Guiados pelo nosso propósito,
+          <span className="text-white font-semibold"> "Onde começa cada grande obra"</span>,
+          atuamos com responsabilidade, tecnologia e compromisso em cada serviço realizado.
+
+          <br /><br />
+
+          Nosso princípio é simples: fazer bem feito desde o início.
         </p>
 
+        {/* VALORES */}
         <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto text-left mb-16">
           <div className="flex-1 border-l-4 border-yellow-400 pl-5">
             <h3 className="text-yellow-400 font-bold">Ética</h3>
@@ -152,56 +154,17 @@ export default function Home() {
           </div>
         </div>
 
-        {/* DEPOIMENTOS */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
-          {[
-            ["Carlos Mendes", "Serviço excelente."],
-            ["Juliano Rocha", "Equipe profissional."],
-            ["Fernanda Lima", "Recomendo totalmente."],
-          ].map(([nome, texto], i) => (
-            <div key={i} className="bg-black p-6 rounded-xl border border-gray-800">
-              <div className="text-yellow-400 mb-2">★★★★★</div>
-              <p className="text-gray-300">{texto}</p>
-              <span className="text-sm text-gray-500">— {nome}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* FORMULÁRIO */}
-        <div className="max-w-md mx-auto">
-          <h3 className="text-yellow-400 mb-4">Avalie nosso serviço</h3>
-
-          <div className="flex justify-center gap-2 mb-4">
-            {[1,2,3,4,5].map((star) => (
-              <FaStar key={star}
-                onClick={() => setRating(star)}
-                className={`cursor-pointer text-2xl ${
-                  rating >= star ? "text-yellow-400" : "text-gray-500"
-                }`}
-              />
-            ))}
-          </div>
-
-          <input placeholder="Seu nome" className="w-full p-3 mb-3 bg-black border border-gray-700 rounded" />
-          <textarea placeholder="Sua avaliação" className="w-full p-3 mb-3 bg-black border border-gray-700 rounded" />
-
-          <button className="bg-yellow-400 text-black px-6 py-2 rounded">
-            Enviar
-          </button>
-        </div>
       </section>
 
-      {/* CONTATO (FONTE CORRIGIDA) */}
-      <section id="contato" className="py-16 px-4 text-sm md:text-base">
-        <h2 className="text-3xl text-yellow-400 text-center mb-10">CONTATO</h2>
-
+      {/* CONTATO */}
+      <section id="contato" className="py-16 px-4">
         <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center">
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
             className="w-full h-[520px] rounded-xl"
           />
 
-          <div className="flex flex-col gap-5 text-gray-300">
+          <div className="flex flex-col gap-5 text-gray-300 text-sm md:text-base">
 
             <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
@@ -242,7 +205,7 @@ export default function Home() {
 
       {/* WHATS */}
       <a href="https://wa.me/5543998061421"
-        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl shadow-lg hover:scale-110 transition">
+        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl shadow-lg">
         <FaWhatsapp />
       </a>
 
