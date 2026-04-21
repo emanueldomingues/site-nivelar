@@ -81,7 +81,10 @@ export default function Home() {
             style={{ backgroundImage: `url(${img})` }}
           />
         ))}
-        <div className="absolute inset-0 bg-black/70" />
+
+        {/* 🔥 AQUI FOI A ÚNICA ALTERAÇÃO */}
+        <div className="absolute inset-0 bg-black/40" />
+
         <h2 className="text-4xl font-bold relative">
           Terraplanagem <span className="text-yellow-400">de Alto Padrão</span>
         </h2>
