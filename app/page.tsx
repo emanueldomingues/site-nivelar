@@ -50,10 +50,10 @@ export default function Home() {
 
       {/* HEADER */}
       <header className="fixed top-0 w-full bg-black/95 backdrop-blur z-50 border-b border-gray-800">
-        <div className="w-full flex items-center justify-between px-10 py-6 relative">
+        <div className="w-full flex items-center justify-between px-10 py-8 relative">
 
           {/* LOGO */}
-          <div className="flex flex-col leading-tight mt-2">
+          <div className="flex flex-col leading-tight mt-6">
             <h1 className="text-5xl font-black tracking-wide">
               NIVELAR
             </h1>
@@ -79,7 +79,7 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section id="home" className="h-screen pt-32 relative flex items-center justify-center">
+      <section id="home" className="h-screen pt-40 relative flex items-center justify-center">
         {heroImages.map((img, i) => (
           <div
             key={i}
@@ -89,6 +89,7 @@ export default function Home() {
             style={{ backgroundImage: `url(${img})` }}
           />
         ))}
+
         <div className="absolute inset-0 bg-black/70" />
 
         <h2 className="relative text-5xl font-bold text-center">
@@ -135,13 +136,11 @@ export default function Home() {
 
       {/* SOBRE */}
       <section id="sobre" className="py-20 px-6 text-center bg-[#0d0d0d]">
-
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
           SOBRE <span className="text-yellow-400">NÓS</span>
         </h2>
 
         <div className="max-w-3xl mx-auto text-gray-300 leading-relaxed text-base md:text-lg">
-
           <p className="mb-4">
             A <span className="text-white font-semibold">Nivelar Terraplanagem</span> nasceu com um propósito claro: dar início a grandes projetos com qualidade, precisão e responsabilidade.
           </p>
@@ -154,9 +153,7 @@ export default function Home() {
           <p>
             Acreditamos que um bom começo define todo o resultado final — e é exatamente nesse começo que fazemos a diferença.
           </p>
-
         </div>
-
       </section>
 
       {/* CONTATO */}
@@ -170,7 +167,7 @@ export default function Home() {
           {/* MAPA */}
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-full h-[460px] rounded-xl"
+            className="w-full h-[500px] rounded-xl"
           />
 
           {/* CONTATOS */}
@@ -201,7 +198,7 @@ export default function Home() {
               target="_blank"
               className="flex items-center gap-3 hover:text-yellow-400 transition"
             >
-              <FaInstagram className="text-xl" />
+              <FaInstagram size={22} />
               @terraplanagem.nivelar
             </a>
 
