@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <>
       <header className="header">
-        <h1>NIVELAR</h1>
+        <h1><h1>TESTE SUBIU</h1></h1>
         <nav>
           <a href="#servicos">Serviços</a>
           <a href="#valores">Valores</a>
