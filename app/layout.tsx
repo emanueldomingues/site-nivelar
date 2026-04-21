@@ -1,9 +1,10 @@
 import "./globals.css";
+import { Montserrat } from "next/font/google";
 
-export const metadata = {
-  title: "Nivelar Terraplanagem",
-  description: "Onde começa cada grande obra",
-};
+const font = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "900"],
+});
 
 export default function RootLayout({
   children,
@@ -12,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body className={`${font.className} bg-black text-white`}>
+        {children}
+      </body>
     </html>
   );
 }
