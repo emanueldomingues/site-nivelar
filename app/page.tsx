@@ -6,7 +6,6 @@ import { FaWhatsapp, FaStar } from "react-icons/fa";
 export default function Home() {
   const [current, setCurrent] = useState(0);
   const [zoomImg, setZoomImg] = useState<string | null>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [rating, setRating] = useState(0);
 
   const heroImages = [
@@ -71,10 +70,6 @@ export default function Home() {
             <a href="#sobre" className="hover:text-yellow-400">Sobre Nós</a>
             <a href="#contato" className="hover:text-yellow-400">Contato</a>
           </nav>
-
-          <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden text-xl">
-            ☰
-          </button>
         </div>
       </header>
 
@@ -129,13 +124,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOBRE */}
+      {/* SOBRE + DEPOIMENTOS + AVALIAÇÃO */}
       <section id="sobre" className="py-16 px-4 text-center bg-[#0d0d0d]">
         <h2 className="text-2xl md:text-3xl font-bold mb-6">
           SOBRE <span className="text-yellow-400">NÓS</span>
         </h2>
 
-        {/* TEXTO CORRIGIDO */}
         <p className="max-w-2xl mx-auto text-gray-300 mb-10 leading-relaxed">
           Na Nivelar Terraplanagem, acreditamos que toda grande obra começa com uma base sólida e bem executada.
           Nosso trabalho vai muito além da movimentação de terra — nós preparamos o terreno para que sonhos,
@@ -146,17 +140,52 @@ export default function Home() {
           Guiados pelo nosso propósito, <span className="text-white font-semibold">
           "Onde começa cada grande obra"
           </span>, atuamos com responsabilidade, tecnologia e compromisso em cada serviço realizado.
-          Buscamos sempre a excelência em cada detalhe, garantindo qualidade, agilidade e confiança para nossos clientes.
 
           <br /><br />
 
-          Nosso princípio é simples: fazer bem feito desde o início, porque sabemos que um bom começo
-          define todo o resultado final.
+          Nosso princípio é simples: fazer bem feito desde o início.
         </p>
 
+        {/* DEPOIMENTOS */}
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
+          {[
+            ["João Martins", "Serviço impecável, equipe extremamente profissional."],
+            ["Ricardo Almeida", "Equipamentos modernos e entrega rápida."],
+            ["Patrícia Souza", "Qualidade excelente, recomendo totalmente."],
+          ].map(([nome, texto], i) => (
+            <div key={i} className="bg-black p-6 rounded-xl border border-gray-800">
+              <div className="text-yellow-400 mb-2">★★★★★</div>
+              <p className="text-gray-300 mb-2">{texto}</p>
+              <span className="text-sm text-gray-500">— {nome}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* AVALIAÇÃO */}
+        <div className="max-w-md mx-auto">
+          <h3 className="text-yellow-400 mb-4">Avalie nosso serviço</h3>
+
+          <div className="flex justify-center gap-2 mb-4">
+            {[1,2,3,4,5].map((star) => (
+              <FaStar key={star}
+                onClick={() => setRating(star)}
+                className={`cursor-pointer text-2xl ${
+                  rating >= star ? "text-yellow-400" : "text-gray-500"
+                }`}
+              />
+            ))}
+          </div>
+
+          <input className="w-full p-3 mb-3 rounded bg-black border border-gray-700" placeholder="Seu nome" />
+          <textarea className="w-full p-3 mb-3 rounded bg-black border border-gray-700" placeholder="Sua avaliação" />
+
+          <button className="bg-yellow-400 text-black px-6 py-2 rounded">
+            Enviar
+          </button>
+        </div>
       </section>
 
-      {/* CONTATO */}
+      {/* CONTATO (intocado) */}
       <section id="contato" className="py-16 px-4 text-base md:text-lg font-medium">
         <h2 className="text-2xl md:text-3xl text-yellow-400 text-center mb-10 font-bold">
           CONTATO
