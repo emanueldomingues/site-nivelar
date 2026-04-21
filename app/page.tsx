@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 
 const carousel = [
   "/images/equipamentos/maquina1.jpg",
@@ -51,7 +51,6 @@ export default function Home() {
       {/* HEADER */}
       <header className="w-full bg-black py-4 px-8 flex items-center justify-between relative">
         
-        {/* LOGO */}
         <div className="flex flex-col ml-2">
           <h1 className="text-5xl font-black leading-none tracking-wide">
             NIVELAR
@@ -64,7 +63,6 @@ export default function Home() {
           </p>
         </div>
 
-        {/* MENU CENTRALIZADO */}
         <nav className="absolute left-1/2 transform -translate-x-1/2 flex gap-8 text-sm">
           <a href="#inicio">Início</a>
           <a href="#projetos">Projetos</a>
@@ -101,12 +99,7 @@ export default function Home() {
         <div className="grid grid-cols-3 gap-6">
           {projetos.map((img, i) => (
             <div key={i} className="relative w-full h-[250px] overflow-hidden rounded-lg">
-              <Image
-                src={img}
-                alt="projeto"
-                fill
-                className="object-cover hover:scale-110 transition"
-              />
+              <Image src={img} alt="projeto" fill className="object-cover hover:scale-110 transition" />
             </div>
           ))}
         </div>
@@ -138,7 +131,7 @@ export default function Home() {
         </p>
       </section>
 
-      {/* CONTATO FINAL */}
+      {/* CONTATO */}
       <section id="contato" className="px-10 py-16">
         <h2 className="text-3xl font-bold text-yellow-400 text-center mb-10">
           CONTATO
@@ -146,10 +139,10 @@ export default function Home() {
 
         <div className="flex gap-12 items-center justify-center">
 
-          {/* MAPA */}
+          {/* MAPA MAIOR */}
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-[600px] h-[350px] rounded-lg"
+            className="w-[700px] h-[400px] rounded-lg"
           />
 
           {/* CONTATOS */}
@@ -157,46 +150,38 @@ export default function Home() {
 
             <p className="mb-2">📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
-            <a
-              href="https://wa.me/5543998061421"
-              target="_blank"
-              className="flex items-center gap-3 hover:text-yellow-400 transition"
-            >
+            <a href="https://wa.me/5543998061421" target="_blank" className="flex items-center gap-3 hover:text-yellow-400 transition">
               <div className="bg-green-500 p-2 rounded-full text-white">
                 <FaWhatsapp />
               </div>
               Fernando — (43) 99806-1421
             </a>
 
-            <a
-              href="https://wa.me/5543999520213"
-              target="_blank"
-              className="flex items-center gap-3 hover:text-yellow-400 transition"
-            >
+            <a href="https://wa.me/5543999520213" target="_blank" className="flex items-center gap-3 hover:text-yellow-400 transition">
               <div className="bg-green-500 p-2 rounded-full text-white">
                 <FaWhatsapp />
               </div>
               Anderson — (43) 99952-0213
             </a>
 
-            <a
-              href="https://wa.me/5543996281826"
-              target="_blank"
-              className="flex items-center gap-3 hover:text-yellow-400 transition"
-            >
+            <a href="https://wa.me/5543996281826" target="_blank" className="flex items-center gap-3 hover:text-yellow-400 transition">
               <div className="bg-green-500 p-2 rounded-full text-white">
                 <FaWhatsapp />
               </div>
               Valéria — (43) 99628-1826
             </a>
 
+            {/* INSTAGRAM OFICIAL SVG */}
             <a
               href="https://instagram.com/terraplanagem.nivelar"
               target="_blank"
               className="flex items-center gap-3 text-yellow-400 hover:opacity-80"
             >
-              <div className="bg-yellow-400 text-black p-2 rounded-full">
-                <FaInstagram />
+              <div className="bg-yellow-400 p-2 rounded-full">
+                <img
+                  src="/icons/instagram.svg"
+                  className="w-4 h-4"
+                />
               </div>
               @terraplanagem.nivelar
             </a>
@@ -205,7 +190,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BOTÃO FLUTUANTE */}
+      {/* BOTÃO FLUTUANTE (TRAVADO) */}
       <a
         href="https://wa.me/5543998061421"
         target="_blank"
