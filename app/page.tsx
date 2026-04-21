@@ -1,84 +1,123 @@
 export default function Home() {
   return (
-    <main style={{
-      background: "#000",
-      color: "#fff",
-      minHeight: "100vh",
-      fontFamily: "Arial, sans-serif"
-    }}>
-
-      {/* HEADER */}
-      <header style={{
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "20px",
-        borderBottom: "1px solid #222"
-      }}>
-        <div>
-          <h1 style={{ color: "#facc15", margin: 0 }}>NIVELAR</h1>
-          <p style={{ fontSize: "12px", color: "#aaa", margin: 0 }}>
-            Onde começa cada grande obra
-          </p>
-        </div>
+    <main>
+      <header className="header">
+        <h1>NIVELAR</h1>
+        <p>Onde começa cada grande obra</p>
 
         <nav>
-          <a href="#" style={{ marginLeft: 20, color: "#fff" }}>Início</a>
-          <a href="#" style={{ marginLeft: 20, color: "#fff" }}>Projetos</a>
-          <a href="#" style={{ marginLeft: 20, color: "#fff" }}>Contato</a>
+          <a href="#">Início</a>
+          <a href="#">Projetos</a>
+          <a href="#">Contato</a>
         </nav>
       </header>
 
-      {/* HERO */}
-      <section style={{ textAlign: "center", padding: "80px 20px" }}>
-        <h1 style={{ fontSize: "40px" }}>Construindo com excelência</h1>
-        <p style={{ color: "#aaa" }}>Projetos modernos e confiáveis</p>
+      <section className="hero">
+        <h1>Terraplanagem de Alto Padrão</h1>
+        <p>Qualidade, compromisso e ética em cada projeto</p>
       </section>
 
-      {/* DIFERENCIAIS */}
-      <section style={{ padding: "40px" }}>
-        <h2>Diferenciais</h2>
+      <section>
+        <h2>Projetos Realizados</h2>
 
-        <div style={{ display: "flex", gap: 20 }}>
-          <div>
-            <h3 style={{ color: "#facc15" }}>Ética</h3>
-            <p>Transparência total.</p>
+        <div className="cards">
+          <div className="card">
+            <h3>Terraplanagem</h3>
+            <p>Serviço profissional com máquinas modernas</p>
           </div>
 
-          <div>
-            <h3 style={{ color: "#facc15" }}>Compromisso</h3>
-            <p>Entrega no prazo.</p>
+          <div className="card">
+            <h3>Infraestrutura</h3>
+            <p>Preparação completa de terrenos</p>
           </div>
 
-          <div>
-            <h3 style={{ color: "#facc15" }}>Qualidade</h3>
-            <p>Execução profissional.</p>
+          <div className="card">
+            <h3>Obras</h3>
+            <p>Execução com qualidade e prazo</p>
           </div>
         </div>
       </section>
 
-      {/* AVALIAÇÕES */}
-      <section style={{ padding: "40px" }}>
+      <section>
         <h2>Avaliações</h2>
 
-        <div style={{ display: "flex", gap: 20 }}>
-          <div style={{ background: "#111", padding: 20 }}>
-            <h3>Cliente 1</h3>
-            <p>Ótimo serviço.</p>
+        <div className="cards">
+          <div className="card">
+            <h3>João Silva</h3>
+            <p>Serviço excelente, recomendo!</p>
           </div>
 
-          <div style={{ background: "#111", padding: 20 }}>
-            <h3>Cliente 2</h3>
-            <p>Recomendo muito.</p>
+          <div className="card">
+            <h3>Maria Souza</h3>
+            <p>Muito profissional e rápido.</p>
           </div>
         </div>
       </section>
 
-      {/* CONTATO */}
-      <section style={{ padding: "40px" }}>
+      <section>
         <h2>Contato</h2>
-        <p>Fale conosco para orçamento.</p>
+        <p>Entre em contato para orçamento</p>
       </section>
 
+      <style jsx>{`
+        main {
+          background: #000;
+          color: #fff;
+          font-family: Arial, sans-serif;
+        }
+
+        .header {
+          padding: 20px;
+          border-bottom: 1px solid #222;
+        }
+
+        .header h1 {
+          color: #facc15;
+        }
+
+        nav a {
+          margin-right: 15px;
+          color: #fff;
+          text-decoration: none;
+        }
+
+        .hero {
+          text-align: center;
+          padding: 100px 20px;
+        }
+
+        .hero h1 {
+          font-size: 48px;
+          margin-bottom: 10px;
+        }
+
+        .hero p {
+          color: #aaa;
+        }
+
+        section {
+          padding: 60px 40px;
+        }
+
+        .cards {
+          display: flex;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+
+        .card {
+          background: #111;
+          padding: 20px;
+          flex: 1;
+          min-width: 250px;
+          border: 1px solid #222;
+        }
+
+        .card h3 {
+          margin-bottom: 10px;
+          color: #facc15;
+        }
+      `}</style>
     </main>
   );
 }
