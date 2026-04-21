@@ -7,9 +7,9 @@ export default function Home() {
   const [current, setCurrent] = useState(0);
 
   const heroImages = [
-    "/images/maquina1.jpg",
-    "/images/maquina2.jpg",
-    "/images/maquina3.jpg",
+    "/images/equipamentos/maquina1.jpg",
+    "/images/equipamentos/maquina2.jpg",
+    "/images/equipamentos/maquina3.jpg",
   ];
 
   const equipamentos = [
@@ -51,11 +51,15 @@ export default function Home() {
       <header className="fixed top-0 w-full bg-black/90 backdrop-blur z-50 border-b border-gray-800">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
-          {/* LOGO */}
+          {/* LOGO ESQUERDA */}
           <div className="flex flex-col leading-tight">
-            <h1 className="text-3xl font-bold">Nivelar</h1>
-            <span className="text-sm text-gray-400">Terraplanagem</span>
-            <span className="text-xs text-yellow-400">
+            <h1 className="text-4xl font-black tracking-wide">
+              NIVELAR
+            </h1>
+            <span className="bg-yellow-400 text-black text-xs px-2 py-1 mt-1 w-fit font-bold">
+              TERRAPLANAGEM
+            </span>
+            <span className="text-xs text-gray-400 mt-1">
               Onde começa cada grande obra
             </span>
           </div>
@@ -73,8 +77,8 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO */}
-      <section id="home" className="h-screen relative flex items-center justify-center">
+      {/* HERO / CARROSSEL */}
+      <section id="home" className="h-[80vh] relative flex items-center justify-center">
         {heroImages.map((img, i) => (
           <div
             key={i}
@@ -85,11 +89,12 @@ export default function Home() {
           />
         ))}
 
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative z-10 text-center px-6">
           <h2 className="text-4xl md:text-6xl font-bold">
-            Terraplanagem de <span className="text-yellow-400">Alto Padrão</span>
+            Terraplanagem de{" "}
+            <span className="text-yellow-400">Alto Padrão</span>
           </h2>
         </div>
       </section>
@@ -136,7 +141,7 @@ export default function Home() {
 
         <p className="max-w-3xl mx-auto text-gray-300">
           A Nivelar Terraplanagem atua com excelência, oferecendo serviços com
-          precisão, segurança e compromisso.
+          precisão, segurança e compromisso com cada projeto.
         </p>
       </section>
 
@@ -148,21 +153,20 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
 
-          {/* MAPA */}
+          {/* MAPA AJUSTADO */}
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-full h-[380px] rounded-xl"
+            className="w-full h-[420px] rounded-xl"
           />
 
           {/* CONTATOS */}
-          <div className="space-y-5 text-sm">
+          <div className="space-y-5 text-base">
 
-            <p className="flex items-center gap-2 text-gray-300">
-              <span className="text-xl">📍</span>
-              Av. Antônio Raminelli, 857 - Cambé
+            <p className="text-gray-300">
+              📍 Av. Antônio Raminelli, 857 - Cambé
             </p>
 
-            {/* WHATS COM FUNDO (VERSÃO PERFEITA) */}
+            {/* WHATS COM ÍCONE CERTO */}
             {[
               ["Fernando", "5543998061421"],
               ["Anderson", "5543999520213"],
@@ -174,20 +178,20 @@ export default function Home() {
                 target="_blank"
                 className="flex items-center gap-3 hover:text-yellow-400 transition"
               >
-                <div className="bg-green-500 p-2 rounded-full text-white">
-                  <FaWhatsapp size={16} />
+                <div className="bg-green-500 p-2 rounded-full text-white text-lg">
+                  <FaWhatsapp />
                 </div>
                 {nome}
               </a>
             ))}
 
-            {/* INSTAGRAM */}
+            {/* INSTAGRAM CORRETO */}
             <a
               href="https://instagram.com/terraplanagem.nivelar"
               target="_blank"
               className="flex items-center gap-3 hover:text-yellow-400 transition"
             >
-              <FaInstagram size={20} />
+              <FaInstagram className="text-xl" />
               @terraplanagem.nivelar
             </a>
 
@@ -195,7 +199,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BOTÃO FLUTUANTE (VERSÃO PERFEITA) */}
+      {/* BOTÃO FLUTUANTE CORRETO */}
       <a
         href="https://wa.me/5543998061421"
         target="_blank"
