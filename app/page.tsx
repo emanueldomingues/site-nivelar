@@ -49,10 +49,11 @@ export default function Home() {
 
       {/* HEADER */}
       <header className="fixed top-0 w-full bg-black/90 backdrop-blur z-50 border-b border-gray-800">
-        <div className="flex items-center justify-center relative px-2 py-6">
+        
+        {/* 🔥 MAIS ALTURA + LOGO DESCIDA */}
+        <div className="flex items-center justify-center relative px-4 py-8">
 
-          {/* 🔥 LOGO AJUSTADA (DESCIDA) */}
-          <div className="absolute left-0 flex flex-col leading-tight ml-3 mt-2">
+          <div className="absolute left-0 flex flex-col leading-tight ml-3 mt-4">
             <h1 className="text-5xl font-black tracking-wide">
               NIVELAR
             </h1>
@@ -64,7 +65,7 @@ export default function Home() {
             </span>
           </div>
 
-          {/* MENU */}
+          {/* MENU CENTRAL */}
           <nav className="hidden md:flex gap-10 text-sm font-medium">
             <a href="#home" className="hover:text-yellow-400 transition">Início</a>
             <a href="#projetos" className="hover:text-yellow-400 transition">Projetos</a>
@@ -75,6 +76,9 @@ export default function Home() {
 
         </div>
       </header>
+
+      {/* 🔥 ESPAÇO PARA NÃO CORTAR O HEADER */}
+      <div className="pt-28" />
 
       {/* HERO */}
       <section id="home" className="h-[80vh] relative flex items-center justify-center">
@@ -132,10 +136,10 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
 
-          {/* 🔥 MAPA MAIOR */}
+          {/* 🔥 MAPA TAMANHO DO PRINT */}
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-full h-[620px] rounded-xl"
+            className="w-full h-[680px] rounded-xl"
           />
 
           <div className="space-y-5 text-base">
@@ -162,7 +166,6 @@ export default function Home() {
               </a>
             ))}
 
-            {/* 🔥 INSTAGRAM PERFEITO */}
             <a
               href="https://instagram.com/terraplanagem.nivelar"
               target="_blank"
