@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
@@ -155,10 +155,10 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
 
-          {/* MAPA MAIS LARGO */}
+          {/* MAPA */}
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-full h-[420px] rounded-xl"
+            className="w-full h-[500px] rounded-xl"
           />
 
           {/* CONTATOS */}
@@ -184,13 +184,13 @@ export default function Home() {
               </a>
             ))}
 
-            {/* INSTAGRAM CORRETO (SEM FUNDO) */}
+            {/* INSTAGRAM SVG ORIGINAL */}
             <a
               href="https://instagram.com/terraplanagem.nivelar"
               target="_blank"
               className="flex items-center gap-3 hover:text-yellow-400 transition"
             >
-              <FaInstagram size={22} />
+              <img src="/icons/instagram.svg" className="w-6 h-6" />
               @terraplanagem.nivelar
             </a>
 
@@ -208,7 +208,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* BOTÃO FLUTUANTE */}
+      {/* BOTÃO WHATS */}
       <a
         href="https://wa.me/5543998061421"
         target="_blank"
