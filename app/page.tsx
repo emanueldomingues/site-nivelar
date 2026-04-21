@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { FaWhatsapp } from "react-icons/fa";
-import { BsInstagram } from "react-icons/bs"; // 🔥 instagram correto
+import { FaInstagram } from "react-icons/fa6"; // 🔥 correto definitivo
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
@@ -50,10 +50,11 @@ export default function Home() {
 
       {/* HEADER */}
       <header className="fixed top-0 w-full bg-black/90 backdrop-blur z-50 border-b border-gray-800">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-2 md:px-6 py-4">
+        
+        {/* 🔥 LOGO REALMENTE COLADA NO CANTO */}
+        <div className="flex items-center justify-center relative px-2 py-4">
 
-          {/* 🔥 LOGO COLADA NA ESQUERDA */}
-          <div className="flex flex-col leading-tight ml-1">
+          <div className="absolute left-0 flex flex-col leading-tight ml-2">
             <h1 className="text-5xl font-black tracking-wide">
               NIVELAR
             </h1>
@@ -65,8 +66,8 @@ export default function Home() {
             </span>
           </div>
 
-          {/* MENU CENTRAL */}
-          <nav className="hidden md:flex gap-10 text-sm font-medium absolute left-1/2 transform -translate-x-1/2">
+          {/* MENU CENTRAL (não mexer mais) */}
+          <nav className="hidden md:flex gap-10 text-sm font-medium">
             <a href="#home" className="hover:text-yellow-400 transition">Início</a>
             <a href="#projetos" className="hover:text-yellow-400 transition">Projetos</a>
             <a href="#equipamentos" className="hover:text-yellow-400 transition">Equipamentos</a>
@@ -74,7 +75,6 @@ export default function Home() {
             <a href="#contato" className="hover:text-yellow-400 transition">Contato</a>
           </nav>
 
-          <div className="w-[120px]" />
         </div>
       </header>
 
@@ -141,8 +141,7 @@ export default function Home() {
         </h2>
 
         <p className="max-w-3xl mx-auto text-gray-300">
-          A Nivelar Terraplanagem atua com excelência, oferecendo serviços com
-          precisão, segurança e compromisso com cada projeto.
+          A Nivelar Terraplanagem atua com excelência.
         </p>
       </section>
 
@@ -154,13 +153,12 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
 
-          {/* 🔥 MAPA MAIOR */}
+          {/* 🔥 MAPA AJUSTADO FINAL */}
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-full h-[500px] rounded-xl"
+            className="w-full h-[550px] rounded-xl"
           />
 
-          {/* CONTATOS */}
           <div className="space-y-5 text-base">
 
             <p className="text-gray-300">
@@ -185,13 +183,13 @@ export default function Home() {
               </a>
             ))}
 
-            {/* 🔥 INSTAGRAM CORRIGIDO */}
+            {/* 🔥 INSTAGRAM FINAL CORRETO */}
             <a
               href="https://instagram.com/terraplanagem.nivelar"
               target="_blank"
               className="flex items-center gap-3 hover:text-yellow-400 transition"
             >
-              <BsInstagram className="text-xl" />
+              <FaInstagram className="text-xl" />
               @terraplanagem.nivelar
             </a>
 
