@@ -1,9 +1,21 @@
-"use client";
+import "./globals.css";
+import { Montserrat } from "next/font/google";
 
-export default function Home() {
+const font = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "900"],
+});
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <main className="bg-black text-white min-h-screen flex items-center justify-center">
-      <h1 className="text-3xl font-bold">SITE OK</h1>
-    </main>
+    <html lang="pt-BR">
+      <body className={`${font.className} bg-black text-white`}>
+        {children}
+      </body>
+    </html>
   );
 }
