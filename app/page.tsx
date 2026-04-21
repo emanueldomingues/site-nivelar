@@ -194,7 +194,7 @@ export default function Home() {
 
           <div className="flex flex-col gap-4 text-gray-300 text-base">
 
-            <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
+            <p>📍 Av. Antônio Raminelli, test 857 - Cambé</p>
 
             <a href="https://wa.me/5543998061421" className="flex gap-3 items-center hover:text-yellow-400">
               <div className="bg-green-500 p-2 rounded-full">
