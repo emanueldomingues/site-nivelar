@@ -1,123 +1,116 @@
 export default function Home() {
   return (
-    <main>
-      <header className="header">
-        <h1>NIVELAR</h1>
-        <p>Onde começa cada grande obra</p>
-
-        <nav>
-          <a href="#">Início</a>
-          <a href="#">Projetos</a>
-          <a href="#">Contato</a>
-        </nav>
-      </header>
-
-      <section className="hero">
-        <h1>Terraplanagem de Alto Padrão</h1>
-        <p>Qualidade, compromisso e ética em cada projeto</p>
+    <main style={{ fontFamily: "Arial, sans-serif", background: "#000", color: "#fff" }}>
+      
+      {/* HERO */}
+      <section style={{ textAlign: "center", padding: "80px 20px" }}>
+        <h1 style={{ fontSize: "48px", marginBottom: "10px" }}>
+          Terraplanagem de Alto Padrão
+        </h1>
+        <p style={{ color: "#aaa" }}>
+          Qualidade, compromisso e resultado profissional
+        </p>
       </section>
 
-      <section>
-        <h2>Projetos Realizados</h2>
-
-        <div className="cards">
-          <div className="card">
-            <h3>Terraplanagem</h3>
-            <p>Serviço profissional com máquinas modernas</p>
+      {/* DIFERENCIAIS */}
+      <section style={{ padding: "60px 40px" }}>
+        <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+          
+          <div style={card}>
+            <h3 style={title}>Ética</h3>
+            <p>Trabalhamos com transparência e respeito em todos os projetos.</p>
           </div>
 
-          <div className="card">
-            <h3>Infraestrutura</h3>
-            <p>Preparação completa de terrenos</p>
+          <div style={card}>
+            <h3 style={title}>Compromisso</h3>
+            <p>Cumprimos prazos e garantimos a satisfação do cliente.</p>
           </div>
 
-          <div className="card">
-            <h3>Obras</h3>
-            <p>Execução com qualidade e prazo</p>
+          <div style={card}>
+            <h3 style={title}>Qualidade</h3>
+            <p>Equipamentos modernos e equipe altamente qualificada.</p>
           </div>
+
         </div>
       </section>
 
-      <section>
-        <h2>Avaliações</h2>
+      {/* PROJETOS */}
+      <section style={{ padding: "60px 40px" }}>
+        <h2 style={{ textAlign: "center", marginBottom: "30px" }}>
+          Projetos Realizados
+        </h2>
 
-        <div className="cards">
-          <div className="card">
-            <h3>João Silva</h3>
-            <p>Serviço excelente, recomendo!</p>
-          </div>
-
-          <div className="card">
-            <h3>Maria Souza</h3>
-            <p>Muito profissional e rápido.</p>
-          </div>
+        <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+          <img src="/img1.jpg" style={img} />
+          <img src="/img2.jpg" style={img} />
+          <img src="/img3.jpg" style={img} />
         </div>
       </section>
 
-      <section>
-        <h2>Contato</h2>
-        <p>Entre em contato para orçamento</p>
+      {/* AVALIAÇÕES */}
+      <section style={{ padding: "60px 40px", background: "#111" }}>
+        <h2 style={{ textAlign: "center", marginBottom: "30px" }}>
+          Avaliações
+        </h2>
+
+        <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+          
+          <div style={card}>
+            <p>"Excelente serviço, muito profissional!"</p>
+            <strong>- Cliente 1</strong>
+          </div>
+
+          <div style={card}>
+            <p>"Entrega rápida e qualidade impecável."</p>
+            <strong>- Cliente 2</strong>
+          </div>
+
+        </div>
       </section>
 
-      <style jsx>{`
-        main {
-          background: #000;
-          color: #fff;
-          font-family: Arial, sans-serif;
-        }
+      {/* CONTATO */}
+      <section style={{ padding: "60px 40px", textAlign: "center" }}>
+        <h2 style={{ fontSize: "32px", marginBottom: "20px" }}>
+          Contato
+        </h2>
 
-        .header {
-          padding: 20px;
-          border-bottom: 1px solid #222;
-        }
+        <p>Entre em contato para um orçamento:</p>
 
-        .header h1 {
-          color: #facc15;
-        }
+        <a
+          href="https://wa.me/SEUNUMERO"
+          style={{
+            display: "inline-block",
+            marginTop: "20px",
+            padding: "12px 24px",
+            background: "#ffc107",
+            color: "#000",
+            textDecoration: "none",
+            fontWeight: "bold",
+          }}
+        >
+          WhatsApp
+        </a>
+      </section>
 
-        nav a {
-          margin-right: 15px;
-          color: #fff;
-          text-decoration: none;
-        }
-
-        .hero {
-          text-align: center;
-          padding: 100px 20px;
-        }
-
-        .hero h1 {
-          font-size: 48px;
-          margin-bottom: 10px;
-        }
-
-        .hero p {
-          color: #aaa;
-        }
-
-        section {
-          padding: 60px 40px;
-        }
-
-        .cards {
-          display: flex;
-          gap: 20px;
-          flex-wrap: wrap;
-        }
-
-        .card {
-          background: #111;
-          padding: 20px;
-          flex: 1;
-          min-width: 250px;
-          border: 1px solid #222;
-        }
-
-        .card h3 {
-          margin-bottom: 10px;
-          color: #facc15;
-        }
-      `}</style>
     </main>
   );
 }
+
+const card = {
+  background: "#111",
+  padding: "20px",
+  flex: 1,
+  minWidth: "250px",
+  border: "1px solid #222",
+};
+
+const title = {
+  marginBottom: "10px",
+  color: "#ffc107",
+};
+
+const img = {
+  width: "300px",
+  height: "200px",
+  objectFit: "cover" as const,
+};
