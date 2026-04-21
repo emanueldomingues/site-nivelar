@@ -46,34 +46,36 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
+    <main className="bg-black text-white">
 
       {/* HEADER */}
-      <header className="w-full bg-black py-4 px-8 flex items-center justify-between relative">
-        
-        <div className="flex flex-col ml-2">
-          <h1 className="text-5xl font-black leading-none tracking-wide">
+      <header className="w-full py-4 px-6 md:px-12 flex items-center justify-between relative">
+
+        {/* LOGO */}
+        <div className="flex flex-col">
+          <h1 className="text-3xl md:text-5xl font-black leading-none">
             NIVELAR
           </h1>
-          <span className="bg-yellow-400 text-black text-sm px-3 py-1 mt-1 font-bold w-fit">
+          <span className="bg-yellow-400 text-black text-xs md:text-sm px-2 md:px-3 py-1 mt-1 font-bold w-fit">
             TERRAPLANAGEM
           </span>
-          <p className="text-sm text-gray-400 mt-1">
+          <p className="text-xs md:text-sm text-gray-400 mt-1">
             Onde começa cada grande obra
           </p>
         </div>
 
-        <nav className="absolute left-1/2 transform -translate-x-1/2 flex gap-8 text-sm">
-          <a href="#inicio">Início</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#equipamentos">Equipamentos</a>
-          <a href="#sobre">Sobre Nós</a>
-          <a href="#contato">Contato</a>
+        {/* MENU */}
+        <nav className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex gap-8 text-sm">
+          <a href="#inicio" className="hover:text-yellow-400 transition">Início</a>
+          <a href="#projetos" className="hover:text-yellow-400 transition">Projetos</a>
+          <a href="#equipamentos" className="hover:text-yellow-400 transition">Equipamentos</a>
+          <a href="#sobre" className="hover:text-yellow-400 transition">Sobre Nós</a>
+          <a href="#contato" className="hover:text-yellow-400 transition">Contato</a>
         </nav>
       </header>
 
       {/* CAROUSEL */}
-      <section id="inicio" className="relative w-full h-[70vh]">
+      <section id="inicio" className="relative w-full h-[60vh] md:h-[70vh]">
         <Image
           src={carousel[index]}
           alt="hero"
@@ -81,8 +83,8 @@ export default function Home() {
           className="object-cover brightness-50"
         />
 
-        <div className="absolute left-10 top-1/2 -translate-y-1/2">
-          <h2 className="text-5xl font-bold">
+        <div className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2">
+          <h2 className="text-2xl md:text-5xl font-bold">
             Terraplanagem de
             <br />
             <span className="text-yellow-400">Alto Padrão</span>
@@ -91,14 +93,14 @@ export default function Home() {
       </section>
 
       {/* PROJETOS */}
-      <section id="projetos" className="px-10 py-16 text-center">
-        <h2 className="text-3xl font-bold text-yellow-400 mb-10">
+      <section id="projetos" className="px-6 md:px-10 py-16 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-10">
           PROJETOS
         </h2>
 
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {projetos.map((img, i) => (
-            <div key={i} className="relative w-full h-[250px] overflow-hidden rounded-lg">
+            <div key={i} className="relative w-full h-[220px] md:h-[250px] overflow-hidden rounded-lg">
               <Image src={img} alt="projeto" fill className="object-cover hover:scale-110 transition" />
             </div>
           ))}
@@ -106,14 +108,14 @@ export default function Home() {
       </section>
 
       {/* EQUIPAMENTOS */}
-      <section id="equipamentos" className="px-10 py-16 bg-zinc-900 text-center">
-        <h2 className="text-3xl font-bold text-yellow-400 mb-10">
+      <section id="equipamentos" className="px-6 md:px-10 py-16 bg-zinc-900 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-10">
           EQUIPAMENTOS
         </h2>
 
-        <div className="grid grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
           {equipamentos.map((img, i) => (
-            <div key={i} className="relative w-full h-[150px] overflow-hidden rounded-lg">
+            <div key={i} className="relative w-full h-[120px] md:h-[150px] overflow-hidden rounded-lg">
               <Image src={img} alt="maq" fill className="object-cover" />
             </div>
           ))}
@@ -121,34 +123,34 @@ export default function Home() {
       </section>
 
       {/* SOBRE */}
-      <section id="sobre" className="px-10 py-16 text-center">
-        <h2 className="text-3xl font-bold text-yellow-400 mb-6">
+      <section id="sobre" className="px-6 md:px-10 py-16 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-6">
           SOBRE NÓS
         </h2>
-        <p className="max-w-2xl mx-auto text-gray-300">
+        <p className="max-w-2xl mx-auto text-gray-300 text-sm md:text-base">
           Empresa especializada em terraplanagem de alto padrão, atuando com excelência,
           equipamentos modernos e compromisso com cada projeto.
         </p>
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="px-10 py-16">
-        <h2 className="text-3xl font-bold text-yellow-400 text-center mb-10">
+      <section id="contato" className="px-6 md:px-10 py-16">
+        <h2 className="text-2xl md:text-3xl font-bold text-yellow-400 text-center mb-10">
           CONTATO
         </h2>
 
-        <div className="flex gap-12 items-center justify-center">
+        <div className="flex flex-col md:flex-row gap-10 items-center justify-center">
 
-          {/* MAPA MAIOR */}
+          {/* MAPA */}
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-[700px] h-[400px] rounded-lg"
+            className="w-full md:w-[650px] h-[300px] md:h-[400px] rounded-lg"
           />
 
           {/* CONTATOS */}
-          <div className="flex flex-col gap-5 text-base">
+          <div className="flex flex-col gap-5 text-sm md:text-base">
 
-            <p className="mb-2">📍 Av. Antônio Raminelli, 857 - Cambé</p>
+            <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
             <a href="https://wa.me/5543998061421" target="_blank" className="flex items-center gap-3 hover:text-yellow-400 transition">
               <div className="bg-green-500 p-2 rounded-full text-white">
@@ -171,18 +173,13 @@ export default function Home() {
               Valéria — (43) 99628-1826
             </a>
 
-            {/* INSTAGRAM OFICIAL SVG */}
+            {/* INSTAGRAM SEM FUNDO */}
             <a
               href="https://instagram.com/terraplanagem.nivelar"
               target="_blank"
-              className="flex items-center gap-3 text-yellow-400 hover:opacity-80"
+              className="flex items-center gap-3 text-white hover:text-yellow-400 transition"
             >
-              <div className="bg-yellow-400 p-2 rounded-full">
-                <img
-                  src="/icons/instagram.svg"
-                  className="w-4 h-4"
-                />
-              </div>
+              <img src="/icons/instagram.svg" className="w-5 h-5" />
               @terraplanagem.nivelar
             </a>
 
@@ -190,7 +187,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BOTÃO FLUTUANTE (TRAVADO) */}
+      {/* BOTÃO FLUTUANTE */}
       <a
         href="https://wa.me/5543998061421"
         target="_blank"
