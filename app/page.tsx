@@ -103,9 +103,10 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {projetos.map((img, i) => (
-            <img key={i} src={img}
+            <img key={i}
+              src={img}
               onClick={() => setZoomImg(img)}
-              className="rounded-xl object-cover h-[240px] w-full cursor-pointer"
+              className="rounded-xl object-cover h-[240px] w-full cursor-pointer hover:scale-105 transition"
             />
           ))}
         </div>
@@ -119,15 +120,16 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {equipamentos.map((img, i) => (
-            <img key={i} src={img}
+            <img key={i}
+              src={img}
               onClick={() => setZoomImg(img)}
-              className="rounded-xl object-cover h-[240px] w-full cursor-pointer"
+              className="rounded-xl object-cover h-[240px] w-full cursor-pointer hover:scale-105 transition"
             />
           ))}
         </div>
       </section>
 
-      {/* SOBRE */}
+      {/* SOBRE + DEPOIMENTOS + FORM */}
       <section id="sobre" className="py-16 px-4 text-center bg-[#0d0d0d]">
         <h2 className="text-2xl md:text-3xl font-bold mb-6">
           SOBRE <span className="text-yellow-400">NÓS</span>
@@ -136,9 +138,47 @@ export default function Home() {
         <p className="max-w-2xl mx-auto text-gray-300 mb-10">
           A Nivelar Terraplanagem atua com excelência, garantindo que cada obra comece da melhor forma possível.
         </p>
+
+        {/* DEPOIMENTOS */}
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
+          {[
+            ["João Martins", "Serviço impecável, equipe extremamente profissional."],
+            ["Ricardo Almeida", "Equipamentos modernos e entrega rápida."],
+            ["Patrícia Souza", "Qualidade excelente, recomendo totalmente."],
+          ].map(([nome, texto], i) => (
+            <div key={i} className="bg-black p-6 rounded-xl border border-gray-800">
+              <div className="text-yellow-400 mb-2">★★★★★</div>
+              <p className="text-gray-300 mb-2">{texto}</p>
+              <span className="text-sm text-gray-500">— {nome}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* FORM AVALIAÇÃO */}
+        <div className="max-w-md mx-auto">
+          <h3 className="text-yellow-400 mb-4">Avalie nosso serviço</h3>
+
+          <div className="flex justify-center gap-2 mb-4">
+            {[1,2,3,4,5].map((star) => (
+              <FaStar key={star}
+                onClick={() => setRating(star)}
+                className={`cursor-pointer text-2xl ${
+                  rating >= star ? "text-yellow-400" : "text-gray-500"
+                }`}
+              />
+            ))}
+          </div>
+
+          <input className="w-full p-3 mb-3 rounded bg-black border border-gray-700" placeholder="Seu nome" />
+          <textarea className="w-full p-3 mb-3 rounded bg-black border border-gray-700" placeholder="Sua avaliação" />
+
+          <button className="bg-yellow-400 text-black px-6 py-2 rounded">
+            Enviar
+          </button>
+        </div>
       </section>
 
-      {/* CONTATO (FONTE CORRIGIDA) */}
+      {/* CONTATO (FONTE CORRIGIDA SEM QUEBRAR NADA) */}
       <section id="contato" className="py-16 px-4 text-base md:text-lg font-medium">
         <h2 className="text-2xl md:text-3xl text-yellow-400 text-center mb-10 font-bold">
           CONTATO
@@ -173,10 +213,8 @@ export default function Home() {
               </a>
             ))}
 
-            <a
-              href="https://instagram.com/terraplanagem.nivelar"
-              className="flex items-center gap-3 hover:text-yellow-400"
-            >
+            <a href="https://instagram.com/terraplanagem.nivelar"
+              className="flex items-center gap-3 hover:text-yellow-400">
               <img src="/icons/instagram.svg" className="w-7 h-7" />
               @terraplanagem.nivelar
             </a>
@@ -185,9 +223,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHATS FIXO */}
+      {/* ZOOM */}
+      {zoomImg && (
+        <div onClick={() => setZoomImg(null)}
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+          <img src={zoomImg} className="max-h-[90%]" />
+        </div>
+      )}
+
+      {/* WHATS */}
       <a href="https://wa.me/5543998061421"
-        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl shadow-lg">
+        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl shadow-lg hover:scale-110 transition">
         <FaWhatsapp />
       </a>
 
