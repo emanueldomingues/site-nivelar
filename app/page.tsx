@@ -3,42 +3,17 @@
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const images = [
-    "/images/maquina1.jpg",
-    "/images/maquina2.jpg",
-    "/images/maquina3.jpg",
-  ];
-
-  const equipamentos = [
+  const imagens = [
     "/images/equipamentos/maquina1.jpg",
     "/images/equipamentos/maquina2.jpg",
     "/images/equipamentos/maquina3.jpg",
-    "/images/equipamentos/maquina4.jpg",
-    "/images/equipamentos/maquina5.jpg",
-    "/images/equipamentos/maquina6.jpg",
-    "/images/equipamentos/maquina7.jpg",
-    "/images/equipamentos/maquina8.jpg",
-    "/images/equipamentos/maquina9.jpg",
-    "/images/equipamentos/maquina10.jpg",
-  ];
-
-  const projetos = [
-    "/images/projetos/projeto1.jpg",
-    "/images/projetos/projeto2.jpg",
-    "/images/projetos/projeto3.jpg",
-    "/images/projetos/projeto4.jpg",
-    "/images/projetos/projeto5.jpg",
-    "/images/projetos/projeto6.jpg",
-    "/images/projetos/projeto7.jpg",
-    "/images/projetos/projeto8.jpg",
-    "/images/projetos/projeto9.jpg",
   ];
 
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
+      setCurrent((prev) => (prev + 1) % imagens.length);
     }, 4000);
     return () => clearInterval(interval);
   }, []);
@@ -47,11 +22,13 @@ export default function Home() {
     <div className="bg-black text-white">
 
       {/* HEADER */}
-      <header className="bg-black w-full">
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24 relative">
+      <header className="fixed top-0 left-0 w-full bg-black z-50 border-b border-gray-800">
 
-          {/* LOGO ESQUERDA */}
-          <div className="absolute left-0 flex flex-col leading-tight">
+        <div className="relative flex items-center justify-center h-24 w-full">
+
+          {/* LOGO EXTREMA ESQUERDA */}
+          <div className="absolute left-4 flex flex-col leading-none">
+
             <h1 className="text-4xl font-extrabold tracking-widest">
               NIVELAR
             </h1>
@@ -63,10 +40,11 @@ export default function Home() {
             <span className="text-xs text-gray-400 mt-1">
               Onde começa cada grande obra
             </span>
+
           </div>
 
           {/* MENU CENTRAL */}
-          <nav className="w-full flex justify-center gap-10 text-sm font-medium">
+          <nav className="flex gap-10 text-sm font-medium">
             <a href="#home" className="hover:text-yellow-400">Início</a>
             <a href="#projetos" className="hover:text-yellow-400">Projetos</a>
             <a href="#equipamentos" className="hover:text-yellow-400">Equipamentos</a>
@@ -77,10 +55,10 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO / CARROSSEL */}
-      <section id="home" className="h-screen relative flex items-center px-6">
+      {/* CARROSSEL */}
+      <section id="home" className="h-[85vh] relative flex items-center px-6 pt-24">
 
-        {images.map((img, i) => (
+        {imagens.map((img, i) => (
           <div
             key={i}
             className={`absolute inset-0 bg-cover bg-center transition-opacity duration-700 ${
@@ -92,111 +70,66 @@ export default function Home() {
 
         <div className="absolute inset-0 bg-black/70" />
 
-        <div className="relative z-10 max-w-xl">
+        <div className="relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold">
-            Terraplanagem de <span className="text-yellow-400">Alto Padrão</span>
+            Terraplanagem de <br />
+            <span className="text-yellow-400">Alto Padrão</span>
           </h1>
-
-          <p className="mt-4 text-yellow-400">
-            Atendimento em Cambé e região
-          </p>
         </div>
+
       </section>
 
-      {/* PROJETOS */}
-      <section id="projetos" className="py-16 text-center">
-        <h2 className="text-3xl font-bold mb-10">
-          PROJETOS <span className="text-yellow-400">REALIZADOS</span>
-        </h2>
+      {/* CONTATO IGUAL AO PRINT */}
+      <section id="contato" className="py-20">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-6">
-          {projetos.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              className="w-full h-[250px] object-cover rounded-xl hover:scale-110 transition cursor-pointer"
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* EQUIPAMENTOS */}
-      <section id="equipamentos" className="py-16 bg-[#111] text-center">
-        <h2 className="text-3xl font-bold mb-10">
-          NOSSOS <span className="text-yellow-400">EQUIPAMENTOS</span>
-        </h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 px-6">
-          {equipamentos.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              className="rounded-xl hover:scale-110 transition"
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* SOBRE */}
-      <section id="sobre" className="py-16 text-center">
-        <h2 className="text-3xl font-bold mb-6">
-          SOBRE <span className="text-yellow-400">NÓS</span>
-        </h2>
-
-        <p className="max-w-2xl mx-auto text-gray-300">
-          A Nivelar Terraplanagem atua com excelência no setor, entregando serviços com precisão,
-          segurança e compromisso. Nosso objetivo é transformar terrenos em bases sólidas para grandes obras.
-        </p>
-      </section>
-
-      {/* CONTATO */}
-      <section id="contato" className="py-20 bg-black text-white">
-        <h2 className="text-3xl font-bold text-yellow-400 text-center mb-10">
+        <h2 className="text-3xl font-bold text-yellow-400 text-center mb-12">
           CONTATO
         </h2>
 
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
 
-          <div className="space-y-6">
-            <p>📍 Cambé - PR</p>
+          {/* MAPA ESQUERDA */}
+          <iframe
+            src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
+            className="w-full h-[300px] rounded-xl"
+          />
 
-            <a href="https://wa.me/5543998061421" className="block hover:text-green-500">
-              Fernando
-            </a>
+          {/* CONTATOS DIREITA */}
+          <div className="space-y-5 text-base">
 
-            <a href="https://wa.me/5543999520213" className="block hover:text-green-500">
-              Anderson
-            </a>
+            <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
-            <a href="https://wa.me/5543996281826" className="block hover:text-green-500">
-              Valéria
-            </a>
+            <p className="flex items-center gap-2 hover:text-green-400">
+              📞 Fernando — (43) 99806-1421
+            </p>
 
-            <a href="#" className="block text-yellow-400 hover:text-pink-500">
-              Instagram
-            </a>
+            <p className="flex items-center gap-2 hover:text-green-400">
+              📞 Anderson — (43) 99952-0213
+            </p>
+
+            <p className="flex items-center gap-2 hover:text-green-400">
+              📞 Valéria — (43) 99628-1826
+            </p>
+
+            <p className="text-yellow-400 hover:text-pink-500">
+              @terraplanagem.nivelar
+            </p>
+
           </div>
 
-          <iframe
-            src="https://www.google.com/maps?q=Cambé&output=embed"
-            className="w-full h-[350px] rounded-xl"
-          />
         </div>
+
       </section>
 
-      {/* BOTÃO WHATS */}
+      {/* WHATS FLUTUANTE */}
       <a
         href="https://wa.me/5543996281826"
         target="_blank"
-        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full"
+        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition"
       >
         WhatsApp
       </a>
 
-      {/* RODAPÉ */}
-      <footer className="text-center p-6 text-gray-400">
-        © 2026 Nivelar Terraplanagem
-      </footer>
     </div>
   );
 }
