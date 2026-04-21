@@ -98,6 +98,7 @@ export default function Home() {
             <img key={i}
               src={img}
               onClick={() => setZoomImg(img)}
+              onError={(e)=> e.currentTarget.style.display="none"}
               className="h-[240px] w-full object-cover rounded-xl hover:scale-105 cursor-pointer transition"
             />
           ))}
@@ -115,6 +116,7 @@ export default function Home() {
             <img key={i}
               src={img}
               onClick={() => setZoomImg(img)}
+              onError={(e)=> e.currentTarget.style.display="none"}
               className="h-[240px] w-full object-cover rounded-xl hover:scale-105 cursor-pointer transition"
             />
           ))}
@@ -126,12 +128,7 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-yellow-400 mb-6">SOBRE NÓS</h2>
 
         <p className="max-w-2xl mx-auto text-gray-300 mb-10 leading-relaxed">
-          Na Nivelar Terraplanagem, acreditamos que toda grande obra começa com uma base sólida e bem executada.
-          Nosso trabalho vai além da movimentação de terra: preparamos o terreno para que projetos se tornem realidade com segurança e precisão.
-          <br /><br />
-          Guiados pelo nosso propósito,
-          <span className="text-white font-semibold"> "Onde começa cada grande obra"</span>,
-          atuamos com responsabilidade, tecnologia e compromisso.
+          Na Nivelar Terraplanagem, acreditamos que toda grande obra começa com uma base sólida...
         </p>
 
         <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto text-left">
@@ -190,6 +187,7 @@ export default function Home() {
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
             className="w-full md:w-[115%] h-[520px] rounded-xl"
+            loading="lazy"
           />
 
           <div className="flex flex-col gap-4 text-gray-300 text-base">
@@ -197,15 +195,16 @@ export default function Home() {
             <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
             <a href="https://wa.me/5543998061421" className="flex gap-3 items-center hover:text-yellow-400">
-              <div className="bg-green-500 p-2 rounded-full">
-                <FaWhatsapp />
-              </div>
-              Fernando
+              <FaWhatsapp /> Fernando
             </a>
 
             <a href="https://instagram.com/terraplanagem.nivelar"
               className="flex gap-3 items-center hover:text-yellow-400">
-              <img src="/icons/instagram.svg" className="w-7" />
+              <img
+                src="/icons/instagram.svg"
+                className="w-7"
+                onError={(e)=> e.currentTarget.style.display="none"}
+              />
               @terraplanagem.nivelar
             </a>
 
@@ -214,7 +213,7 @@ export default function Home() {
       </section>
 
       {/* ZOOM */}
-      {zoomImg && (
+      {zoomImg && typeof zoomImg === "string" && (
         <div onClick={() => setZoomImg(null)} className="fixed inset-0 bg-black/90 flex justify-center items-center z-50">
           <img src={zoomImg} className="max-h-[90%]" />
         </div>
