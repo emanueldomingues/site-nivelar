@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FaWhatsapp, FaStar } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
@@ -20,6 +20,11 @@ export default function Home() {
     "/images/equipamentos/maquina3.jpg",
     "/images/equipamentos/maquina4.jpg",
     "/images/equipamentos/maquina5.jpg",
+    "/images/equipamentos/maquina6.jpg",
+    "/images/equipamentos/maquina7.jpg",
+    "/images/equipamentos/maquina8.jpg",
+    "/images/equipamentos/maquina9.jpg",
+    "/images/equipamentos/maquina10.jpg",
   ];
 
   const projetos = [
@@ -28,21 +33,10 @@ export default function Home() {
     "/images/projetos/projeto3.jpg",
     "/images/projetos/projeto4.jpg",
     "/images/projetos/projeto5.jpg",
-  ];
-
-  const depoimentos = [
-    {
-      nome: "Carlos Silva",
-      texto: "Serviço impecável, equipe extremamente profissional. Recomendo!",
-    },
-    {
-      nome: "Marcos Oliveira",
-      texto: "Equipamentos modernos e entrega rápida. Superou expectativas.",
-    },
-    {
-      nome: "Fernanda Costa",
-      texto: "Atendimento excelente e qualidade no serviço. Muito confiável.",
-    },
+    "/images/projetos/projeto6.jpg",
+    "/images/projetos/projeto7.jpg",
+    "/images/projetos/projeto8.jpg",
+    "/images/projetos/projeto9.jpg",
   ];
 
   useEffect(() => {
@@ -53,50 +47,51 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white overflow-x-hidden">
 
       {/* HEADER */}
-      <header className="fixed top-0 w-full bg-black/95 z-50 border-b border-gray-800">
+      <header className="fixed top-0 w-full bg-black/95 backdrop-blur z-50 border-b border-gray-800">
         <div className="flex items-center justify-between px-4 md:px-10 py-3 relative">
 
-          <div className="flex flex-col">
+          <div className="flex flex-col leading-tight">
             <h1 className="text-2xl md:text-4xl font-black">NIVELAR</h1>
-            <span className="bg-yellow-400 text-black text-xs px-2 py-0.5 mt-1 font-bold w-fit">
+            <span className="bg-yellow-400 text-black text-[10px] md:text-xs px-2 py-0.5 mt-1 font-bold w-fit">
               TERRAPLANAGEM
             </span>
-            <span className="text-xs mt-1">
+            <span className="text-[10px] md:text-xs mt-1">
               Onde começa cada grande obra
             </span>
           </div>
 
-          <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-10">
-            <a href="#home">Início</a>
-            <a href="#projetos">Projetos</a>
-            <a href="#depoimentos">Depoimentos</a>
-            <a href="#equipamentos">Equipamentos</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
+          <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-12 text-base font-semibold">
+            <a href="#home" className="hover:text-yellow-400">Início</a>
+            <a href="#projetos" className="hover:text-yellow-400">Projetos</a>
+            <a href="#equipamentos" className="hover:text-yellow-400">Equipamentos</a>
+            <a href="#sobre" className="hover:text-yellow-400">Sobre Nós</a>
+            <a href="#contato" className="hover:text-yellow-400">Contato</a>
           </nav>
 
-          <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden text-xl"
+          >
             ☰
           </button>
         </div>
 
         {menuOpen && (
-          <div className="md:hidden flex flex-col items-center gap-4 py-4 bg-black">
-            <a href="#home">Início</a>
-            <a href="#projetos">Projetos</a>
-            <a href="#depoimentos">Depoimentos</a>
-            <a href="#equipamentos">Equipamentos</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
+          <div className="md:hidden bg-black border-t border-gray-800 flex flex-col items-center py-6 gap-6 text-lg">
+            <a href="#home" onClick={() => setMenuOpen(false)}>Início</a>
+            <a href="#projetos" onClick={() => setMenuOpen(false)}>Projetos</a>
+            <a href="#equipamentos" onClick={() => setMenuOpen(false)}>Equipamentos</a>
+            <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre Nós</a>
+            <a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a>
           </div>
         )}
       </header>
 
       {/* HERO */}
-      <section id="home" className="h-[60vh] pt-24 relative flex items-center justify-center">
+      <section id="home" className="h-[60vh] md:h-[65vh] pt-28 relative flex items-center justify-center">
         {heroImages.map((img, i) => (
           <div
             key={i}
@@ -106,78 +101,167 @@ export default function Home() {
             style={{ backgroundImage: `url(${img})` }}
           />
         ))}
+
         <div className="absolute inset-0 bg-black/70" />
-        <h2 className="relative text-3xl md:text-5xl font-bold text-center">
-          Terraplanagem de <span className="text-yellow-400">Alto Padrão</span>
+
+        <h2 className="relative text-2xl md:text-5xl font-bold text-center px-4">
+          Terraplanagem de <br />
+          <span className="text-yellow-400">Alto Padrão</span>
         </h2>
       </section>
 
       {/* PROJETOS */}
-      <section id="projetos" className="py-16 text-center">
-        <h2 className="text-2xl md:text-3xl mb-10">
+      <section id="projetos" className="py-16 px-4 md:px-6 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold mb-10">
           PROJETOS <span className="text-yellow-400">REALIZADOS</span>
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6 px-4 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {projetos.map((img, i) => (
-            <img key={i} src={img} className="rounded-lg h-[240px] object-cover" />
+            <img
+              key={i}
+              src={img}
+              onClick={() => setZoomImg(img)}
+              className="rounded-xl object-cover h-[220px] md:h-[260px] w-full cursor-pointer hover:scale-105 transition"
+            />
           ))}
         </div>
       </section>
 
-      {/* DEPOIMENTOS */}
-      <section id="depoimentos" className="py-16 bg-[#111] text-center">
-        <h2 className="text-2xl md:text-3xl mb-10">
+      {/* DEPOIMENTOS (ADICIONADO SEM QUEBRAR NADA) */}
+      <section id="depoimentos" className="py-16 px-4 md:px-6 text-center bg-[#111]">
+        <h2 className="text-2xl md:text-3xl font-bold mb-10">
           O QUE NOSSOS <span className="text-yellow-400">CLIENTES DIZEM</span>
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6 px-4 max-w-6xl mx-auto">
-          {depoimentos.map((dep, i) => (
-            <div key={i} className="bg-black p-6 rounded-xl border border-gray-800">
-              
-              <div className="flex justify-center mb-3 text-yellow-400">
-                {[...Array(5)].map((_, i) => (
-                  <FaStar key={i} />
-                ))}
-              </div>
-
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {[
+            {
+              nome: "Carlos Silva",
+              texto: "Serviço impecável, equipe extremamente profissional. Recomendo!",
+            },
+            {
+              nome: "Marcos Oliveira",
+              texto: "Equipamentos modernos e entrega rápida. Superou expectativas.",
+            },
+            {
+              nome: "Fernanda Costa",
+              texto: "Atendimento excelente e qualidade no serviço. Muito confiável.",
+            },
+          ].map((dep, i) => (
+            <div
+              key={i}
+              className="bg-black p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition"
+            >
+              <div className="text-yellow-400 text-lg mb-3">★★★★★</div>
               <p className="text-gray-300 mb-4">"{dep.texto}"</p>
-
-              <span className="font-semibold text-white">{dep.nome}</span>
+              <span className="font-semibold">{dep.nome}</span>
             </div>
           ))}
         </div>
       </section>
 
       {/* EQUIPAMENTOS */}
-      <section id="equipamentos" className="py-16 text-center">
-        <h2 className="text-2xl md:text-3xl mb-10">
+      <section id="equipamentos" className="py-16 px-4 md:px-6 text-center bg-[#111]">
+        <h2 className="text-2xl md:text-3xl font-bold mb-10">
           NOSSOS <span className="text-yellow-400">EQUIPAMENTOS</span>
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6 px-4 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {equipamentos.map((img, i) => (
-            <img key={i} src={img} className="rounded-lg h-[240px] object-cover" />
+            <img
+              key={i}
+              src={img}
+              onClick={() => setZoomImg(img)}
+              className="rounded-xl object-cover h-[220px] md:h-[260px] w-full cursor-pointer hover:scale-105 transition"
+            />
           ))}
         </div>
       </section>
 
-      {/* CONTATO */}
-      <section id="contato" className="py-16 text-center">
-        <h2 className="text-2xl text-yellow-400 mb-6">CONTATO</h2>
+      {/* SOBRE */}
+      <section id="sobre" className="py-16 px-4 md:px-6 text-center bg-[#0d0d0d]">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6">
+          SOBRE <span className="text-yellow-400">NÓS</span>
+        </h2>
 
-        <a
-          href="https://wa.me/5543998061421"
-          className="bg-green-500 px-6 py-3 rounded-full inline-flex items-center gap-2"
-        >
-          <FaWhatsapp /> Falar no WhatsApp
-        </a>
+        <div className="max-w-3xl mx-auto text-gray-300 text-sm md:text-lg leading-relaxed">
+          <p className="mb-4">
+            A <span className="text-white font-semibold">Nivelar Terraplanagem</span> nasceu com um propósito claro: dar início a grandes projetos com qualidade, precisão e responsabilidade.
+          </p>
+
+          <p className="mb-4">
+            Nosso trabalho vai muito além de movimentar terra — nós preparamos o terreno para que sonhos se tornem realidade.
+            É por isso que nosso slogan, <span className="text-yellow-400 font-semibold">“Onde começa cada grande obra”</span>, representa exatamente o que fazemos todos os dias.
+          </p>
+
+          <p>
+            Acreditamos que um bom começo define todo o resultado final — e é nesse início que fazemos a diferença.
+          </p>
+        </div>
       </section>
 
-      {/* BOTÃO FIXO */}
+      {/* CONTATO */}
+      <section id="contato" className="py-16 px-4 md:px-6 bg-black">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 text-yellow-400">
+          CONTATO
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
+
+          <iframe
+            src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
+            className="w-full h-[350px] md:h-[520px] rounded-xl"
+          />
+
+          <div className="space-y-5 text-sm md:text-base">
+
+            <p className="text-gray-300">📍 Av. Antônio Raminelli, 857 - Cambé</p>
+
+            {[
+              ["Fernando", "5543998061421"],
+              ["Anderson", "5543999520213"],
+              ["Valéria", "5543996281826"],
+            ].map(([nome, numero]) => (
+              <a
+                key={numero}
+                href={`https://wa.me/${numero}`}
+                target="_blank"
+                className="flex items-center gap-3 hover:text-yellow-400 transition"
+              >
+                <div className="bg-green-500 p-2 rounded-full text-white text-lg">
+                  <FaWhatsapp />
+                </div>
+                {nome}
+              </a>
+            ))}
+
+            <a
+              href="https://instagram.com/terraplanagem.nivelar"
+              target="_blank"
+              className="flex items-center gap-3 hover:text-yellow-400 transition"
+            >
+              <img src="/icons/instagram.svg" className="w-7 h-7" />
+              @terraplanagem.nivelar
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      {zoomImg && (
+        <div
+          onClick={() => setZoomImg(null)}
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
+        >
+          <img src={zoomImg} className="max-h-[90%] max-w-[90%] rounded-lg" />
+        </div>
+      )}
+
       <a
         href="https://wa.me/5543998061421"
-        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white"
+        target="_blank"
+        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl shadow-lg hover:scale-110 transition"
       >
         <FaWhatsapp />
       </a>
