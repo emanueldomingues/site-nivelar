@@ -1,51 +1,45 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Home() {
-  const imagens = [
-    "/images/equipamentos/maquina1.jpg",
-    "/images/equipamentos/maquina2.jpg",
-    "/images/equipamentos/maquina3.jpg",
-  ];
+  const [index, setIndex] = useState(0);
 
-  const [current, setCurrent] = useState(0);
+  const imagens = [
+    "/images/maquina1.jpg",
+    "/images/maquina2.jpg",
+    "/images/maquina3.jpg",
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % imagens.length);
+      setIndex((prev) => (prev + 1) % imagens.length);
     }, 4000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="bg-black text-white">
+    <main className="bg-black text-white">
 
       {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full bg-black z-50 border-b border-gray-800">
+      <header className="fixed top-0 left-0 w-full bg-black z-50">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
-        <div className="relative flex items-center justify-center h-24 w-full">
-
-          {/* LOGO EXTREMA ESQUERDA */}
-          <div className="absolute left-4 flex flex-col leading-none">
-
-            <h1 className="text-4xl font-extrabold tracking-widest">
-              NIVELAR
-            </h1>
-
-            <span className="bg-yellow-400 text-black px-3 py-1 text-sm font-bold w-fit">
+          {/* LOGO ESQUERDA */}
+          <div className="flex flex-col">
+            <h1 className="text-4xl font-bold leading-none">NIVELAR</h1>
+            <div className="bg-yellow-400 text-black px-2 text-sm w-fit mt-1">
               TERRAPLANAGEM
-            </span>
-
+            </div>
             <span className="text-xs text-gray-400 mt-1">
               Onde começa cada grande obra
             </span>
-
           </div>
 
           {/* MENU CENTRAL */}
-          <nav className="flex gap-10 text-sm font-medium">
-            <a href="#home" className="hover:text-yellow-400">Início</a>
+          <nav className="absolute left-1/2 transform -translate-x-1/2 flex gap-8 text-sm">
+            <a href="#inicio" className="hover:text-yellow-400">Início</a>
             <a href="#projetos" className="hover:text-yellow-400">Projetos</a>
             <a href="#equipamentos" className="hover:text-yellow-400">Equipamentos</a>
             <a href="#sobre" className="hover:text-yellow-400">Sobre Nós</a>
@@ -55,81 +49,104 @@ export default function Home() {
         </div>
       </header>
 
-      {/* CARROSSEL */}
-      <section id="home" className="h-[85vh] relative flex items-center px-6 pt-24">
+      {/* HERO / CARROSSEL */}
+      <section id="inicio" className="h-[70vh] mt-24 relative">
+        <Image
+          src={imagens[index]}
+          alt="banner"
+          fill
+          className="object-cover opacity-40"
+        />
 
-        {imagens.map((img, i) => (
-          <div
-            key={i}
-            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-700 ${
-              i === current ? "opacity-100" : "opacity-0"
-            }`}
-            style={{ backgroundImage: `url(${img})` }}
-          />
-        ))}
-
-        <div className="absolute inset-0 bg-black/70" />
-
-        <div className="relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold">
-            Terraplanagem de <br />
+        <div className="absolute left-10 top-1/2 -translate-y-1/2">
+          <h2 className="text-5xl font-bold">
+            Terraplanagem de
+            <br />
             <span className="text-yellow-400">Alto Padrão</span>
-          </h1>
+          </h2>
         </div>
-
       </section>
 
-      {/* CONTATO IGUAL AO PRINT */}
-      <section id="contato" className="py-20">
+      {/* PROJETOS */}
+      <section id="projetos" className="py-20 px-6 max-w-7xl mx-auto">
+        <h2 className="text-3xl text-yellow-400 mb-10">Projetos</h2>
 
-        <h2 className="text-3xl font-bold text-yellow-400 text-center mb-12">
-          CONTATO
-        </h2>
+        <div className="grid grid-cols-3 gap-4">
+          {[...Array(9)].map((_, i) => (
+            <img
+              key={i}
+              src={`/images/projetos/projeto${i + 1}.jpg`}
+              className="w-full h-60 object-cover hover:scale-105 transition cursor-pointer"
+            />
+          ))}
+        </div>
+      </section>
 
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+      {/* EQUIPAMENTOS */}
+      <section id="equipamentos" className="py-20 px-6 max-w-7xl mx-auto">
+        <h2 className="text-3xl text-yellow-400 mb-10">Equipamentos</h2>
+
+        <div className="grid grid-cols-5 gap-4">
+          {[...Array(10)].map((_, i) => (
+            <img
+              key={i}
+              src={`/images/equipamentos/maquina${i + 1}.jpg`}
+              className="w-full h-40 object-cover hover:scale-105 transition cursor-pointer"
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* SOBRE */}
+      <section id="sobre" className="py-20 px-6 max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl text-yellow-400 mb-6">Sobre Nós</h2>
+        <p className="text-gray-300">
+          A Nivelar Terraplanagem atua com excelência em serviços de
+          terraplanagem, oferecendo soluções modernas, equipamentos de ponta
+          e uma equipe altamente qualificada para garantir qualidade em cada obra.
+        </p>
+      </section>
+
+      {/* CONTATO */}
+      <section id="contato" className="py-20 px-6 max-w-7xl mx-auto">
+        <h2 className="text-3xl text-yellow-400 text-center mb-10">CONTATO</h2>
+
+        <div className="grid md:grid-cols-2 gap-10 items-center">
 
           {/* MAPA ESQUERDA */}
           <iframe
-            src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-full h-[300px] rounded-xl"
+            src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857+-+Cambé&output=embed"
+            className="w-full h-80 rounded-lg"
           />
 
-          {/* CONTATOS DIREITA */}
-          <div className="space-y-5 text-base">
-
+          {/* INFO DIREITA */}
+          <div className="space-y-4 text-lg">
             <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
+            <p>📞 Fernando — (43) 99806-1421</p>
+            <p>📞 Anderson — (43) 99952-0213</p>
+            <p>📞 Valéria — (43) 99628-1826</p>
 
-            <p className="flex items-center gap-2 hover:text-green-400">
-              📞 Fernando — (43) 99806-1421
-            </p>
-
-            <p className="flex items-center gap-2 hover:text-green-400">
-              📞 Anderson — (43) 99952-0213
-            </p>
-
-            <p className="flex items-center gap-2 hover:text-green-400">
-              📞 Valéria — (43) 99628-1826
-            </p>
-
-            <p className="text-yellow-400 hover:text-pink-500">
-              @terraplanagem.nivelar
-            </p>
-
+            <a
+              href="https://instagram.com/terraplanagem.nivelar"
+              target="_blank"
+              className="text-yellow-400 hover:text-white"
+            >
+              📷 @terraplanagem.nivelar
+            </a>
           </div>
 
         </div>
-
       </section>
 
-      {/* WHATS FLUTUANTE */}
+      {/* BOTÃO WHATSAPP */}
       <a
-        href="https://wa.me/5543996281826"
+        href="https://wa.me/5543998061421"
         target="_blank"
-        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition"
+        className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full text-white text-2xl hover:scale-110 transition"
       >
-        WhatsApp
+        💬
       </a>
 
-    </div>
+    </main>
   );
 }
