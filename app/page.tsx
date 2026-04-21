@@ -7,7 +7,7 @@ export default function Home() {
 
   const images = [
     "/images/equipamentos/maquina1.jpg",
-    "/images/equipamentos/maquina2.jpg",
+    "/images/equipamentos/maquina5.jpg",
     "/images/equipamentos/maquina3.jpg",
   ];
 
