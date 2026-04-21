@@ -50,10 +50,10 @@ export default function Home() {
 
       {/* HEADER */}
       <header className="fixed top-0 w-full bg-black/95 backdrop-blur z-50 border-b border-gray-800">
-        <div className="w-full flex items-center justify-between px-10 py-8 relative">
+        <div className="w-full flex items-center justify-between px-10 py-10 relative">
 
           {/* LOGO */}
-          <div className="flex flex-col leading-tight mt-6">
+          <div className="flex flex-col leading-tight mt-10">
             <h1 className="text-5xl font-black tracking-wide">
               NIVELAR
             </h1>
@@ -79,7 +79,7 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section id="home" className="h-screen pt-40 relative flex items-center justify-center">
+      <section id="home" className="h-screen pt-44 relative flex items-center justify-center">
         {heroImages.map((img, i) => (
           <div
             key={i}
@@ -136,24 +136,15 @@ export default function Home() {
 
       {/* SOBRE */}
       <section id="sobre" className="py-20 px-6 text-center bg-[#0d0d0d]">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        <h2 className="text-3xl font-bold mb-6">
           SOBRE <span className="text-yellow-400">NÓS</span>
         </h2>
 
-        <div className="max-w-3xl mx-auto text-gray-300 leading-relaxed text-base md:text-lg">
-          <p className="mb-4">
-            A <span className="text-white font-semibold">Nivelar Terraplanagem</span> nasceu com um propósito claro: dar início a grandes projetos com qualidade, precisão e responsabilidade.
-          </p>
-
-          <p className="mb-4">
-            Nosso trabalho vai muito além de movimentar terra — nós preparamos o terreno para que sonhos se tornem realidade.
-            É por isso que nosso slogan, <span className="text-yellow-400 font-semibold">“Onde começa cada grande obra”</span>, é a essência do que fazemos.
-          </p>
-
-          <p>
-            Acreditamos que um bom começo define todo o resultado final — e é exatamente nesse começo que fazemos a diferença.
-          </p>
-        </div>
+        <p className="max-w-3xl mx-auto text-gray-300">
+          A Nivelar Terraplanagem nasce com o propósito de entregar excelência desde o início.
+          Nosso compromisso é preparar cada terreno com precisão, garantindo a base perfeita
+          para qualquer obra.
+        </p>
       </section>
 
       {/* CONTATO */}
@@ -162,12 +153,12 @@ export default function Home() {
           CONTATO
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
 
-          {/* MAPA */}
+          {/* MAPA MAIS LARGO */}
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-full h-[500px] rounded-xl"
+            className="w-full h-[420px] rounded-xl"
           />
 
           {/* CONTATOS */}
@@ -193,15 +184,13 @@ export default function Home() {
               </a>
             ))}
 
-            {/* INSTAGRAM CORRIGIDO */}
+            {/* INSTAGRAM CORRETO (SEM FUNDO) */}
             <a
               href="https://instagram.com/terraplanagem.nivelar"
               target="_blank"
               className="flex items-center gap-3 hover:text-yellow-400 transition"
             >
-              <div className="bg-yellow-400 text-black p-2 rounded-full">
-                <FaInstagram size={18} />
-              </div>
+              <FaInstagram size={22} />
               @terraplanagem.nivelar
             </a>
 
@@ -219,7 +208,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* BOTÃO WHATS */}
+      {/* BOTÃO FLUTUANTE */}
       <a
         href="https://wa.me/5543998061421"
         target="_blank"
