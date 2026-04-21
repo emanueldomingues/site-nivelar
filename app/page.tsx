@@ -50,10 +50,10 @@ export default function Home() {
 
       {/* HEADER */}
       <header className="fixed top-0 w-full bg-black/95 backdrop-blur z-50 border-b border-gray-800">
-        <div className="w-full flex items-center justify-between px-10 py-10 relative">
+        <div className="w-full flex items-center justify-between px-10 py-6 relative">
 
           {/* LOGO */}
-          <div className="flex flex-col leading-tight mt-10">
+          <div className="flex flex-col leading-tight mt-4">
             <h1 className="text-5xl font-black tracking-wide">
               NIVELAR
             </h1>
@@ -65,7 +65,7 @@ export default function Home() {
             </span>
           </div>
 
-          {/* MENU */}
+          {/* MENU CENTRAL */}
           <nav className="absolute left-1/2 -translate-x-1/2 flex gap-10 text-sm font-medium">
             <a href="#home" className="hover:text-yellow-400">Início</a>
             <a href="#projetos" className="hover:text-yellow-400">Projetos</a>
@@ -79,7 +79,7 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section id="home" className="h-screen pt-44 relative flex items-center justify-center">
+      <section id="home" className="h-screen pt-40 relative flex items-center justify-center">
         {heroImages.map((img, i) => (
           <div
             key={i}
@@ -143,7 +143,7 @@ export default function Home() {
         <p className="max-w-3xl mx-auto text-gray-300">
           A Nivelar Terraplanagem nasce com o propósito de entregar excelência desde o início.
           Nosso compromisso é preparar cada terreno com precisão, garantindo a base perfeita
-          para qualquer obra.
+          para qualquer obra. Porque acreditamos que é exatamente aqui que começa cada grande obra.
         </p>
       </section>
 
@@ -184,13 +184,13 @@ export default function Home() {
               </a>
             ))}
 
-            {/* INSTAGRAM SVG ORIGINAL */}
+            {/* INSTAGRAM SVG */}
             <a
               href="https://instagram.com/terraplanagem.nivelar"
               target="_blank"
               className="flex items-center gap-3 hover:text-yellow-400 transition"
             >
-              <img src="/icons/instagram.svg" className="w-6 h-6" />
+              <img src="/icons/instagram.svg" className="w-7 h-7" />
               @terraplanagem.nivelar
             </a>
 
