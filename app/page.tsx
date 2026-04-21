@@ -193,12 +193,15 @@ export default function Home() {
               </a>
             ))}
 
+            {/* INSTAGRAM CORRIGIDO */}
             <a
               href="https://instagram.com/terraplanagem.nivelar"
               target="_blank"
               className="flex items-center gap-3 hover:text-yellow-400 transition"
             >
-              <FaInstagram size={22} />
+              <div className="bg-yellow-400 text-black p-2 rounded-full">
+                <FaInstagram size={18} />
+              </div>
               @terraplanagem.nivelar
             </a>
 
