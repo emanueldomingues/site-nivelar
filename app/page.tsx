@@ -1,34 +1,38 @@
-{/* HEADER */}
-<header className="fixed top-0 w-full bg-black/95 backdrop-blur z-50 border-b border-gray-800">
+{/* SOBRE */}
+<section id="sobre" className="py-20 px-6 text-center bg-[#0d0d0d]">
 
-  <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-6 relative">
+  <h2 className="text-3xl md:text-4xl font-bold mb-6">
+    SOBRE <span className="text-yellow-400">NÓS</span>
+  </h2>
 
-    {/* LOGO - MAIS BAIXA E MAIOR */}
-    <div className="flex flex-col leading-tight justify-center">
-      <h1 className="text-5xl font-black leading-none tracking-wide">
-        NIVELAR
-      </h1>
+  {/* TEXTO PRINCIPAL */}
+  <div className="max-w-3xl mx-auto text-gray-300 leading-relaxed text-base md:text-lg">
 
-      <span className="bg-yellow-400 text-black text-sm px-3 py-1 mt-1 font-bold w-fit">
-        TERRAPLANAGEM
+    <p className="mb-4">
+      A <span className="text-white font-semibold">Nivelar Terraplanagem</span> nasceu com um propósito claro: dar início a grandes projetos com qualidade, precisão e responsabilidade.
+      Desde o primeiro dia, a empresa foi construída sobre valores sólidos, onde cada detalhe importa e cada obra é tratada com o máximo compromisso.
+    </p>
+
+    <p className="mb-4">
+      Nosso trabalho vai muito além de movimentar terra — nós preparamos o terreno para que sonhos se tornem realidade.
+      É por isso que nosso slogan, <span className="text-yellow-400 font-semibold">“Onde começa cada grande obra”</span>, não é apenas uma frase,
+      mas a essência do que fazemos.
+    </p>
+
+    <p className="mb-4">
+      Cada projeto que passa por nossas mãos representa o início de algo maior, e temos orgulho de fazer parte desse primeiro passo.
+      Com uma equipe qualificada e equipamentos modernos, buscamos sempre entregar resultados de alto padrão,
+      respeitando prazos, normas e a confiança de cada cliente.
+    </p>
+
+    <p>
+      Acreditamos que um bom começo define todo o resultado final — e é exatamente nesse começo que fazemos a diferença.
+      <br />
+      <span className="text-white font-semibold">
+        Nivelar Terraplanagem: mais do que um serviço, o ponto de partida para grandes conquistas.
       </span>
-
-      <span className="text-sm text-white mt-1">
-        Onde começa cada grande obra
-      </span>
-    </div>
-
-    {/* MENU CENTRALIZADO */}
-    <nav className="hidden md:flex gap-10 text-sm font-medium absolute left-1/2 -translate-x-1/2">
-      <a href="#home" className="hover:text-yellow-400 transition">Início</a>
-      <a href="#projetos" className="hover:text-yellow-400 transition">Projetos</a>
-      <a href="#equipamentos" className="hover:text-yellow-400 transition">Equipamentos</a>
-      <a href="#sobre" className="hover:text-yellow-400 transition">Sobre Nós</a>
-      <a href="#contato" className="hover:text-yellow-400 transition">Contato</a>
-    </nav>
-
-    {/* ESPAÇO DIREITA (não mexer) */}
-    <div className="w-[150px]" />
+    </p>
 
   </div>
-</header>
+
+</section>
