@@ -81,10 +81,7 @@ export default function Home() {
             style={{ backgroundImage: `url(${img})` }}
           />
         ))}
-
-        {/* 🔥 AQUI FOI A ÚNICA ALTERAÇÃO */}
         <div className="absolute inset-0 bg-black/40" />
-
         <h2 className="text-4xl font-bold relative">
           Terraplanagem <span className="text-yellow-400">de Alto Padrão</span>
         </h2>
@@ -148,80 +145,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DEPOIMENTOS */}
-      <section className="py-16 text-center">
-        <h2 className="text-3xl text-yellow-400 mb-10">DEPOIMENTOS</h2>
-
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
-          {["Excelente!", "Muito bom!", "Recomendo!"].map((t, i) => (
-            <div key={i} className="bg-black p-6 border border-gray-700 rounded-xl">
-              <div className="text-yellow-400 mb-2">★★★★★</div>
-              <p>{t}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FORM */}
-      <section className="py-16 text-center px-4">
-        <h2 className="text-yellow-400 mb-4">Avalie nosso serviço</h2>
-
-        <div className="flex justify-center gap-2 mb-4">
-          {[1,2,3,4,5].map((n) => (
-            <FaStar key={n}
-              onClick={() => setRating(n)}
-              className={rating >= n ? "text-yellow-400" : "text-gray-500"}
-            />
-          ))}
-        </div>
-
-        <input placeholder="Nome" className="p-2 mb-2 w-full max-w-md" />
-        <textarea placeholder="Mensagem" className="p-2 mb-2 w-full max-w-md" />
-      </section>
-
       {/* CONTATO */}
       <section id="contato" className="py-16 px-4 text-sm md:text-base">
         <h2 className="text-3xl text-yellow-400 text-center mb-10">CONTATO</h2>
 
         <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center">
 
+          {/* 🔥 MAPA MAIS LARGO */}
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-full h-[500px] rounded-xl"
+            className="w-full md:w-[115%] h-[500px] rounded-xl"
           />
 
           <div className="flex flex-col gap-4 text-gray-300">
-
             <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
-
-            <a href="https://wa.me/5543998061421" className="flex gap-3 items-center">
-              <FaWhatsapp /> Fernando
-            </a>
-
-            <a
-              href="https://instagram.com/terraplanagem.nivelar"
-              className="flex gap-3 items-center hover:text-yellow-400"
-            >
-              <img src="/icons/instagram.svg" className="w-7" />
-              @terraplanagem.nivelar
-            </a>
-
           </div>
         </div>
       </section>
-
-      {/* ZOOM */}
-      {zoomImg && (
-        <div onClick={() => setZoomImg(null)} className="fixed inset-0 bg-black/90 flex justify-center items-center">
-          <img src={zoomImg} className="max-h-[90%]" />
-        </div>
-      )}
-
-      {/* WHATS */}
-      <a href="https://wa.me/5543998061421"
-        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full">
-        <FaWhatsapp />
-      </a>
 
     </div>
   );
