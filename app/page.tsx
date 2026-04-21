@@ -65,8 +65,8 @@ export default function Home() {
             </span>
           </div>
 
-          {/* MENU CENTRAL */}
-          <nav className="absolute left-1/2 -translate-x-1/2 flex gap-8 text-xs font-medium">
+          {/* MENU CENTRAL (AUMENTADO) */}
+          <nav className="absolute left-1/2 -translate-x-1/2 flex gap-10 text-sm font-semibold">
             <a href="#home" className="hover:text-yellow-400">Início</a>
             <a href="#projetos" className="hover:text-yellow-400">Projetos</a>
             <a href="#equipamentos" className="hover:text-yellow-400">Equipamentos</a>
@@ -134,17 +134,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOBRE */}
+      {/* SOBRE (TEXTO COMPLETO RESTAURADO) */}
       <section id="sobre" className="py-20 px-6 text-center bg-[#0d0d0d]">
-        <h2 className="text-3xl font-bold mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
           SOBRE <span className="text-yellow-400">NÓS</span>
         </h2>
 
-        <p className="max-w-3xl mx-auto text-gray-300">
-          A Nivelar Terraplanagem nasce com o propósito de entregar excelência desde o início.
-          Nosso compromisso é preparar cada terreno com precisão, garantindo a base perfeita
-          para qualquer obra. Porque acreditamos que é exatamente aqui que começa cada grande obra.
-        </p>
+        <div className="max-w-3xl mx-auto text-gray-300 leading-relaxed text-base md:text-lg">
+          <p className="mb-4">
+            A <span className="text-white font-semibold">Nivelar Terraplanagem</span> nasceu com um propósito claro: dar início a grandes projetos com qualidade, precisão e responsabilidade.
+          </p>
+
+          <p className="mb-4">
+            Nosso trabalho vai muito além de movimentar terra — nós preparamos o terreno para que sonhos se tornem realidade.
+            É por isso que nosso slogan, <span className="text-yellow-400 font-semibold">“Onde começa cada grande obra”</span>, representa exatamente o que fazemos todos os dias.
+          </p>
+
+          <p>
+            Acreditamos que um bom começo define todo o resultado final — e é nesse início que fazemos a diferença.
+          </p>
+        </div>
       </section>
 
       {/* CONTATO */}
