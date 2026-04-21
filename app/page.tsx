@@ -52,7 +52,6 @@ export default function Home() {
       <header className="fixed top-0 w-full bg-black/95 backdrop-blur z-50 border-b border-gray-800">
         <div className="w-full flex items-center justify-between px-10 py-3 relative">
 
-          {/* LOGO */}
           <div className="flex flex-col leading-tight mt-1">
             <h1 className="text-4xl font-black tracking-wide">NIVELAR</h1>
             <span className="bg-yellow-400 text-black text-xs px-2 py-0.5 mt-1 font-bold w-fit">
@@ -63,7 +62,6 @@ export default function Home() {
             </span>
           </div>
 
-          {/* MENU MAIOR (CORRIGIDO) */}
           <nav className="absolute left-1/2 -translate-x-1/2 flex gap-12 text-base font-semibold">
             <a href="#home" className="hover:text-yellow-400">Início</a>
             <a href="#projetos" className="hover:text-yellow-400">Projetos</a>
@@ -76,8 +74,8 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO */}
-      <section id="home" className="h-screen pt-28 relative flex items-center justify-center">
+      {/* HERO (DIMINUÍDO) */}
+      <section id="home" className="h-[65vh] pt-28 relative flex items-center justify-center">
         {heroImages.map((img, i) => (
           <div
             key={i}
@@ -132,7 +130,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOBRE (RESTAURADO COMPLETO) */}
+      {/* SOBRE */}
       <section id="sobre" className="py-20 px-6 text-center bg-[#0d0d0d]">
         <h2 className="text-3xl font-bold mb-6">
           SOBRE <span className="text-yellow-400">NÓS</span>
