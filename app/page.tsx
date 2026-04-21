@@ -80,7 +80,7 @@ export default function Home() {
             "/images/projetos/projeto3.jpg",
             "/images/projetos/projeto4.jpg",
             "/images/projetos/projeto5.jpg",
-            "/images/projetos/projeto6.jpg",
+         
           ].map((img, i) => (
             <img
               key={i}
