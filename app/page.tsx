@@ -50,7 +50,7 @@ export default function Home() {
   return (
     <div className="bg-black text-white overflow-x-hidden">
 
-      {/* HEADER (INALTERADO) */}
+      {/* HEADER */}
       <header className="fixed top-0 w-full bg-black/95 backdrop-blur z-50 border-b border-gray-800">
         <div className="flex items-center justify-between px-4 md:px-10 py-3 relative">
 
@@ -76,20 +76,10 @@ export default function Home() {
             ☰
           </button>
         </div>
-
-        {menuOpen && (
-          <div className="md:hidden bg-black border-t border-gray-800 flex flex-col items-center py-6 gap-6 text-lg">
-            <a href="#home">Início</a>
-            <a href="#projetos">Projetos</a>
-            <a href="#equipamentos">Equipamentos</a>
-            <a href="#sobre">Sobre Nós</a>
-            <a href="#contato">Contato</a>
-          </div>
-        )}
       </header>
 
       {/* HERO */}
-      <section id="home" className="h-[60vh] md:h-[65vh] pt-28 relative flex items-center justify-center">
+      <section id="home" className="h-[60vh] pt-28 relative flex items-center justify-center">
         {heroImages.map((img, i) => (
           <div
             key={i}
@@ -114,8 +104,9 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {projetos.map((img, i) => (
-            <img key={i} src={img} onClick={() => setZoomImg(img)}
-              className="rounded-xl object-cover h-[240px] w-full cursor-pointer hover:scale-105 transition"
+            <img key={i} src={img}
+              onClick={() => setZoomImg(img)}
+              className="rounded-xl object-cover h-[240px] w-full cursor-pointer"
             />
           ))}
         </div>
@@ -129,8 +120,9 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {equipamentos.map((img, i) => (
-            <img key={i} src={img} onClick={() => setZoomImg(img)}
-              className="rounded-xl object-cover h-[240px] w-full cursor-pointer hover:scale-105 transition"
+            <img key={i} src={img}
+              onClick={() => setZoomImg(img)}
+              className="rounded-xl object-cover h-[240px] w-full cursor-pointer"
             />
           ))}
         </div>
@@ -146,12 +138,12 @@ export default function Home() {
           A Nivelar Terraplanagem atua com excelência, garantindo que cada obra comece da melhor forma possível.
         </p>
 
-        {/* ⭐ DEPOIMENTOS RESTAURADOS */}
+        {/* DEPOIMENTOS (NOMES MELHORADOS) */}
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
           {[
-            ["Carlos", "Serviço impecável, equipe muito profissional!"],
-            ["Roberto", "Máquinas modernas e entrega rápida."],
-            ["Juliana", "Super recomendo, qualidade top!"],
+            ["João Martins", "Serviço impecável, equipe extremamente profissional."],
+            ["Ricardo Almeida", "Equipamentos modernos e entrega rápida."],
+            ["Patrícia Souza", "Qualidade excelente, recomendo totalmente."],
           ].map(([nome, texto], i) => (
             <div key={i} className="bg-black p-6 rounded-xl border border-gray-800">
               <div className="text-yellow-400 mb-2">★★★★★</div>
@@ -161,7 +153,7 @@ export default function Home() {
           ))}
         </div>
 
-        {/* FORM AVALIAÇÃO */}
+        {/* FORM */}
         <div className="max-w-md mx-auto">
           <h3 className="text-yellow-400 mb-4">Avalie nosso serviço</h3>
 
@@ -190,47 +182,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTATO (INALTERADO) */}
+      {/* CONTATO (REALINHADO E TRAVADO) */}
       <section id="contato" className="py-16 px-4">
         <h2 className="text-2xl md:text-3xl text-yellow-400 text-center mb-10">
           CONTATO
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center">
 
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
             className="w-full h-[500px] rounded-xl"
           />
 
-          <div className="flex flex-col gap-4">
-            <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
+          <div className="flex flex-col gap-5 justify-center">
 
-            <a href="https://wa.me/5543998061421" className="flex gap-3 items-center">
-              <div className="bg-green-500 p-2 rounded-full">
-                <FaWhatsapp />
-              </div>
-              Fernando
-            </a>
+            <p className="text-gray-300">📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
-            <a href="https://wa.me/5543999520213" className="flex gap-3 items-center">
-              <div className="bg-green-500 p-2 rounded-full">
-                <FaWhatsapp />
-              </div>
-              Anderson
-            </a>
+            {[
+              ["Fernando", "5543998061421"],
+              ["Anderson", "5543999520213"],
+              ["Valéria", "5543996281826"],
+            ].map(([nome, numero]) => (
+              <a key={numero}
+                href={`https://wa.me/${numero}`}
+                className="flex items-center gap-3 hover:text-yellow-400 transition"
+              >
+                <div className="bg-green-500 p-2 rounded-full text-white">
+                  <FaWhatsapp />
+                </div>
+                {nome}
+              </a>
+            ))}
 
-            <a href="https://wa.me/5543996281826" className="flex gap-3 items-center">
-              <div className="bg-green-500 p-2 rounded-full">
-                <FaWhatsapp />
-              </div>
-              Valéria
-            </a>
-
-            <a href="https://instagram.com/terraplanagem.nivelar" className="flex gap-3 items-center">
-              <img src="/icons/instagram.svg" className="w-7" />
+            <a
+              href="https://instagram.com/terraplanagem.nivelar"
+              className="flex items-center gap-3 hover:text-yellow-400"
+            >
+              <img src="/icons/instagram.svg" className="w-7 h-7" />
               @terraplanagem.nivelar
             </a>
+
           </div>
         </div>
       </section>
@@ -243,9 +235,9 @@ export default function Home() {
         </div>
       )}
 
-      {/* WHATS FLOAT */}
+      {/* WHATS FIXO */}
       <a href="https://wa.me/5543998061421"
-        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl">
+        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl shadow-lg">
         <FaWhatsapp />
       </a>
 
