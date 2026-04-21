@@ -50,23 +50,23 @@ export default function Home() {
 
       {/* HEADER */}
       <header className="fixed top-0 w-full bg-black/95 backdrop-blur z-50 border-b border-gray-800">
-        <div className="w-full flex items-center justify-between px-10 py-6 relative">
+        <div className="w-full flex items-center justify-between px-10 py-3 relative">
 
           {/* LOGO */}
-          <div className="flex flex-col leading-tight mt-4">
-            <h1 className="text-5xl font-black tracking-wide">
+          <div className="flex flex-col leading-tight mt-1">
+            <h1 className="text-4xl font-black tracking-wide">
               NIVELAR
             </h1>
-            <span className="bg-yellow-400 text-black text-sm px-3 py-1 mt-1 font-bold w-fit">
+            <span className="bg-yellow-400 text-black text-xs px-2 py-0.5 mt-1 font-bold w-fit">
               TERRAPLANAGEM
             </span>
-            <span className="text-sm text-white mt-1">
+            <span className="text-xs text-white mt-1">
               Onde começa cada grande obra
             </span>
           </div>
 
           {/* MENU CENTRAL */}
-          <nav className="absolute left-1/2 -translate-x-1/2 flex gap-10 text-sm font-medium">
+          <nav className="absolute left-1/2 -translate-x-1/2 flex gap-8 text-xs font-medium">
             <a href="#home" className="hover:text-yellow-400">Início</a>
             <a href="#projetos" className="hover:text-yellow-400">Projetos</a>
             <a href="#equipamentos" className="hover:text-yellow-400">Equipamentos</a>
@@ -74,12 +74,12 @@ export default function Home() {
             <a href="#contato" className="hover:text-yellow-400">Contato</a>
           </nav>
 
-          <div className="w-[150px]" />
+          <div className="w-[120px]" />
         </div>
       </header>
 
       {/* HERO */}
-      <section id="home" className="h-screen pt-40 relative flex items-center justify-center">
+      <section id="home" className="h-screen pt-28 relative flex items-center justify-center">
         {heroImages.map((img, i) => (
           <div
             key={i}
@@ -92,7 +92,7 @@ export default function Home() {
 
         <div className="absolute inset-0 bg-black/70" />
 
-        <h2 className="relative text-5xl font-bold text-center">
+        <h2 className="relative text-4xl md:text-5xl font-bold text-center">
           Terraplanagem de <br />
           <span className="text-yellow-400">Alto Padrão</span>
         </h2>
@@ -155,13 +155,11 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
 
-          {/* MAPA */}
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-full h-[500px] rounded-xl"
+            className="w-full h-[520px] rounded-xl"
           />
 
-          {/* CONTATOS */}
           <div className="space-y-5 text-base">
 
             <p className="text-gray-300">📍 Av. Antônio Raminelli, 857 - Cambé</p>
@@ -184,7 +182,6 @@ export default function Home() {
               </a>
             ))}
 
-            {/* INSTAGRAM SVG */}
             <a
               href="https://instagram.com/terraplanagem.nivelar"
               target="_blank"
@@ -198,7 +195,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ZOOM */}
       {zoomImg && (
         <div
           onClick={() => setZoomImg(null)}
@@ -208,7 +204,6 @@ export default function Home() {
         </div>
       )}
 
-      {/* BOTÃO WHATS */}
       <a
         href="https://wa.me/5543998061421"
         target="_blank"
