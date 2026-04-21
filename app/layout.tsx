@@ -1,10 +1,38 @@
 import "./globals.css";
-import { Montserrat } from "next/font/google";
+import type { Metadata } from "next";
 
-const font = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "900"],
-});
+export const metadata: Metadata = {
+  title: "Nivelar Terraplanagem | Cambé",
+  description:
+    "Terraplanagem profissional em Cambé e região. Qualidade, precisão e compromisso. Equipamentos modernos e equipe especializada.",
+  keywords: [
+    "terraplanagem",
+    "terraplanagem Cambé",
+    "terraplanagem Londrina",
+    "nivelamento de solo",
+    "preparo de terreno",
+    "obras de terra",
+  ],
+  authors: [{ name: "Nivelar Terraplanagem" }],
+  creator: "Nivelar Terraplanagem",
+
+  openGraph: {
+    title: "Nivelar Terraplanagem",
+    description:
+      "Onde começa cada grande obra. Serviços de terraplanagem com qualidade e precisão.",
+    url: "https://seusite.com",
+    siteName: "Nivelar Terraplanagem",
+    images: [
+      {
+        url: "/images/equipamentos/maquina1.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -13,9 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={`${font.className} bg-black text-white`}>
-        {children}
-      </body>
+      <body className="bg-black text-white">{children}</body>
     </html>
   );
 }
