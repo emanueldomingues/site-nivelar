@@ -49,9 +49,10 @@ export default function Home() {
   return (
     <div className="bg-black text-white overflow-x-hidden">
 
-      {/* HEADER (intacto) */}
+      {/* HEADER */}
       <header className="fixed top-0 w-full bg-black/95 backdrop-blur z-50 border-b border-gray-800">
         <div className="flex items-center justify-between px-4 md:px-10 py-3 relative">
+
           <div className="flex flex-col leading-tight">
             <h1 className="text-2xl md:text-4xl font-black">NIVELAR</h1>
             <span className="bg-yellow-400 text-black text-xs px-2 py-0.5 mt-1 font-bold w-fit">
@@ -72,10 +73,11 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO (intacto) */}
+      {/* HERO */}
       <section id="home" className="h-[60vh] pt-28 relative flex items-center justify-center">
         {heroImages.map((img, i) => (
-          <div key={i}
+          <div
+            key={i}
             className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
               current === i ? "opacity-100" : "opacity-0"
             }`}
@@ -83,16 +85,50 @@ export default function Home() {
           />
         ))}
         <div className="absolute inset-0 bg-black/70" />
-        <h2 className="relative text-2xl md:text-5xl font-bold text-center">
+
+        <h2 className="relative text-2xl md:text-5xl font-bold text-center px-4">
           Terraplanagem de <br />
           <span className="text-yellow-400">Alto Padrão</span>
         </h2>
       </section>
 
-      {/* PROJETOS + EQUIPAMENTOS (intacto) */}
-      {/* ... (mantidos iguais ao seu código atual) */}
+      {/* PROJETOS */}
+      <section id="projetos" className="py-16 px-4 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold mb-10">
+          PROJETOS <span className="text-yellow-400">REALIZADOS</span>
+        </h2>
 
-      {/* SOBRE COMPLETO RESTAURADO */}
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {projetos.map((img, i) => (
+            <img
+              key={i}
+              src={img}
+              onClick={() => setZoomImg(img)}
+              className="rounded-xl object-cover h-[240px] w-full cursor-pointer hover:scale-105 transition"
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* EQUIPAMENTOS */}
+      <section id="equipamentos" className="py-16 px-4 text-center bg-[#111]">
+        <h2 className="text-2xl md:text-3xl font-bold mb-10">
+          NOSSOS <span className="text-yellow-400">EQUIPAMENTOS</span>
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {equipamentos.map((img, i) => (
+            <img
+              key={i}
+              src={img}
+              onClick={() => setZoomImg(img)}
+              className="rounded-xl object-cover h-[240px] w-full cursor-pointer hover:scale-105 transition"
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* SOBRE + DEPOIMENTOS + AVALIAÇÃO */}
       <section id="sobre" className="py-16 px-4 text-center bg-[#0d0d0d]">
         <h2 className="text-2xl md:text-3xl font-bold mb-6">
           SOBRE <span className="text-yellow-400">NÓS</span>
@@ -107,20 +143,19 @@ export default function Home() {
 
           Guiados pelo nosso propósito,
           <span className="text-white font-semibold"> "Onde começa cada grande obra"</span>,
-          atuamos com responsabilidade, tecnologia e compromisso em cada serviço realizado.
+          atuamos com responsabilidade, tecnologia e compromisso.
 
           <br /><br />
 
-          Nosso princípio é simples: fazer bem feito desde o início,
-          porque sabemos que um bom começo define todo o resultado final.
+          Nosso princípio é simples: fazer bem feito desde o início.
         </p>
 
-        {/* DEPOIMENTOS RESTAURADOS */}
+        {/* DEPOIMENTOS */}
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
           {[
-            ["Carlos Mendes", "Serviço excelente, superou expectativas."],
-            ["Juliano Rocha", "Equipe profissional e entrega rápida."],
-            ["Fernanda Lima", "Muito confiável, recomendo."],
+            ["Carlos Mendes", "Serviço excelente."],
+            ["Juliano Rocha", "Equipe profissional."],
+            ["Fernanda Lima", "Recomendo totalmente."],
           ].map(([nome, texto], i) => (
             <div key={i} className="bg-black p-6 rounded-xl border border-gray-800">
               <div className="text-yellow-400 mb-2">★★★★★</div>
@@ -130,7 +165,7 @@ export default function Home() {
           ))}
         </div>
 
-        {/* FORMULÁRIO RESTAURADO */}
+        {/* AVALIAÇÃO */}
         <div className="max-w-md mx-auto">
           <h3 className="text-yellow-400 mb-4">Avalie nosso serviço</h3>
 
@@ -154,7 +189,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTATO RESTAURADO */}
+      {/* CONTATO */}
       <section id="contato" className="py-16 px-4">
         <h2 className="text-3xl text-yellow-400 text-center mb-10">CONTATO</h2>
 
@@ -172,7 +207,9 @@ export default function Home() {
               ["Anderson", "5543999520213"],
               ["Valéria", "5543996281826"],
             ].map(([nome, numero]) => (
-              <a key={numero} href={`https://wa.me/${numero}`} className="flex gap-3 items-center hover:text-yellow-400">
+              <a key={numero}
+                href={`https://wa.me/${numero}`}
+                className="flex gap-3 items-center hover:text-yellow-400">
                 <div className="bg-green-500 p-2 rounded-full">
                   <FaWhatsapp />
                 </div>
@@ -180,7 +217,8 @@ export default function Home() {
               </a>
             ))}
 
-            <a href="https://instagram.com/terraplanagem.nivelar" className="flex gap-3 items-center">
+            <a href="https://instagram.com/terraplanagem.nivelar"
+              className="flex gap-3 items-center">
               <img src="/icons/instagram.svg" className="w-7" />
               @terraplanagem.nivelar
             </a>
@@ -188,9 +226,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHATS FIXO */}
+      {/* ZOOM */}
+      {zoomImg && (
+        <div onClick={() => setZoomImg(null)}
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+          <img src={zoomImg} className="max-h-[90%]" />
+        </div>
+      )}
+
+      {/* WHATS */}
       <a href="https://wa.me/5543998061421"
-        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl">
+        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl shadow-lg">
         <FaWhatsapp />
       </a>
 
