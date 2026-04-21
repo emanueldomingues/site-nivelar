@@ -39,20 +39,21 @@ export default function Home() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const i = setInterval(() => {
+    const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % carousel.length);
     }, 4000);
-    return () => clearInterval(i);
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <main>
+
       {/* HEADER */}
-      <header className="w-full bg-black py-4 px-8 flex items-center justify-between">
+      <header className="w-full bg-black py-4 px-8 flex items-center justify-between relative">
         
-        {/* LOGO AJUSTADA */}
-        <div className="flex flex-col">
-          <h1 className="text-4xl md:text-5xl font-black leading-none tracking-wide">
+        {/* LOGO */}
+        <div className="flex flex-col ml-2">
+          <h1 className="text-5xl font-black leading-none tracking-wide">
             NIVELAR
           </h1>
           <span className="bg-yellow-400 text-black text-sm px-3 py-1 mt-1 font-bold w-fit">
@@ -63,7 +64,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/* MENU (NÃO MEXER) */}
+        {/* MENU CENTRALIZADO */}
         <nav className="absolute left-1/2 transform -translate-x-1/2 flex gap-8 text-sm">
           <a href="#inicio">Início</a>
           <a href="#projetos">Projetos</a>
@@ -91,7 +92,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROJETOS CENTRALIZADO */}
+      {/* PROJETOS */}
       <section id="projetos" className="px-10 py-16 text-center">
         <h2 className="text-3xl font-bold text-yellow-400 mb-10">
           PROJETOS
@@ -111,7 +112,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EQUIPAMENTOS CENTRALIZADO */}
+      {/* EQUIPAMENTOS */}
       <section id="equipamentos" className="px-10 py-16 bg-zinc-900 text-center">
         <h2 className="text-3xl font-bold text-yellow-400 mb-10">
           EQUIPAMENTOS
@@ -126,7 +127,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOBRE CENTRALIZADO */}
+      {/* SOBRE */}
       <section id="sobre" className="px-10 py-16 text-center">
         <h2 className="text-3xl font-bold text-yellow-400 mb-6">
           SOBRE NÓS
@@ -137,62 +138,74 @@ export default function Home() {
         </p>
       </section>
 
-      {/* CONTATO AJUSTADO */}
+      {/* CONTATO FINAL */}
       <section id="contato" className="px-10 py-16">
         <h2 className="text-3xl font-bold text-yellow-400 text-center mb-10">
           CONTATO
         </h2>
 
-        <div className="flex gap-10 items-center justify-center">
+        <div className="flex gap-12 items-center justify-center">
 
-          {/* MAPA MENOR */}
+          {/* MAPA */}
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-[500px] h-[300px] rounded-lg"
+            className="w-[600px] h-[350px] rounded-lg"
           />
 
           {/* CONTATOS */}
-          <div className="flex flex-col gap-4 text-base">
+          <div className="flex flex-col gap-5 text-base">
 
             <p className="mb-2">📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
             <a
               href="https://wa.me/5543998061421"
               target="_blank"
-              className="flex items-center gap-2 hover:text-yellow-400 transition"
+              className="flex items-center gap-3 hover:text-yellow-400 transition"
             >
-              <FaWhatsapp className="text-green-500" /> Fernando — (43) 99806-1421
+              <div className="bg-green-500 p-2 rounded-full text-white">
+                <FaWhatsapp />
+              </div>
+              Fernando — (43) 99806-1421
             </a>
 
             <a
               href="https://wa.me/5543999520213"
               target="_blank"
-              className="flex items-center gap-2 hover:text-yellow-400 transition"
+              className="flex items-center gap-3 hover:text-yellow-400 transition"
             >
-              <FaWhatsapp className="text-green-500" /> Anderson — (43) 99952-0213
+              <div className="bg-green-500 p-2 rounded-full text-white">
+                <FaWhatsapp />
+              </div>
+              Anderson — (43) 99952-0213
             </a>
 
             <a
               href="https://wa.me/5543996281826"
               target="_blank"
-              className="flex items-center gap-2 hover:text-yellow-400 transition"
+              className="flex items-center gap-3 hover:text-yellow-400 transition"
             >
-              <FaWhatsapp className="text-green-500" /> Valéria — (43) 99628-1826
+              <div className="bg-green-500 p-2 rounded-full text-white">
+                <FaWhatsapp />
+              </div>
+              Valéria — (43) 99628-1826
             </a>
 
             <a
               href="https://instagram.com/terraplanagem.nivelar"
               target="_blank"
-              className="flex items-center gap-2 text-yellow-400 hover:opacity-80"
+              className="flex items-center gap-3 text-yellow-400 hover:opacity-80"
             >
-              <FaInstagram /> @terraplanagem.nivelar
+              <div className="bg-yellow-400 text-black p-2 rounded-full">
+                <FaInstagram />
+              </div>
+              @terraplanagem.nivelar
             </a>
 
           </div>
         </div>
       </section>
 
-      {/* BOTÃO FLUTUANTE (NÃO ALTERADO) */}
+      {/* BOTÃO FLUTUANTE */}
       <a
         href="https://wa.me/5543998061421"
         target="_blank"
@@ -200,6 +213,7 @@ export default function Home() {
       >
         <FaWhatsapp />
       </a>
+
     </main>
   );
 }
