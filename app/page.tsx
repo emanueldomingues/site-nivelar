@@ -39,6 +39,21 @@ export default function Home() {
     "/images/projetos/projeto9.jpg",
   ];
 
+  const depoimentos = [
+    {
+      nome: "Carlos Silva",
+      texto: "Serviço impecável, equipe extremamente profissional. Recomendo!",
+    },
+    {
+      nome: "Marcos Oliveira",
+      texto: "Equipamentos modernos e entrega rápida. Superou expectativas.",
+    },
+    {
+      nome: "Fernanda Costa",
+      texto: "Atendimento excelente e qualidade no serviço. Muito confiável.",
+    },
+  ];
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % heroImages.length);
@@ -64,34 +79,31 @@ export default function Home() {
           </div>
 
           <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-12 text-base font-semibold">
-            <a href="#home" className="hover:text-yellow-400">Início</a>
-            <a href="#projetos" className="hover:text-yellow-400">Projetos</a>
-            <a href="#equipamentos" className="hover:text-yellow-400">Equipamentos</a>
-            <a href="#sobre" className="hover:text-yellow-400">Sobre Nós</a>
-            <a href="#contato" className="hover:text-yellow-400">Contato</a>
+            <a href="#home">Início</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#equipamentos">Equipamentos</a>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#contato">Contato</a>
           </nav>
 
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-xl"
-          >
+          <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden">
             ☰
           </button>
         </div>
 
         {menuOpen && (
-          <div className="md:hidden bg-black border-t border-gray-800 flex flex-col items-center py-6 gap-6 text-lg">
-            <a href="#home" onClick={() => setMenuOpen(false)}>Início</a>
-            <a href="#projetos" onClick={() => setMenuOpen(false)}>Projetos</a>
-            <a href="#equipamentos" onClick={() => setMenuOpen(false)}>Equipamentos</a>
-            <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre Nós</a>
-            <a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a>
+          <div className="md:hidden flex flex-col items-center gap-6 py-6 bg-black">
+            <a href="#home">Início</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#equipamentos">Equipamentos</a>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#contato">Contato</a>
           </div>
         )}
       </header>
 
       {/* HERO */}
-      <section id="home" className="h-[60vh] md:h-[65vh] pt-28 relative flex items-center justify-center">
+      <section id="home" className="h-[60vh] pt-28 relative flex items-center justify-center">
         {heroImages.map((img, i) => (
           <div
             key={i}
@@ -101,167 +113,106 @@ export default function Home() {
             style={{ backgroundImage: `url(${img})` }}
           />
         ))}
-
         <div className="absolute inset-0 bg-black/70" />
-
-        <h2 className="relative text-2xl md:text-5xl font-bold text-center px-4">
+        <h2 className="relative text-2xl md:text-5xl font-bold text-center">
           Terraplanagem de <br />
           <span className="text-yellow-400">Alto Padrão</span>
         </h2>
       </section>
 
       {/* PROJETOS */}
-      <section id="projetos" className="py-16 px-4 md:px-6 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-10">
+      <section id="projetos" className="py-16 px-4 text-center">
+        <h2 className="text-2xl md:text-3xl mb-10">
           PROJETOS <span className="text-yellow-400">REALIZADOS</span>
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {projetos.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              onClick={() => setZoomImg(img)}
-              className="rounded-xl object-cover h-[220px] md:h-[260px] w-full cursor-pointer hover:scale-105 transition"
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* DEPOIMENTOS (ADICIONADO SEM QUEBRAR NADA) */}
-      <section id="depoimentos" className="py-16 px-4 md:px-6 text-center bg-[#111]">
-        <h2 className="text-2xl md:text-3xl font-bold mb-10">
-          O QUE NOSSOS <span className="text-yellow-400">CLIENTES DIZEM</span>
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {[
-            {
-              nome: "Carlos Silva",
-              texto: "Serviço impecável, equipe extremamente profissional. Recomendo!",
-            },
-            {
-              nome: "Marcos Oliveira",
-              texto: "Equipamentos modernos e entrega rápida. Superou expectativas.",
-            },
-            {
-              nome: "Fernanda Costa",
-              texto: "Atendimento excelente e qualidade no serviço. Muito confiável.",
-            },
-          ].map((dep, i) => (
-            <div
-              key={i}
-              className="bg-black p-6 rounded-xl border border-gray-800 hover:border-yellow-400 transition"
-            >
-              <div className="text-yellow-400 text-lg mb-3">★★★★★</div>
-              <p className="text-gray-300 mb-4">"{dep.texto}"</p>
-              <span className="font-semibold">{dep.nome}</span>
-            </div>
+            <img key={i} src={img} className="rounded-xl h-[240px] object-cover" />
           ))}
         </div>
       </section>
 
       {/* EQUIPAMENTOS */}
-      <section id="equipamentos" className="py-16 px-4 md:px-6 text-center bg-[#111]">
-        <h2 className="text-2xl md:text-3xl font-bold mb-10">
+      <section id="equipamentos" className="py-16 px-4 text-center bg-[#111]">
+        <h2 className="text-2xl md:text-3xl mb-10">
           NOSSOS <span className="text-yellow-400">EQUIPAMENTOS</span>
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {equipamentos.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              onClick={() => setZoomImg(img)}
-              className="rounded-xl object-cover h-[220px] md:h-[260px] w-full cursor-pointer hover:scale-105 transition"
-            />
+            <img key={i} src={img} className="rounded-xl h-[240px] object-cover" />
           ))}
         </div>
       </section>
 
-      {/* SOBRE */}
-      <section id="sobre" className="py-16 px-4 md:px-6 text-center bg-[#0d0d0d]">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6">
+      {/* SOBRE + DEPOIMENTOS + FORM */}
+      <section id="sobre" className="py-20 px-4 text-center bg-[#0d0d0d]">
+        <h2 className="text-2xl md:text-3xl mb-6">
           SOBRE <span className="text-yellow-400">NÓS</span>
         </h2>
 
-        <div className="max-w-3xl mx-auto text-gray-300 text-sm md:text-lg leading-relaxed">
+        <div className="max-w-3xl mx-auto text-gray-300 mb-12">
           <p className="mb-4">
-            A <span className="text-white font-semibold">Nivelar Terraplanagem</span> nasceu com um propósito claro: dar início a grandes projetos com qualidade, precisão e responsabilidade.
+            A Nivelar Terraplanagem nasceu com o propósito de dar início a grandes obras com qualidade e precisão.
           </p>
-
-          <p className="mb-4">
-            Nosso trabalho vai muito além de movimentar terra — nós preparamos o terreno para que sonhos se tornem realidade.
-            É por isso que nosso slogan, <span className="text-yellow-400 font-semibold">“Onde começa cada grande obra”</span>, representa exatamente o que fazemos todos os dias.
-          </p>
-
           <p>
-            Acreditamos que um bom começo define todo o resultado final — e é nesse início que fazemos a diferença.
+            Nosso lema <span className="text-yellow-400">“Onde começa cada grande obra”</span> define nosso compromisso.
           </p>
+        </div>
+
+        {/* DEPOIMENTOS */}
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
+          {depoimentos.map((dep, i) => (
+            <div key={i} className="bg-black p-6 rounded-xl border border-gray-800">
+              <div className="text-yellow-400 mb-3">★★★★★</div>
+              <p className="text-gray-300 mb-3">"{dep.texto}"</p>
+              <span>{dep.nome}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* FORM AVALIAÇÃO */}
+        <div className="max-w-xl mx-auto">
+          <h3 className="text-xl mb-4 text-yellow-400">
+            Avalie nosso serviço
+          </h3>
+
+          <form className="flex flex-col gap-4">
+            <input
+              type="text"
+              placeholder="Seu nome"
+              className="p-3 rounded bg-black border border-gray-700"
+            />
+
+            <textarea
+              placeholder="Deixe sua avaliação..."
+              className="p-3 rounded bg-black border border-gray-700"
+            />
+
+            <button className="bg-yellow-400 text-black py-3 rounded font-bold hover:opacity-80">
+              Enviar Avaliação
+            </button>
+          </form>
         </div>
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="py-16 px-4 md:px-6 bg-black">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 text-yellow-400">
-          CONTATO
-        </h2>
+      <section id="contato" className="py-16 text-center">
+        <h2 className="text-2xl text-yellow-400 mb-6">CONTATO</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
-
-          <iframe
-            src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-full h-[350px] md:h-[520px] rounded-xl"
-          />
-
-          <div className="space-y-5 text-sm md:text-base">
-
-            <p className="text-gray-300">📍 Av. Antônio Raminelli, 857 - Cambé</p>
-
-            {[
-              ["Fernando", "5543998061421"],
-              ["Anderson", "5543999520213"],
-              ["Valéria", "5543996281826"],
-            ].map(([nome, numero]) => (
-              <a
-                key={numero}
-                href={`https://wa.me/${numero}`}
-                target="_blank"
-                className="flex items-center gap-3 hover:text-yellow-400 transition"
-              >
-                <div className="bg-green-500 p-2 rounded-full text-white text-lg">
-                  <FaWhatsapp />
-                </div>
-                {nome}
-              </a>
-            ))}
-
-            <a
-              href="https://instagram.com/terraplanagem.nivelar"
-              target="_blank"
-              className="flex items-center gap-3 hover:text-yellow-400 transition"
-            >
-              <img src="/icons/instagram.svg" className="w-7 h-7" />
-              @terraplanagem.nivelar
-            </a>
-
-          </div>
-        </div>
+        <a
+          href="https://wa.me/5543998061421"
+          className="bg-green-500 px-6 py-3 rounded-full inline-flex items-center gap-2"
+        >
+          <FaWhatsapp /> Falar no WhatsApp
+        </a>
       </section>
 
-      {zoomImg && (
-        <div
-          onClick={() => setZoomImg(null)}
-          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
-        >
-          <img src={zoomImg} className="max-h-[90%] max-w-[90%] rounded-lg" />
-        </div>
-      )}
-
+      {/* WHATS FIXO */}
       <a
         href="https://wa.me/5543998061421"
-        target="_blank"
-        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl shadow-lg hover:scale-110 transition"
+        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full"
       >
         <FaWhatsapp />
       </a>
