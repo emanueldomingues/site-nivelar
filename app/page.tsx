@@ -66,6 +66,33 @@ export default function Home() {
 
       </section>
 
+      {/* PROJETOS */}
+      <section className="py-16 text-center">
+        <h2 className="text-yellow-400 text-2xl mb-8">
+          PROJETOS REALIZADOS
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+
+          {[
+            "/images/projetos/projeto1.jpg",
+            "/images/projetos/projeto2.jpg",
+            "/images/projetos/projeto3.jpg",
+            "/images/projetos/projeto4.jpg",
+            "/images/projetos/projeto5.jpg",
+            "/images/projetos/projeto6.jpg",
+          ].map((img, i) => (
+            <img
+              key={i}
+              src={img}
+              onError={(e) => (e.currentTarget.style.display = "none")}
+              className="h-[220px] w-full object-cover rounded-lg hover:scale-105 transition"
+            />
+          ))}
+
+        </div>
+      </section>
+
     </main>
   );
 }
