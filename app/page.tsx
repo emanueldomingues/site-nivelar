@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { BsInstagram } from "react-icons/bs"; // 🔥 instagram correto
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
@@ -49,11 +50,11 @@ export default function Home() {
 
       {/* HEADER */}
       <header className="fixed top-0 w-full bg-black/90 backdrop-blur z-50 border-b border-gray-800">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-2 md:px-6 py-4">
 
-          {/* LOGO ESQUERDA */}
-          <div className="flex flex-col leading-tight">
-            <h1 className="text-4xl font-black tracking-wide">
+          {/* 🔥 LOGO COLADA NA ESQUERDA */}
+          <div className="flex flex-col leading-tight ml-1">
+            <h1 className="text-5xl font-black tracking-wide">
               NIVELAR
             </h1>
             <span className="bg-yellow-400 text-black text-xs px-2 py-1 mt-1 w-fit font-bold">
@@ -77,7 +78,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO / CARROSSEL */}
+      {/* HERO */}
       <section id="home" className="h-[80vh] relative flex items-center justify-center">
         {heroImages.map((img, i) => (
           <div
@@ -153,10 +154,10 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
 
-          {/* MAPA AJUSTADO */}
+          {/* 🔥 MAPA MAIOR */}
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
-            className="w-full h-[420px] rounded-xl"
+            className="w-full h-[500px] rounded-xl"
           />
 
           {/* CONTATOS */}
@@ -166,7 +167,6 @@ export default function Home() {
               📍 Av. Antônio Raminelli, 857 - Cambé
             </p>
 
-            {/* WHATS COM ÍCONE CERTO */}
             {[
               ["Fernando", "5543998061421"],
               ["Anderson", "5543999520213"],
@@ -185,13 +185,13 @@ export default function Home() {
               </a>
             ))}
 
-            {/* INSTAGRAM CORRETO */}
+            {/* 🔥 INSTAGRAM CORRIGIDO */}
             <a
               href="https://instagram.com/terraplanagem.nivelar"
               target="_blank"
               className="flex items-center gap-3 hover:text-yellow-400 transition"
             >
-              <FaInstagram className="text-xl" />
+              <BsInstagram className="text-xl" />
               @terraplanagem.nivelar
             </a>
 
@@ -199,7 +199,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BOTÃO FLUTUANTE CORRETO */}
+      {/* BOTÃO FLUTUANTE */}
       <a
         href="https://wa.me/5543998061421"
         target="_blank"
