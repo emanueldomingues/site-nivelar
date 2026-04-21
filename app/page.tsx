@@ -64,11 +64,11 @@ export default function Home() {
           </div>
 
           <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-12 text-lg font-semibold">
-            <a href="#home" className="hover:text-yellow-400 transition">Início</a>
-            <a href="#projetos" className="hover:text-yellow-400 transition">Projetos</a>
-            <a href="#equipamentos" className="hover:text-yellow-400 transition">Equipamentos</a>
-            <a href="#sobre" className="hover:text-yellow-400 transition">Sobre Nós</a>
-            <a href="#contato" className="hover:text-yellow-400 transition">Contato</a>
+            <a href="#home" className="hover:text-yellow-400">Início</a>
+            <a href="#projetos" className="hover:text-yellow-400">Projetos</a>
+            <a href="#equipamentos" className="hover:text-yellow-400">Equipamentos</a>
+            <a href="#sobre" className="hover:text-yellow-400">Sobre Nós</a>
+            <a href="#contato" className="hover:text-yellow-400">Contato</a>
           </nav>
         </div>
       </header>
@@ -76,15 +76,13 @@ export default function Home() {
       {/* HERO */}
       <section id="home" className="h-[55vh] pt-24 relative flex items-center justify-center">
         {heroImages.map((img, i) => (
-          <div
-            key={i}
+          <div key={i}
             className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
               current === i ? "opacity-100" : "opacity-0"
             }`}
             style={{ backgroundImage: `url(${img})` }}
           />
         ))}
-
         <div className="absolute inset-0 bg-black/70" />
 
         <h2 className="relative text-2xl md:text-5xl font-bold text-center px-4">
@@ -101,8 +99,7 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {projetos.map((img, i) => (
-            <img
-              key={i}
+            <img key={i}
               src={img}
               onClick={() => setZoomImg(img)}
               className="rounded-xl object-cover h-[240px] w-full cursor-pointer hover:scale-105 transition"
@@ -119,8 +116,7 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {equipamentos.map((img, i) => (
-            <img
-              key={i}
+            <img key={i}
               src={img}
               onClick={() => setZoomImg(img)}
               className="rounded-xl object-cover h-[240px] w-full cursor-pointer hover:scale-105 transition"
@@ -139,83 +135,37 @@ export default function Home() {
           Na Nivelar Terraplanagem, acreditamos que toda grande obra começa com uma base sólida e bem executada.
           Nosso trabalho vai muito além da movimentação de terra — nós preparamos o terreno para que sonhos,
           projetos e construções se tornem realidade com segurança e precisão.
-
-          <br /><br />
-
-          Guiados pelo nosso propósito,
-          <span className="text-white font-semibold"> "Onde começa cada grande obra"</span>,
-          atuamos com responsabilidade, tecnologia e compromisso em cada serviço realizado.
-
-          <br /><br />
-
-          Nosso princípio é simples: fazer bem feito desde o início.
         </p>
 
-        {/* VALORES */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
-          <div className="bg-black p-6 rounded-xl border border-gray-800">
-            <h3 className="text-yellow-400 font-bold mb-2">Ética</h3>
+        {/* NOVO LAYOUT DIFERENCIADO */}
+        <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto text-left">
+
+          <div className="flex-1 border-l-4 border-yellow-400 pl-5">
+            <h3 className="text-yellow-400 font-bold text-lg mb-2">Ética</h3>
             <p className="text-gray-300 text-sm">
-              Transparência e responsabilidade em cada serviço.
+              Atuamos com transparência e respeito em cada projeto realizado.
             </p>
           </div>
 
-          <div className="bg-black p-6 rounded-xl border border-gray-800">
-            <h3 className="text-yellow-400 font-bold mb-2">Compromisso</h3>
+          <div className="flex-1 border-l-4 border-yellow-400 pl-5">
+            <h3 className="text-yellow-400 font-bold text-lg mb-2">Compromisso</h3>
             <p className="text-gray-300 text-sm">
-              Cumprimento de prazos e excelência na execução.
+              Cumprimos prazos e entregamos sempre com excelência.
             </p>
           </div>
 
-          <div className="bg-black p-6 rounded-xl border border-gray-800">
-            <h3 className="text-yellow-400 font-bold mb-2">Qualidade</h3>
+          <div className="flex-1 border-l-4 border-yellow-400 pl-5">
+            <h3 className="text-yellow-400 font-bold text-lg mb-2">Qualidade</h3>
             <p className="text-gray-300 text-sm">
-              Equipamentos modernos e alto padrão de entrega.
+              Equipamentos modernos e alto padrão em cada serviço.
             </p>
           </div>
-        </div>
 
-        {/* DEPOIMENTOS */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
-          {[
-            ["Carlos Mendes", "Serviço excelente."],
-            ["Juliano Rocha", "Equipe profissional."],
-            ["Fernanda Lima", "Recomendo totalmente."],
-          ].map(([nome, texto], i) => (
-            <div key={i} className="bg-black p-6 rounded-xl border border-gray-800">
-              <div className="text-yellow-400 mb-2">★★★★★</div>
-              <p className="text-gray-300">{texto}</p>
-              <span className="text-sm text-gray-500">— {nome}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* AVALIAÇÃO */}
-        <div className="max-w-md mx-auto">
-          <h3 className="text-yellow-400 mb-4">Avalie nosso serviço</h3>
-
-          <div className="flex justify-center gap-2 mb-4">
-            {[1,2,3,4,5].map((star) => (
-              <FaStar key={star}
-                onClick={() => setRating(star)}
-                className={`cursor-pointer text-2xl ${
-                  rating >= star ? "text-yellow-400" : "text-gray-500"
-                }`}
-              />
-            ))}
-          </div>
-
-          <input placeholder="Seu nome" className="w-full p-3 mb-3 bg-black border border-gray-700 rounded" />
-          <textarea placeholder="Sua avaliação" className="w-full p-3 mb-3 bg-black border border-gray-700 rounded" />
-
-          <button className="bg-yellow-400 text-black px-6 py-2 rounded">
-            Enviar
-          </button>
         </div>
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="py-16 px-4 text-sm md:text-base">
+      <section id="contato" className="py-16 px-4 text-base font-normal">
         <h2 className="text-3xl text-yellow-400 text-center mb-10">CONTATO</h2>
 
         <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center">
@@ -226,7 +176,7 @@ export default function Home() {
 
           <div className="flex flex-col gap-5">
 
-            <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
+            <p className="text-gray-300">📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
             {[
               ["Fernando", "5543998061421"],
@@ -236,7 +186,7 @@ export default function Home() {
               <a key={numero}
                 href={`https://wa.me/${numero}`}
                 target="_blank"
-                className="flex gap-3 items-center hover:text-yellow-400 transition">
+                className="flex gap-3 items-center text-gray-300 hover:text-yellow-400 transition">
                 <div className="bg-green-500 p-2 rounded-full">
                   <FaWhatsapp />
                 </div>
@@ -247,7 +197,7 @@ export default function Home() {
             <a
               href="https://instagram.com/terraplanagem.nivelar"
               target="_blank"
-              className="flex gap-3 items-center hover:text-yellow-400 transition"
+              className="flex gap-3 items-center text-gray-300 hover:text-yellow-400 transition"
             >
               <img src="/icons/instagram.svg" className="w-7" />
               @terraplanagem.nivelar
