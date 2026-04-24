@@ -230,7 +230,7 @@ export default function Home() {
       )}
 
       {/* WHATS FIXO */}
-      <a href="https://wa.me/5543998061421"
+      <a href="https://wa.me/5543996281826"
         className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl">
         <FaWhatsapp />
       </a>
