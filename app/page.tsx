@@ -135,46 +135,127 @@ export default function Home() {
           </span>
         </p>
 
-        {/* 🔥 ADICIONADO (SEM ALTERAR NADA) */}
+        {/* MISSÃO / VISÃO / VALORES */}
         <div className="grid md:grid-cols-3 gap-6 mt-10 max-w-5xl mx-auto">
-
-          <div className="bg-[#111] border border-gray-800 rounded-xl p-6 flex gap-4 items-start hover:border-yellow-400 transition">
-            <div className="text-yellow-400 text-2xl">
-              <FaBullseye />
-            </div>
+          <div className="bg-[#111] p-6 rounded-xl border border-gray-800 flex gap-4">
+            <FaBullseye className="text-yellow-400 text-2xl" />
             <div>
-              <h3 className="text-yellow-400 font-bold text-lg mb-1">Missão</h3>
-              <p className="text-gray-300 text-sm">
-                Transformar terrenos em bases sólidas com qualidade e compromisso.
-              </p>
+              <h3 className="text-yellow-400 font-bold">Missão</h3>
+              <p className="text-gray-300 text-sm">Transformar terrenos em bases sólidas com qualidade e compromisso.</p>
             </div>
           </div>
 
-          <div className="bg-[#111] border border-gray-800 rounded-xl p-6 flex gap-4 items-start hover:border-yellow-400 transition">
-            <div className="text-yellow-400 text-2xl">
-              <FaEye />
-            </div>
+          <div className="bg-[#111] p-6 rounded-xl border border-gray-800 flex gap-4">
+            <FaEye className="text-yellow-400 text-2xl" />
             <div>
-              <h3 className="text-yellow-400 font-bold text-lg mb-1">Visão</h3>
-              <p className="text-gray-300 text-sm">
-                Ser referência em terraplanagem com excelência e confiança.
-              </p>
+              <h3 className="text-yellow-400 font-bold">Visão</h3>
+              <p className="text-gray-300 text-sm">Ser referência em terraplanagem com excelência.</p>
             </div>
           </div>
 
-          <div className="bg-[#111] border border-gray-800 rounded-xl p-6 flex gap-4 items-start hover:border-yellow-400 transition">
-            <div className="text-yellow-400 text-2xl">
-              <FaGem />
-            </div>
+          <div className="bg-[#111] p-6 rounded-xl border border-gray-800 flex gap-4">
+            <FaGem className="text-yellow-400 text-2xl" />
             <div>
-              <h3 className="text-yellow-400 font-bold text-lg mb-1">Valores</h3>
-              <p className="text-gray-300 text-sm">
-                Ética, compromisso, qualidade e respeito ao cliente.
-              </p>
+              <h3 className="text-yellow-400 font-bold">Valores</h3>
+              <p className="text-gray-300 text-sm">Ética, compromisso e qualidade.</p>
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* RESTO DO SEU CÓDIGO CONTINUA IGUAL (NÃO ALTERADO) */}
+      {/* AVALIAÇÕES */}
+      <section id="avaliacoes" className="py-16 text-center">
+        <h2 className="text-3xl font-bold mb-10 text-yellow-400">
+          Avaliações Clientes
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+          {[
+            { nome: "Carlos Mendes", texto: "Serviço impecável!" },
+            { nome: "Juliana Alves", texto: "Muito profissional!" },
+            { nome: "Roberto Lima", texto: "Recomendo!" },
+          ].map((a, i) => (
+            <div key={i} className="border border-gray-700 p-6 rounded-xl">
+              <div className="text-yellow-400 mb-2">★★★★★</div>
+              <p>{a.texto}</p>
+              <span className="text-sm text-gray-500">{a.nome}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-col items-center">
+          <div className="flex gap-2 mb-4 text-2xl">
+            {[1,2,3,4,5].map((n) => (
+              <FaStar key={n}
+                onClick={() => setRating(n)}
+                className={rating >= n ? "text-yellow-400 cursor-pointer" : "text-gray-500 cursor-pointer"}
+              />
+            ))}
+          </div>
+
+          <input placeholder="Nome" className="p-3 mb-2 w-full max-w-md text-black rounded" />
+          <textarea placeholder="Mensagem" className="p-3 mb-2 w-full max-w-md text-black rounded" />
+        </div>
+      </section>
+
+      {/* CONTATO */}
+      <section id="contato" className="py-16 px-4">
+        <h2 className="text-3xl text-yellow-400 text-center mb-10">Contato</h2>
+
+        <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center">
+          <iframe
+            src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
+            className="w-full h-[300px] rounded-xl"
+          />
+
+          <div className="flex flex-col gap-5 text-gray-300">
+            <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
+
+            {[
+              { nome: "Anderson", link: "https://wa.me/5543999520213" },
+              { nome: "Valéria", link: "https://wa.me/5543996281826" },
+              { nome: "Fernando", link: "https://wa.me/5543998061421" },
+            ].map((c, i) => (
+              <a key={i} href={c.link} className="flex items-center gap-4 hover:text-yellow-400">
+                <div className="bg-green-500 p-3 rounded-full">
+                  <FaWhatsapp />
+                </div>
+                {c.nome}
+              </a>
+            ))}
+
+            <a href="https://instagram.com/terraplanagem.nivelar"
+              className="flex items-center gap-4 hover:text-yellow-400">
+              <img src="/icons/instagram.svg" className="w-10" />
+              @terraplanagem.nivelar
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ZOOM */}
+      {zoomImg && (
+        <div onClick={() => setZoomImg(null)} className="fixed inset-0 bg-black/90 flex justify-center items-center z-50">
+          <img src={zoomImg} className="max-h-[90%]" />
+        </div>
+      )}
+
+      {/* WHATS */}
+      <a href="https://wa.me/5543996281826"
+        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl">
+        <FaWhatsapp />
+      </a>
+
+      {/* FOOTER */}
+      <footer className="text-center py-6 border-t border-gray-800 text-gray-500 text-sm mt-10">
+        © {new Date().getFullYear()} Nivelar Terraplanagem
+        <br />
+        Desenvolvido por{" "}
+        <a href="https://www.instagram.com/emanueldomingues/" className="text-white hover:text-yellow-400">
+          @emanueldomingues
+        </a>
+      </footer>
+
+    </div>
+  );
+}
