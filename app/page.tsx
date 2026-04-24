@@ -20,8 +20,11 @@ export default function Home() {
     "Valores sólidos para grandes obras",
   ];
 
-  const equipamentos = Array.from({ length: 10 }, (_, i) => `/images/equipamentos/maquina${i + 1}.jpg`);
-  const projetos = Array.from({ length: 9 }, (_, i) => `/images/projetos/projeto${i + 1}.jpg`);
+  // ✅ ATUALIZADO PARA 14
+  const equipamentos = Array.from({ length: 14 }, (_, i) => `/images/equipamentos/maquina${i + 1}.jpg`);
+
+  // ✅ ATUALIZADO PARA 16
+  const projetos = Array.from({ length: 16 }, (_, i) => `/images/projetos/projeto${i + 1}.jpg`);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -162,47 +165,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AVALIAÇÕES (RESTAURADO) */}
-      <section id="avaliacoes" className="py-16 text-center">
-        <h2 className="text-3xl font-bold mb-10">
-          <span className="text-white">Avaliações</span>{" "}
-          <span className="text-yellow-400">Clientes</span>
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
-          {[
-            { nome: "Carlos Mendes", texto: "Serviço impecável!" },
-            { nome: "Juliana Alves", texto: "Muito profissional!" },
-            { nome: "Roberto Lima", texto: "Recomendo!" },
-          ].map((a, i) => (
-            <div key={i} className="border border-gray-700 p-6 rounded-xl">
-              <div className="text-yellow-400 mb-2">★★★★★</div>
-              <p>{a.texto}</p>
-              <span className="text-sm text-gray-500">{a.nome}</span>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-10 flex flex-col items-center">
-          <div className="flex gap-2 mb-4 text-2xl">
-            {[1,2,3,4,5].map((n) => (
-              <FaStar key={n}
-                onClick={() => setRating(n)}
-                className={rating >= n ? "text-yellow-400 cursor-pointer" : "text-gray-500 cursor-pointer"}
-              />
-            ))}
-          </div>
-
-          <input placeholder="Nome" className="p-3 mb-2 w-full max-w-md text-black rounded" />
-          <textarea placeholder="Mensagem" className="p-3 mb-2 w-full max-w-md text-black rounded" />
-
-          <button className="bg-yellow-400 text-black px-6 py-2 rounded font-bold">
-            Enviar Avaliação
-          </button>
-        </div>
-      </section>
-
-      {/* CONTATO (já corrigido antes) */}
+      {/* CONTATO (FONTE CORRIGIDA) */}
       <section id="contato" className="py-16 px-4 font-sans">
         <h2 className="text-3xl text-yellow-400 text-center mb-10">Contato</h2>
 
@@ -237,16 +200,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* RODAPÉ (RESTAURADO) */}
+      {/* FOOTER */}
       <footer className="text-center py-6 border-t border-gray-800 text-gray-500 text-sm mt-10">
         © {new Date().getFullYear()} Nivelar Terraplanagem
         <br />
         Desenvolvido por{" "}
-        <a
-          href="https://www.instagram.com/emanueldomingues/"
-          target="_blank"
-          className="text-white hover:text-yellow-400"
-        >
+        <a href="https://www.instagram.com/emanueldomingues/" className="text-white hover:text-yellow-400">
           @emanueldomingues
         </a>
       </footer>
