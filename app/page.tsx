@@ -20,11 +20,42 @@ export default function Home() {
     "Valores sólidos para grandes obras",
   ];
 
-  // ✅ ATUALIZADO PARA 14
-  const equipamentos = Array.from({ length: 14 }, (_, i) => `/images/equipamentos/maquina${i + 1}.jpg`);
+  // 🔥 CORRIGIDO (AGORA FUNCIONA COM JPG E JPEG)
+  const equipamentos = [
+    "/images/equipamentos/maquina1.jpg",
+    "/images/equipamentos/maquina2.jpg",
+    "/images/equipamentos/maquina3.jpg",
+    "/images/equipamentos/maquina4.jpg",
+    "/images/equipamentos/maquina5.jpg",
+    "/images/equipamentos/maquina6.jpg",
+    "/images/equipamentos/maquina7.jpg",
+    "/images/equipamentos/maquina8.jpg",
+    "/images/equipamentos/maquina9.jpg",
+    "/images/equipamentos/maquina10.jpg",
+    "/images/equipamentos/maquina11.jpeg",
+    "/images/equipamentos/maquina12.jpeg",
+    "/images/equipamentos/maquina13.jpeg",
+    "/images/equipamentos/maquina14.jpeg",
+  ];
 
-  // ✅ ATUALIZADO PARA 16
-  const projetos = Array.from({ length: 16 }, (_, i) => `/images/projetos/projeto${i + 1}.jpg`);
+  const projetos = [
+    "/images/projetos/projeto1.jpg",
+    "/images/projetos/projeto2.jpg",
+    "/images/projetos/projeto3.jpg",
+    "/images/projetos/projeto4.jpg",
+    "/images/projetos/projeto5.jpg",
+    "/images/projetos/projeto6.jpg",
+    "/images/projetos/projeto7.jpg",
+    "/images/projetos/projeto8.jpg",
+    "/images/projetos/projeto9.jpg",
+    "/images/projetos/projeto10.jpeg",
+    "/images/projetos/projeto11.jpeg",
+    "/images/projetos/projeto12.jpeg",
+    "/images/projetos/projeto13.jpeg",
+    "/images/projetos/projeto14.jpeg",
+    "/images/projetos/projeto15.jpeg",
+    "/images/projetos/projeto16.jpeg",
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -119,63 +150,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOBRE */}
-      <section id="sobre" className="py-16 text-center px-4">
-        <h2 className="text-3xl font-bold mb-6">
-          <span className="text-white">Sobre</span>{" "}
-          <span className="text-yellow-400">Nós</span>
+      {/* AVALIAÇÕES RESTAURADAS */}
+      <section id="avaliacoes" className="py-16 text-center">
+        <h2 className="text-3xl font-bold mb-10">
+          <span className="text-white">Avaliações</span>{" "}
+          <span className="text-yellow-400">Clientes</span>
         </h2>
 
-        <p className="max-w-3xl mx-auto text-gray-300 leading-relaxed">
-          Na Nivelar Terraplanagem, acreditamos que toda grande obra começa com uma base sólida e bem executada.
-          Nosso trabalho vai além da movimentação de terra: preparamos o terreno para que projetos se tornem realidade com segurança e precisão.
-          <br /><br />
-          Atuamos com responsabilidade, tecnologia e compromisso, garantindo qualidade em cada etapa do processo.
-          Nosso objetivo é superar expectativas e construir relações de confiança com nossos clientes.
-          <br /><br />
-          <span className="text-white font-semibold">
-            Onde começa cada grande obra.
-          </span>
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-6 mt-10 max-w-5xl mx-auto">
-          <div className="bg-[#111] p-6 rounded-xl border border-gray-800 flex gap-4">
-            <FaBullseye className="text-yellow-400 text-2xl" />
-            <div>
-              <h3 className="text-yellow-400 font-bold">Missão</h3>
-              <p className="text-gray-300 text-sm">Transformar terrenos em bases sólidas com qualidade e compromisso.</p>
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+          {[
+            { nome: "Carlos Mendes", texto: "Serviço impecável!" },
+            { nome: "Amanda Alves", texto: "Muito profissional!" },
+            { nome: "Roberto Lima", texto: "Recomendo!" },
+          ].map((a, i) => (
+            <div key={i} className="border border-gray-700 p-6 rounded-xl">
+              <div className="text-yellow-400 mb-2">★★★★★</div>
+              <p>{a.texto}</p>
+              <span className="text-sm text-gray-500">{a.nome}</span>
             </div>
-          </div>
-
-          <div className="bg-[#111] p-6 rounded-xl border border-gray-800 flex gap-4">
-            <FaEye className="text-yellow-400 text-2xl" />
-            <div>
-              <h3 className="text-yellow-400 font-bold">Visão</h3>
-              <p className="text-gray-300 text-sm">Ser referência em terraplanagem com excelência.</p>
-            </div>
-          </div>
-
-          <div className="bg-[#111] p-6 rounded-xl border border-gray-800 flex gap-4">
-            <FaGem className="text-yellow-400 text-2xl" />
-            <div>
-              <h3 className="text-yellow-400 font-bold">Valores</h3>
-              <p className="text-gray-300 text-sm">Ética, compromisso e qualidade.</p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* CONTATO (FONTE CORRIGIDA) */}
-      <section id="contato" className="py-16 px-4 font-sans">
-        <h2 className="text-3xl text-yellow-400 text-center mb-10">Contato</h2>
+      {/* CONTATO (FONTE 100% CORRIGIDA) */}
+      <section id="contato" className="py-16 px-4 font-sans text-base">
+        <h2 className="text-3xl font-bold text-center mb-10">
+          <span className="text-white">Entre em</span>{" "}
+          <span className="text-yellow-400">Contato</span>
+        </h2>
 
         <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center">
+
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
             className="w-full h-[300px] rounded-xl"
           />
 
-          <div className="flex flex-col gap-5 text-gray-300">
+          <div className="flex flex-col gap-5 text-gray-300 font-sans">
             <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
             {[
@@ -196,6 +207,7 @@ export default function Home() {
               <img src="/icons/instagram.svg" className="w-10" />
               @terraplanagem.nivelar
             </a>
+
           </div>
         </div>
       </section>
