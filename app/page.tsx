@@ -143,10 +143,93 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOBRE + AVALIAÇÕES continuam iguais */}
-      {/* (mantive exatamente como estavam — não alterei nada) */}
+      {/* SOBRE (RESTAURADO) */}
+      <section id="sobre" className="py-16 text-center px-4">
+        <h2 className="text-3xl font-bold mb-6">
+          <span className="text-white">Sobre</span>{" "}
+          <span className="text-yellow-400">Nós</span>
+        </h2>
 
-      {/* CONTATO (AGORA COM FONTE CORRIGIDA 100%) */}
+        <p className="max-w-3xl mx-auto text-gray-300 leading-relaxed">
+          Na Nivelar Terraplanagem, acreditamos que toda grande obra começa com uma base sólida e bem executada.
+          Nosso trabalho vai além da movimentação de terra: preparamos o terreno para que projetos se tornem realidade com segurança e precisão.
+          <br /><br />
+          Atuamos com responsabilidade, tecnologia e compromisso, garantindo qualidade em cada etapa do processo.
+          Nosso objetivo é superar expectativas e construir relações de confiança com nossos clientes.
+          <br /><br />
+          <span className="text-white font-semibold">
+            Onde começa cada grande obra.
+          </span>
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6 mt-10 max-w-5xl mx-auto">
+          <div className="bg-[#111] p-6 rounded-xl border border-gray-800 flex gap-4">
+            <FaBullseye className="text-yellow-400 text-2xl" />
+            <div>
+              <h3 className="text-yellow-400 font-bold">Missão</h3>
+              <p className="text-gray-300 text-sm">Transformar terrenos em bases sólidas com qualidade e compromisso.</p>
+            </div>
+          </div>
+
+          <div className="bg-[#111] p-6 rounded-xl border border-gray-800 flex gap-4">
+            <FaEye className="text-yellow-400 text-2xl" />
+            <div>
+              <h3 className="text-yellow-400 font-bold">Visão</h3>
+              <p className="text-gray-300 text-sm">Ser referência em terraplanagem com excelência.</p>
+            </div>
+          </div>
+
+          <div className="bg-[#111] p-6 rounded-xl border border-gray-800 flex gap-4">
+            <FaGem className="text-yellow-400 text-2xl" />
+            <div>
+              <h3 className="text-yellow-400 font-bold">Valores</h3>
+              <p className="text-gray-300 text-sm">Ética, compromisso e qualidade.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AVALIAÇÕES (RESTAURADO COMPLETO) */}
+      <section id="avaliacoes" className="py-16 text-center">
+        <h2 className="text-3xl font-bold mb-10">
+          <span className="text-white">Avaliações</span>{" "}
+          <span className="text-yellow-400">Clientes</span>
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+          {[
+            { nome: "Carlos Mendes", texto: "Serviço impecável!" },
+            { nome: "Amanda Alves", texto: "Muito profissional!" },
+            { nome: "Roberto Lima", texto: "Recomendo!" },
+          ].map((a, i) => (
+            <div key={i} className="border border-gray-700 p-6 rounded-xl">
+              <div className="text-yellow-400 mb-2">★★★★★</div>
+              <p>{a.texto}</p>
+              <span className="text-sm text-gray-500">{a.nome}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-col items-center">
+          <div className="flex gap-2 mb-4 text-2xl">
+            {[1,2,3,4,5].map((n) => (
+              <FaStar key={n}
+                onClick={() => setRating(n)}
+                className={rating >= n ? "text-yellow-400 cursor-pointer" : "text-gray-500 cursor-pointer"}
+              />
+            ))}
+          </div>
+
+          <input placeholder="Nome" className="p-3 mb-2 w-full max-w-md text-black rounded" />
+          <textarea placeholder="Mensagem" className="p-3 mb-2 w-full max-w-md text-black rounded" />
+
+          <button className="bg-yellow-400 text-black px-6 py-2 rounded font-bold">
+            Enviar Avaliação
+          </button>
+        </div>
+      </section>
+
+      {/* CONTATO (mantido com fonte corrigida) */}
       <section id="contato" className="py-16 px-4 text-gray-300 text-lg">
         <h2 className="text-3xl font-bold text-center mb-10">
           <span className="text-white">Entre em</span>{" "}
@@ -161,7 +244,6 @@ export default function Home() {
           />
 
           <div className="flex flex-col gap-5">
-
             <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
             {[
@@ -182,7 +264,6 @@ export default function Home() {
               <img src="/icons/instagram.svg" className="w-10" />
               @terraplanagem.nivelar
             </a>
-
           </div>
         </div>
       </section>
