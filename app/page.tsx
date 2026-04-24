@@ -199,9 +199,9 @@ export default function Home() {
             <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
             {[
+              { nome: "Anderson", link: "https://wa.me/5543999520213" },
+              { nome: "Valéria", link: "https://wa.me/5543996281826" },
               { nome: "Fernando", link: "https://wa.me/5543998061421" },
-              { nome: "Valéria", link: "https://wa.me/5543999999999" },
-              { nome: "Anderson", link: "https://wa.me/5543999999998" },
             ].map((c, i) => (
               <a key={i} href={c.link} className="flex items-center gap-4 hover:text-yellow-400">
                 <div className="bg-green-500 p-3 rounded-full text-white text-xl">
