@@ -20,7 +20,6 @@ export default function Home() {
     "Valores sólidos para grandes obras",
   ];
 
-  // 🔥 CORRIGIDO (AGORA FUNCIONA COM JPG E JPEG)
   const equipamentos = [
     "/images/equipamentos/maquina1.jpg",
     "/images/equipamentos/maquina2.jpg",
@@ -70,7 +69,6 @@ export default function Home() {
       {/* HEADER */}
       <header className="fixed top-0 w-full bg-black/95 z-50 border-b border-gray-800">
         <div className="flex items-center justify-between px-6 py-4 relative">
-
           <div className="flex flex-col">
             <img src="/logo.svg" className="w-64 md:w-80" />
             <span className="text-sm text-white">
@@ -86,7 +84,6 @@ export default function Home() {
             <a href="#avaliacoes" className="hover:text-yellow-400">Avaliações</a>
             <a href="#contato" className="hover:text-yellow-400">Contato</a>
           </nav>
-
         </div>
       </header>
 
@@ -104,13 +101,9 @@ export default function Home() {
 
         <div className="text-center z-10 px-4">
           <h1 className="text-4xl md:text-6xl font-bold">
-            Terraplanagem de{" "}
-            <span className="text-yellow-400">Alto Padrão</span>
+            Terraplanagem de <span className="text-yellow-400">Alto Padrão</span>
           </h1>
-
-          <p className="mt-4 text-lg text-gray-300">
-            {frases[current]}
-          </p>
+          <p className="mt-4 text-lg text-gray-300">{frases[current]}</p>
         </div>
       </section>
 
@@ -150,7 +143,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AVALIAÇÕES RESTAURADAS */}
+      {/* SOBRE (RESTAURADO COMPLETO) */}
+      <section id="sobre" className="py-16 text-center px-4">
+        <h2 className="text-3xl font-bold mb-6">
+          <span className="text-white">Sobre</span>{" "}
+          <span className="text-yellow-400">Nós</span>
+        </h2>
+
+        <p className="max-w-3xl mx-auto text-gray-300 leading-relaxed">
+          Na Nivelar Terraplanagem, acreditamos que toda grande obra começa com uma base sólida e bem executada.
+          Nosso trabalho vai além da movimentação de terra: preparamos o terreno para que projetos se tornem realidade com segurança e precisão.
+          <br /><br />
+          Atuamos com responsabilidade, tecnologia e compromisso, garantindo qualidade em cada etapa do processo.
+          Nosso objetivo é superar expectativas e construir relações de confiança com nossos clientes.
+          <br /><br />
+          <span className="text-white font-semibold">
+            Onde começa cada grande obra.
+          </span>
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6 mt-10 max-w-5xl mx-auto">
+          <div className="bg-[#111] p-6 rounded-xl border border-gray-800 flex gap-4">
+            <FaBullseye className="text-yellow-400 text-2xl" />
+            <div>
+              <h3 className="text-yellow-400 font-bold">Missão</h3>
+              <p className="text-gray-300 text-sm">Transformar terrenos em bases sólidas com qualidade e compromisso.</p>
+            </div>
+          </div>
+
+          <div className="bg-[#111] p-6 rounded-xl border border-gray-800 flex gap-4">
+            <FaEye className="text-yellow-400 text-2xl" />
+            <div>
+              <h3 className="text-yellow-400 font-bold">Visão</h3>
+              <p className="text-gray-300 text-sm">Ser referência em terraplanagem com excelência.</p>
+            </div>
+          </div>
+
+          <div className="bg-[#111] p-6 rounded-xl border border-gray-800 flex gap-4">
+            <FaGem className="text-yellow-400 text-2xl" />
+            <div>
+              <h3 className="text-yellow-400 font-bold">Valores</h3>
+              <p className="text-gray-300 text-sm">Ética, compromisso e qualidade.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AVALIAÇÕES COMPLETA */}
       <section id="avaliacoes" className="py-16 text-center">
         <h2 className="text-3xl font-bold mb-10">
           <span className="text-white">Avaliações</span>{" "}
@@ -170,23 +209,38 @@ export default function Home() {
             </div>
           ))}
         </div>
+
+        {/* FORM RESTAURADO */}
+        <div className="mt-10 flex flex-col items-center">
+          <div className="flex gap-2 mb-4 text-2xl">
+            {[1,2,3,4,5].map((n) => (
+              <FaStar key={n}
+                onClick={() => setRating(n)}
+                className={rating >= n ? "text-yellow-400 cursor-pointer" : "text-gray-500 cursor-pointer"}
+              />
+            ))}
+          </div>
+
+          <input placeholder="Nome" className="p-3 mb-2 w-full max-w-md text-black rounded" />
+          <textarea placeholder="Mensagem" className="p-3 mb-2 w-full max-w-md text-black rounded" />
+
+          <button className="bg-yellow-400 text-black px-6 py-2 rounded font-bold">
+            Enviar Avaliação
+          </button>
+        </div>
       </section>
 
-      {/* CONTATO (FONTE 100% CORRIGIDA) */}
-      <section id="contato" className="py-16 px-4 font-sans text-base">
-        <h2 className="text-3xl font-bold text-center mb-10">
-          <span className="text-white">Entre em</span>{" "}
-          <span className="text-yellow-400">Contato</span>
-        </h2>
+      {/* CONTATO (já corrigido) */}
+      <section id="contato" className="py-16 px-4 font-sans">
+        <h2 className="text-3xl text-yellow-400 text-center mb-10">Contato</h2>
 
         <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center">
-
           <iframe
             src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
             className="w-full h-[300px] rounded-xl"
           />
 
-          <div className="flex flex-col gap-5 text-gray-300 font-sans">
+          <div className="flex flex-col gap-5 text-gray-300">
             <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
             {[
@@ -207,7 +261,6 @@ export default function Home() {
               <img src="/icons/instagram.svg" className="w-10" />
               @terraplanagem.nivelar
             </a>
-
           </div>
         </div>
       </section>
