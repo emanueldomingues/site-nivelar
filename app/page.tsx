@@ -143,7 +143,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOBRE (RESTAURADO) */}
+      {/* SOBRE */}
       <section id="sobre" className="py-16 text-center px-4">
         <h2 className="text-3xl font-bold mb-6">
           <span className="text-white">Sobre</span>{" "}
@@ -161,35 +161,9 @@ export default function Home() {
             Onde começa cada grande obra.
           </span>
         </p>
-
-        <div className="grid md:grid-cols-3 gap-6 mt-10 max-w-5xl mx-auto">
-          <div className="bg-[#111] p-6 rounded-xl border border-gray-800 flex gap-4">
-            <FaBullseye className="text-yellow-400 text-2xl" />
-            <div>
-              <h3 className="text-yellow-400 font-bold">Missão</h3>
-              <p className="text-gray-300 text-sm">Transformar terrenos em bases sólidas com qualidade e compromisso.</p>
-            </div>
-          </div>
-
-          <div className="bg-[#111] p-6 rounded-xl border border-gray-800 flex gap-4">
-            <FaEye className="text-yellow-400 text-2xl" />
-            <div>
-              <h3 className="text-yellow-400 font-bold">Visão</h3>
-              <p className="text-gray-300 text-sm">Ser referência em terraplanagem com excelência.</p>
-            </div>
-          </div>
-
-          <div className="bg-[#111] p-6 rounded-xl border border-gray-800 flex gap-4">
-            <FaGem className="text-yellow-400 text-2xl" />
-            <div>
-              <h3 className="text-yellow-400 font-bold">Valores</h3>
-              <p className="text-gray-300 text-sm">Ética, compromisso e qualidade.</p>
-            </div>
-          </div>
-        </div>
       </section>
 
-      {/* AVALIAÇÕES (RESTAURADO COMPLETO) */}
+      {/* AVALIAÇÕES */}
       <section id="avaliacoes" className="py-16 text-center">
         <h2 className="text-3xl font-bold mb-10">
           <span className="text-white">Avaliações</span>{" "}
@@ -199,7 +173,7 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
           {[
             { nome: "Carlos Mendes", texto: "Serviço impecável!" },
-            { nome: "Amanda Alves", texto: "Muito profissional!" },
+            { nome: "Juliana Alves", texto: "Muito profissional!" },
             { nome: "Roberto Lima", texto: "Recomendo!" },
           ].map((a, i) => (
             <div key={i} className="border border-gray-700 p-6 rounded-xl">
@@ -229,7 +203,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTATO (mantido com fonte corrigida) */}
+      {/* CONTATO */}
       <section id="contato" className="py-16 px-4 text-gray-300 text-lg">
         <h2 className="text-3xl font-bold text-center mb-10">
           <span className="text-white">Entre em</span>{" "}
@@ -267,6 +241,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ZOOM */}
+      {zoomImg && (
+        <div onClick={() => setZoomImg(null)}
+          className="fixed inset-0 bg-black/90 flex justify-center items-center z-50">
+          <img src={zoomImg} className="max-h-[90%]" />
+        </div>
+      )}
+
+      {/* BOTÃO FLUTUANTE (ADICIONADO SEM ALTERAR NADA) */}
+      <a
+        href="https://wa.me/5543996281826?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações"
+        target="_blank"
+        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg text-2xl animate-pulse transition"
+      >
+        <FaWhatsapp />
+      </a>
 
       {/* FOOTER */}
       <footer className="text-center py-6 border-t border-gray-800 text-gray-500 text-sm mt-10">
