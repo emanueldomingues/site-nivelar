@@ -198,9 +198,9 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
           {[
-            { nome: "Carlos Mendes", texto: "Serviço impecável!" },
-            { nome: "Juliana Alves", texto: "Muito profissional!" },
-            { nome: "Roberto Lima", texto: "Recomendo!" },
+            { nome: "Ronaldo Alvares", texto: "Serviço impecável!" },
+            { nome: "Camile Castilho", texto: "Muito rapido e bem feito!" },
+            { nome: "Lucas Lima", texto: "Recomendo muito!" },
           ].map((a, i) => (
             <div key={i} className="border border-gray-700 p-6 rounded-xl">
               <div className="text-yellow-400 mb-2">★★★★★</div>
