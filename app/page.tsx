@@ -8,10 +8,10 @@ export default function Home() {
   const [zoomImg, setZoomImg] = useState<string | null>(null);
   const [rating, setRating] = useState(0);
 
+  // 🔥 CARROSSEL AGORA USA TODAS AS IMAGENS
   const heroImages = [
-    "/images/equipamentos/maquina1.jpg",
-    "/images/equipamentos/maquina2.jpg",
-    "/images/equipamentos/maquina3.jpg",
+    ...Array.from({ length: 14 }, (_, i) => `/images/equipamentos/maquina${i + 1}.jpg`),
+    ...Array.from({ length: 16 }, (_, i) => `/images/projetos/projeto${i + 1}.jpg`)
   ];
 
   const frases = [
@@ -20,15 +20,18 @@ export default function Home() {
     "Valores sólidos para grandes obras",
   ];
 
-  const equipamentos = Array.from({ length: 10 }, (_, i) => `/images/equipamentos/maquina${i + 1}.jpg`);
-  const projetos = Array.from({ length: 9 }, (_, i) => `/images/projetos/projeto${i + 1}.jpg`);
+  // ✅ EQUIPAMENTOS (14)
+  const equipamentos = Array.from({ length: 14 }, (_, i) => `/images/equipamentos/maquina${i + 1}.jpg`);
+
+  // ✅ PROJETOS (16)
+  const projetos = Array.from({ length: 16 }, (_, i) => `/images/projetos/projeto${i + 1}.jpg`);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % heroImages.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [heroImages.length]);
 
   return (
     <div className="bg-black text-white font-sans">
@@ -75,7 +78,7 @@ export default function Home() {
           </h1>
 
           <p className="mt-4 text-lg text-gray-300">
-            {frases[current]}
+            {frases[current % frases.length]}
           </p>
         </div>
       </section>
@@ -134,6 +137,39 @@ export default function Home() {
             Onde começa cada grande obra.
           </span>
         </p>
+
+        {/* ✅ MISSÃO / VISÃO / VALORES (ADICIONADO) */}
+        <div className="grid md:grid-cols-3 gap-10 mt-12 max-w-6xl mx-auto text-left">
+          <div className="flex items-start gap-4">
+            <div className="text-yellow-400 text-3xl">📊</div>
+            <div>
+              <h3 className="text-lg font-bold text-yellow-400">Missão</h3>
+              <p className="text-gray-300">
+                Transformar terrenos e promover o desenvolvimento sustentável.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <div className="text-yellow-400 text-3xl">🚩</div>
+            <div>
+              <h3 className="text-lg font-bold text-yellow-400">Visão</h3>
+              <p className="text-gray-300">
+                Ser referência em terraplanagem com excelência e inovação.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <div className="text-yellow-400 text-3xl">💎</div>
+            <div>
+              <h3 className="text-lg font-bold text-yellow-400">Valores</h3>
+              <p className="text-gray-300">
+                Qualidade, integridade, compromisso e evolução constante.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* AVALIAÇÕES */}
@@ -157,7 +193,6 @@ export default function Home() {
           ))}
         </div>
 
-        {/* FORM */}
         <div className="mt-10 flex flex-col items-center">
           <div className="flex gap-2 mb-4 text-2xl">
             {[1,2,3,4,5].map((n) => (
@@ -168,12 +203,8 @@ export default function Home() {
             ))}
           </div>
 
-          <input placeholder="Nome"
-            className="p-3 mb-2 w-full max-w-md text-black rounded" />
-
-          <textarea placeholder="Mensagem"
-            className="p-3 mb-2 w-full max-w-md text-black rounded" />
-
+          <input placeholder="Nome" className="p-3 mb-2 w-full max-w-md text-black rounded" />
+          <textarea placeholder="Mensagem" className="p-3 mb-2 w-full max-w-md text-black rounded" />
           <button className="bg-yellow-400 text-black px-6 py-2 rounded font-bold">
             Enviar Avaliação
           </button>
@@ -195,7 +226,6 @@ export default function Home() {
           />
 
           <div className="flex flex-col gap-5 text-gray-300">
-
             <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
             {[
@@ -234,19 +264,17 @@ export default function Home() {
         className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl">
         <FaWhatsapp />
       </a>
-{/* RODAPÉ */}
-<footer className="text-center py-6 border-t border-gray-800 text-gray-500 text-sm mt-10">
-  © {new Date().getFullYear()} Nivelar Terraplanagem
-  <br />
-  Desenvolvido por{" "}
-  <a
-    href="https://www.instagram.com/emanueldomingues/"
-    target="_blank"
-    className="text-white hover:text-yellow-400"
-  >
-    @emanueldomingues
-  </a>
-</footer>
+
+      {/* RODAPÉ */}
+      <footer className="text-center py-6 border-t border-gray-800 text-gray-500 text-sm mt-10">
+        © {new Date().getFullYear()} Nivelar Terraplanagem
+        <br />
+        Desenvolvido por{" "}
+        <a href="https://www.instagram.com/emanueldomingues/" target="_blank" className="text-white hover:text-yellow-400">
+          @emanueldomingues
+        </a>
+      </footer>
+
     </div>
   );
 }
