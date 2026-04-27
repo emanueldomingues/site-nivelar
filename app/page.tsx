@@ -275,8 +275,17 @@ export default function Home() {
         Desenvolvido por{" "}
         <a href="https://www.instagram.com/emanueldomingues/" className="text-white hover:text-yellow-400">
           @emanueldomingues
-        </a>
+       </a>
       </footer>
+
+      {/* ✅ BOTÃO FLUTUANTE (ÚNICA ALTERAÇÃO) */}
+      <a
+        href="https://wa.me/5543996281826?text=Olá,%20vim%20pelo%20site!"
+        target="_blank"
+        className="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 p-4 rounded-full text-white text-2xl shadow-lg z-50"
+      >
+        <FaWhatsapp />
+      </a>
 
     </div>
   );
