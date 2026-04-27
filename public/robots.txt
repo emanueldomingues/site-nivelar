@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.nivelarterraplanagem.com.br/sitemap.xml

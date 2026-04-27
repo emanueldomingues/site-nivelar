@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Nivelar Terraplanagem | Cambé",
   description:
     "Terraplanagem profissional em Cambé e região. Qualidade, precisão e compromisso. Equipamentos modernos e equipe especializada.",
+
   keywords: [
     "terraplanagem",
     "terraplanagem Cambé",
@@ -13,14 +14,20 @@ export const metadata: Metadata = {
     "preparo de terreno",
     "obras de terra",
   ],
+
   authors: [{ name: "Nivelar Terraplanagem" }],
   creator: "Nivelar Terraplanagem",
+
+  // ✅ CORRETO (Google Search Console)
+  verification: {
+    google: "S8sT98lJJEnQCgFRh2PSio7hPRahvs_vpJpx6vpMV1s",
+  },
 
   openGraph: {
     title: "Nivelar Terraplanagem",
     description:
       "Onde começa cada grande obra. Serviços de terraplanagem com qualidade e precisão.",
-    url: "https://seusite.com",
+    url: "https://nivelarterraplanagem.com.br",
     siteName: "Nivelar Terraplanagem",
     images: [
       {
