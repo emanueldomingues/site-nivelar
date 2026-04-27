@@ -8,6 +8,8 @@ export default function Home() {
   const [zoomImg, setZoomImg] = useState<string | null>(null);
   const [rating, setRating] = useState(0);
 
+  const mensagem = "Olá, vim pelo site e gostaria de mais informações.";
+
   const heroImages = [
     "/images/equipamentos/maquina1.jpg",
     "/images/equipamentos/maquina2.jpg",
@@ -20,7 +22,6 @@ export default function Home() {
     "Valores sólidos para grandes obras",
   ];
 
-  // ✅ EQUIPAMENTOS (14)
   const equipamentos = [
     "/images/equipamentos/maquina1.jpg",
     "/images/equipamentos/maquina2.jpg",
@@ -38,7 +39,6 @@ export default function Home() {
     "/images/equipamentos/maquina14.jpeg",
   ];
 
-  // ✅ PROJETOS (16)
   const projetos = [
     "/images/projetos/projeto1.jpg",
     "/images/projetos/projeto2.jpg",
@@ -65,23 +65,18 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  const mensagem = "Olá, vim pelo site e gostaria de mais informações.";
-
   return (
     <div className="bg-black text-white font-sans">
 
       {/* HEADER */}
       <header className="fixed top-0 w-full bg-black/95 z-50 border-b border-gray-800">
         <div className="flex items-center justify-between px-6 py-4 relative">
-
           <div className="flex flex-col">
             <img src="/logo.svg" className="w-64 md:w-80" />
-            <span className="text-sm text-white">
-              Onde começa cada grande obra
-            </span>
+            <span className="text-sm">Onde começa cada grande obra</span>
           </div>
 
-          <nav className="hidden md:flex gap-10 text-lg font-medium absolute left-1/2 -translate-x-1/2">
+          <nav className="hidden md:flex gap-10 text-lg absolute left-1/2 -translate-x-1/2">
             <a href="#home">Início</a>
             <a href="#projetos">Projetos</a>
             <a href="#equipamentos">Equipamentos</a>
@@ -93,42 +88,34 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section id="home" className="h-[65vh] pt-28 relative flex items-center justify-center overflow-hidden">
+      <section id="home" className="h-[65vh] pt-28 relative flex items-center justify-center">
         {heroImages.map((img, i) => (
           <div key={i}
-            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-              current === i ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${current === i ? "opacity-100" : "opacity-0"}`}
             style={{ backgroundImage: `url(${img})` }}
           />
         ))}
         <div className="absolute inset-0 bg-black/60" />
 
-        <div className="text-center z-10 px-4">
+        <div className="z-10 text-center">
           <h1 className="text-4xl md:text-6xl font-bold">
-            Terraplanagem de{" "}
-            <span className="text-yellow-400">Alto Padrão</span>
+            Terraplanagem de <span className="text-yellow-400">Alto Padrão</span>
           </h1>
-
-          <p className="mt-4 text-lg text-gray-300">
-            {frases[current]}
-          </p>
+          <p className="mt-4 text-gray-300">{frases[current]}</p>
         </div>
       </section>
 
       {/* PROJETOS */}
       <section id="projetos" className="py-16 text-center">
         <h2 className="text-3xl font-bold mb-10">
-          <span>Projetos</span>{" "}
-          <span className="text-yellow-400">Realizados</span>
+          Projetos <span className="text-yellow-400">Realizados</span>
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
           {projetos.map((img, i) => (
-            <img key={i}
-              src={img}
+            <img key={i} src={img}
               onClick={() => setZoomImg(img)}
-              className="h-[240px] w-full object-cover rounded-xl hover:scale-105 cursor-pointer transition"
+              className="h-[240px] w-full object-cover rounded-xl cursor-pointer"
             />
           ))}
         </div>
@@ -137,16 +124,14 @@ export default function Home() {
       {/* EQUIPAMENTOS */}
       <section id="equipamentos" className="py-16 bg-[#111] text-center">
         <h2 className="text-3xl font-bold mb-10">
-          <span>Nossos</span>{" "}
-          <span className="text-yellow-400">Equipamentos</span>
+          Nossos <span className="text-yellow-400">Equipamentos</span>
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
           {equipamentos.map((img, i) => (
-            <img key={i}
-              src={img}
+            <img key={i} src={img}
               onClick={() => setZoomImg(img)}
-              className="h-[240px] w-full object-cover rounded-xl hover:scale-105 cursor-pointer transition"
+              className="h-[240px] w-full object-cover rounded-xl cursor-pointer"
             />
           ))}
         </div>
@@ -155,38 +140,27 @@ export default function Home() {
       {/* SOBRE */}
       <section id="sobre" className="py-16 text-center px-4">
         <h2 className="text-3xl font-bold mb-6">
-          <span>Sobre</span>{" "}
-          <span className="text-yellow-400">Nós</span>
+          Sobre <span className="text-yellow-400">Nós</span>
         </h2>
 
         <p className="max-w-3xl mx-auto text-gray-300 leading-relaxed">
           Na Nivelar Terraplanagem, acreditamos que toda grande obra começa com uma base sólida e bem executada.
+          Atuamos com responsabilidade, tecnologia e compromisso, garantindo qualidade em cada etapa do processo.
         </p>
 
-        {/* MISSÃO VISÃO VALORES */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12 text-left">
-
+        <div className="grid md:grid-cols-3 gap-6 mt-10 max-w-6xl mx-auto text-left">
           <div>
-            <h3 className="text-yellow-400 text-xl font-bold mb-2">Missão</h3>
-            <p className="text-gray-300">
-              Transformar terrenos e promover o desenvolvimento sustentável.
-            </p>
+            <h3 className="text-yellow-400 font-bold">Missão</h3>
+            <p>Executar projetos com excelência.</p>
           </div>
-
           <div>
-            <h3 className="text-yellow-400 text-xl font-bold mb-2">Visão</h3>
-            <p className="text-gray-300">
-              Ser referência em terraplanagem pela excelência e inovação.
-            </p>
+            <h3 className="text-yellow-400 font-bold">Visão</h3>
+            <p>Ser referência no setor.</p>
           </div>
-
           <div>
-            <h3 className="text-yellow-400 text-xl font-bold mb-2">Valores</h3>
-            <p className="text-gray-300">
-              Qualidade, integridade e compromisso com cada cliente.
-            </p>
+            <h3 className="text-yellow-400 font-bold">Valores</h3>
+            <p>Qualidade, ética e compromisso.</p>
           </div>
-
         </div>
       </section>
 
@@ -197,13 +171,35 @@ export default function Home() {
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
-          {[{ nome: "Lucas", texto: "Excelente!" }].map((a, i) => (
-            <div key={i} className="border p-6 rounded-xl">
+          {[
+            { nome: "Lucas", texto: "Serviço impecável!" },
+            { nome: "Mariana", texto: "Equipe profissional!" },
+            { nome: "Carlos", texto: "Recomendo!" },
+          ].map((a, i) => (
+            <div key={i} className="border border-gray-700 p-6 rounded-xl">
               <div className="text-yellow-400 mb-2">★★★★★</div>
               <p>{a.texto}</p>
-              <span>{a.nome}</span>
+              <span className="text-sm text-gray-500">{a.nome}</span>
             </div>
           ))}
+        </div>
+
+        {/* FORM */}
+        <div className="mt-10 flex flex-col items-center">
+          <div className="flex gap-2 mb-4 text-2xl">
+            {[1,2,3,4,5].map((n) => (
+              <FaStar key={n}
+                onClick={() => setRating(n)}
+                className={rating >= n ? "text-yellow-400" : "text-gray-500"}
+              />
+            ))}
+          </div>
+
+          <input placeholder="Nome" className="p-3 mb-2 w-full max-w-md text-black rounded" />
+          <textarea placeholder="Mensagem" className="p-3 mb-2 w-full max-w-md text-black rounded" />
+          <button className="bg-yellow-400 text-black px-6 py-2 rounded font-bold">
+            Enviar Avaliação
+          </button>
         </div>
       </section>
 
@@ -213,20 +209,45 @@ export default function Home() {
           Entre em <span className="text-yellow-400">Contato</span>
         </h2>
 
-        <div className="flex flex-col gap-5 text-gray-300 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto items-center">
 
-          <a href={`https://wa.me/5543996281826?text=${encodeURIComponent(mensagem)}`}>
-            WhatsApp
-          </a>
+          <iframe
+            src="https://www.google.com/maps?q=Av.+Antônio+Raminelli,+857,+Cambé&output=embed"
+            className="w-full h-[300px] rounded-xl"
+          />
 
-          <a href={`https://instagram.com/terraplanagem.nivelar`}>
-            Instagram
-          </a>
+          <div className="flex flex-col gap-5 text-gray-300">
+            <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
+
+            {[
+              { nome: "Anderson", tel: "5543999520213" },
+              { nome: "Valéria", tel: "5543996281826" },
+              { nome: "Fernando", tel: "5543998061421" },
+            ].map((c, i) => (
+              <a key={i}
+                href={`https://wa.me/${c.tel}?text=${encodeURIComponent(mensagem)}`}
+                className="flex items-center gap-3">
+                <FaWhatsapp /> {c.nome}
+              </a>
+            ))}
+
+            <a href="https://instagram.com/terraplanagem.nivelar">
+              Instagram
+            </a>
+          </div>
 
         </div>
       </section>
 
-      {/* WHATS FIXO */}
+      {/* ZOOM */}
+      {zoomImg && (
+        <div onClick={() => setZoomImg(null)}
+          className="fixed inset-0 bg-black/90 flex justify-center items-center z-50">
+          <img src={zoomImg} className="max-h-[90%]" />
+        </div>
+      )}
+
+      {/* BOTÃO FLUTUANTE */}
       <a
         href={`https://wa.me/5543996281826?text=${encodeURIComponent(mensagem)}`}
         className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl"
