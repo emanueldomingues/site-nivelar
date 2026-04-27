@@ -277,7 +277,17 @@ export default function Home() {
           @emanueldomingues
        </a>
       </footer>
-
+{zoomImg && (
+  <div
+    onClick={() => setZoomImg(null)}
+    className="fixed inset-0 bg-black/90 flex justify-center items-center z-50"
+  >
+    <img
+      src={zoomImg}
+      className="max-h-[90%] max-w-[90%] rounded-lg"
+    />
+  </div>
+)}
       {/* ✅ BOTÃO FLUTUANTE (ÚNICA ALTERAÇÃO) */}
       <a
         href="https://wa.me/5543996281826?text=Olá,%20vim%20pelo%20site!"
