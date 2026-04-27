@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FaWhatsapp, FaStar, FaBullseye, FaEye, FaGem } from "react-icons/fa";
+import { FaWhatsapp, FaStar } from "react-icons/fa";
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
@@ -20,41 +20,8 @@ export default function Home() {
     "Valores sólidos para grandes obras",
   ];
 
-  const equipamentos = [
-    "/images/equipamentos/maquina1.jpg",
-    "/images/equipamentos/maquina2.jpg",
-    "/images/equipamentos/maquina3.jpg",
-    "/images/equipamentos/maquina4.jpg",
-    "/images/equipamentos/maquina5.jpg",
-    "/images/equipamentos/maquina6.jpg",
-    "/images/equipamentos/maquina7.jpg",
-    "/images/equipamentos/maquina8.jpg",
-    "/images/equipamentos/maquina9.jpg",
-    "/images/equipamentos/maquina10.jpg",
-    "/images/equipamentos/maquina11.jpeg",
-    "/images/equipamentos/maquina12.jpeg",
-    "/images/equipamentos/maquina13.jpeg",
-    "/images/equipamentos/maquina14.jpeg",
-  ];
-
-  const projetos = [
-    "/images/projetos/projeto1.jpg",
-    "/images/projetos/projeto2.jpg",
-    "/images/projetos/projeto3.jpg",
-    "/images/projetos/projeto4.jpg",
-    "/images/projetos/projeto5.jpg",
-    "/images/projetos/projeto6.jpg",
-    "/images/projetos/projeto7.jpg",
-    "/images/projetos/projeto8.jpg",
-    "/images/projetos/projeto9.jpg",
-    "/images/projetos/projeto10.jpeg",
-    "/images/projetos/projeto11.jpeg",
-    "/images/projetos/projeto12.jpeg",
-    "/images/projetos/projeto13.jpeg",
-    "/images/projetos/projeto14.jpeg",
-    "/images/projetos/projeto15.jpeg",
-    "/images/projetos/projeto16.jpeg",
-  ];
+  const equipamentos = Array.from({ length: 10 }, (_, i) => `/images/equipamentos/maquina${i + 1}.jpg`);
+  const projetos = Array.from({ length: 9 }, (_, i) => `/images/projetos/projeto${i + 1}.jpg`);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -69,6 +36,7 @@ export default function Home() {
       {/* HEADER */}
       <header className="fixed top-0 w-full bg-black/95 z-50 border-b border-gray-800">
         <div className="flex items-center justify-between px-6 py-4 relative">
+
           <div className="flex flex-col">
             <img src="/logo.svg" className="w-64 md:w-80" />
             <span className="text-sm text-white">
@@ -84,6 +52,7 @@ export default function Home() {
             <a href="#avaliacoes" className="hover:text-yellow-400">Avaliações</a>
             <a href="#contato" className="hover:text-yellow-400">Contato</a>
           </nav>
+
         </div>
       </header>
 
@@ -101,9 +70,13 @@ export default function Home() {
 
         <div className="text-center z-10 px-4">
           <h1 className="text-4xl md:text-6xl font-bold">
-            Terraplanagem de <span className="text-yellow-400">Alto Padrão</span>
+            Terraplanagem de{" "}
+            <span className="text-yellow-400">Alto Padrão</span>
           </h1>
-          <p className="mt-4 text-lg text-gray-300">{frases[current]}</p>
+
+          <p className="mt-4 text-lg text-gray-300">
+            {frases[current]}
+          </p>
         </div>
       </section>
 
@@ -172,9 +145,9 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
           {[
-            { nome: "Carlos Mendes", texto: "Serviço impecável!" },
-            { nome: "Amanda Alves", texto: "Muito profissional!" },
-            { nome: "Roberto Lima", texto: "Recomendo!" },
+            { nome: "Lucas Ribeiro", texto: "Serviço impecável!" },
+            { nome: "Mariana Souza", texto: "Equipe profissional!" },
+            { nome: "Ricardo Gomes", texto: "Recomendo totalmente!" },
           ].map((a, i) => (
             <div key={i} className="border border-gray-700 p-6 rounded-xl">
               <div className="text-yellow-400 mb-2">★★★★★</div>
@@ -184,6 +157,7 @@ export default function Home() {
           ))}
         </div>
 
+        {/* FORM */}
         <div className="mt-10 flex flex-col items-center">
           <div className="flex gap-2 mb-4 text-2xl">
             {[1,2,3,4,5].map((n) => (
@@ -194,8 +168,11 @@ export default function Home() {
             ))}
           </div>
 
-          <input placeholder="Nome" className="p-3 mb-2 w-full max-w-md text-black rounded" />
-          <textarea placeholder="Mensagem" className="p-3 mb-2 w-full max-w-md text-black rounded" />
+          <input placeholder="Nome"
+            className="p-3 mb-2 w-full max-w-md text-black rounded" />
+
+          <textarea placeholder="Mensagem"
+            className="p-3 mb-2 w-full max-w-md text-black rounded" />
 
           <button className="bg-yellow-400 text-black px-6 py-2 rounded font-bold">
             Enviar Avaliação
@@ -204,7 +181,7 @@ export default function Home() {
       </section>
 
       {/* CONTATO */}
-      <section id="contato" className="py-16 px-4 text-gray-300 text-lg">
+      <section id="contato" className="py-16 px-4">
         <h2 className="text-3xl font-bold text-center mb-10">
           <span className="text-white">Entre em</span>{" "}
           <span className="text-yellow-400">Contato</span>
@@ -217,7 +194,8 @@ export default function Home() {
             className="w-full h-[300px] rounded-xl"
           />
 
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 text-gray-300">
+
             <p>📍 Av. Antônio Raminelli, 857 - Cambé</p>
 
             {[
@@ -238,6 +216,7 @@ export default function Home() {
               <img src="/icons/instagram.svg" className="w-10" />
               @terraplanagem.nivelar
             </a>
+
           </div>
         </div>
       </section>
@@ -250,25 +229,24 @@ export default function Home() {
         </div>
       )}
 
-      {/* BOTÃO FLUTUANTE (ADICIONADO SEM ALTERAR NADA) */}
-      <a
-        href="https://wa.me/5543996281826?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações"
-        target="_blank"
-        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg text-2xl animate-pulse transition"
-      >
+      {/* WHATS FIXO */}
+      <a href="https://wa.me/5543996281826"
+        className="fixed bottom-5 right-5 bg-green-500 p-4 rounded-full text-white text-2xl">
         <FaWhatsapp />
       </a>
-
-      {/* FOOTER */}
-      <footer className="text-center py-6 border-t border-gray-800 text-gray-500 text-sm mt-10">
-        © {new Date().getFullYear()} Nivelar Terraplanagem
-        <br />
-        Desenvolvido por{" "}
-        <a href="https://www.instagram.com/emanueldomingues/" className="text-white hover:text-yellow-400">
-          @emanueldomingues
-        </a>
-      </footer>
-
+{/* RODAPÉ */}
+<footer className="text-center py-6 border-t border-gray-800 text-gray-500 text-sm mt-10">
+  © {new Date().getFullYear()} Nivelar Terraplanagem
+  <br />
+  Desenvolvido por{" "}
+  <a
+    href="https://www.instagram.com/emanueldomingues/"
+    target="_blank"
+    className="text-white hover:text-yellow-400"
+  >
+    @emanueldomingues
+  </a>
+</footer>
     </div>
   );
 }
